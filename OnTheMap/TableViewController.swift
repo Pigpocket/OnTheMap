@@ -11,4 +11,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    override func viewDidLoad() {
+        navigationController?.navigationBar.isHidden = false
+    }
 }

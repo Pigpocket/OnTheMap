@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="273" y="-677"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="JMz-Tq-Lm9">
             <objects>
-                <viewController id="gJ8-rk-cKT" sceneMemberID="viewController">
+                <viewController id="gJ8-rk-cKT" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TrO-RL-yn2"/>
                         <viewControllerLayoutGuide type="bottom" id="hLG-xq-zML"/>
@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="824.79999999999995" y="807.34632683658174"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="I5w-qF-dDQ">
             <objects>
-                <viewController id="1OG-0k-KXZ" sceneMemberID="viewController">
+                <viewController id="1OG-0k-KXZ" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63a-Bb-H5F"/>
                         <viewControllerLayoutGuide type="bottom" id="Qjm-2o-Jj3"/>

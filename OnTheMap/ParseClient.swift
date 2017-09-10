@@ -25,7 +25,7 @@ class ParseClient: NSObject {
         static let AuthorizationURL = ""
     }
     
-    func OTMURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
+    func ParseURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
         components.scheme = ParseClient.Constants.ApiScheme

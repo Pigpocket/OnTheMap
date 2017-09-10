@@ -14,6 +14,8 @@
 		37E51EE61F633D730016E6DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EE41F633D730016E6DB /* LaunchScreen.storyboard */; };
 		37E51EF11F633D730016E6DB /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EF01F633D730016E6DB /* OnTheMapTests.swift */; };
 		37E51EFC1F633D730016E6DB /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EFB1F633D730016E6DB /* OnTheMapUITests.swift */; };
+		37E51F0A1F63417A0016E6DB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F091F63417A0016E6DB /* MapViewController.swift */; };
+		37E51F0C1F63418C0016E6DB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F0B1F63418C0016E6DB /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		37E51EF71F633D730016E6DB /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E51EFB1F633D730016E6DB /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		37E51EFD1F633D730016E6DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E51F091F63417A0016E6DB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		37E51F0B1F63418C0016E6DB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				37E51EDB1F633D730016E6DB /* AppDelegate.swift */,
 				37E51EDD1F633D730016E6DB /* ViewController.swift */,
+				37E51F091F63417A0016E6DB /* MapViewController.swift */,
+				37E51F0B1F63418C0016E6DB /* TableViewController.swift */,
 				37E51EDF1F633D730016E6DB /* Main.storyboard */,
 				37E51EE21F633D730016E6DB /* Assets.xcassets */,
 				37E51EE41F633D730016E6DB /* LaunchScreen.storyboard */,
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */,
+				37E51F0A1F63417A0016E6DB /* MapViewController.swift in Sources */,
 				37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */,
+				37E51F0C1F63418C0016E6DB /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

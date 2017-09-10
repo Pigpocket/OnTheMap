@@ -17,6 +17,7 @@
 		37E51F0A1F63417A0016E6DB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F091F63417A0016E6DB /* MapViewController.swift */; };
 		37E51F0C1F63418C0016E6DB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F0B1F63418C0016E6DB /* TableViewController.swift */; };
 		37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F0D1F65DC2C0016E6DB /* TableViewCell.swift */; };
+		37E51F131F65F4D90016E6DB /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F121F65F4D90016E6DB /* OTMClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		37E51F091F63417A0016E6DB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		37E51F0B1F63418C0016E6DB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		37E51F0D1F65DC2C0016E6DB /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		37E51F121F65F4D90016E6DB /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		37E51EDA1F633D730016E6DB /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				37E51F0F1F65F4A00016E6DB /* Model */,
 				37E51EDB1F633D730016E6DB /* AppDelegate.swift */,
 				37E51EDD1F633D730016E6DB /* ViewController.swift */,
 				37E51F091F63417A0016E6DB /* MapViewController.swift */,
@@ -132,6 +135,30 @@
 				37E51EFD1F633D730016E6DB /* Info.plist */,
 			);
 			path = OnTheMapUITests;
+			sourceTree = "<group>";
+		};
+		37E51F0F1F65F4A00016E6DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37E51F101F65F4B70016E6DB /* Clients */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		37E51F101F65F4B70016E6DB /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				37E51F111F65F4C30016E6DB /* OTM */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		37E51F111F65F4C30016E6DB /* OTM */ = {
+			isa = PBXGroup;
+			children = (
+				37E51F121F65F4D90016E6DB /* OTMClient.swift */,
+			);
+			name = OTM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */,
+				37E51F131F65F4D90016E6DB /* OTMClient.swift in Sources */,
 				37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */,
 				37E51F0A1F63417A0016E6DB /* MapViewController.swift in Sources */,
 				37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */,
@@ -524,6 +552,7 @@
 				37E51F021F633D730016E6DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37E51F031F633D730016E6DB /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +561,7 @@
 				37E51F051F633D730016E6DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37E51F061F633D730016E6DB /* Build configuration list for PBXNativeTarget "OnTheMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +570,7 @@
 				37E51F081F633D730016E6DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class OTMClient: NSObject {
+class ParseClient: NSObject {
     
     // MARK: Constants
     struct Constants {
@@ -28,9 +28,9 @@ class OTMClient: NSObject {
     func OTMURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
-        components.scheme = OTMClient.Constants.ApiScheme
-        components.host = OTMClient.Constants.ApiHost
-        components.path = OTMClient.Constants.ApiPath + (withPathExtension ?? "")
+        components.scheme = ParseClient.Constants.ApiScheme
+        components.host = ParseClient.Constants.ApiHost
+        components.path = ParseClient.Constants.ApiPath + (withPathExtension ?? "")
         components.queryItems = [URLQueryItem]()
         
         for (key, value) in parameters {

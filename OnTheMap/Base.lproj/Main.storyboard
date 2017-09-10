@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,7 +47,13 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oLg-vr-KMf"/>
+                    <navigationItem key="navigationItem" id="oLg-vr-KMf">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="30t-lP-gTZ"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="FZ0-Mi-ngj"/>
+                            <barButtonItem systemItem="refresh" id="H8Q-iV-JJi"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWb-td-yVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +72,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1wd-2T-swJ"/>
+                    <navigationItem key="navigationItem" id="1wd-2T-swJ">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="4HG-b7-JUi"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="0CT-UH-qVr"/>
+                            <barButtonItem systemItem="refresh" id="U3g-q8-mpo"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxI-e5-drt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

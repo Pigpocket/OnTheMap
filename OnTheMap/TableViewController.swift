@@ -26,4 +26,12 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("The TableViewController was deinitialized")
+    }
 }

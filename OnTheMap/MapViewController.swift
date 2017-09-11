@@ -15,4 +15,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         navigationController?.navigationBar.isHidden = false
     }
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("The MapViewController was deinitialized")
+    }
 }

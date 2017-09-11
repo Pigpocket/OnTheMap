@@ -23,4 +23,8 @@ class LoginViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    deinit {
+        print("The LoginViewController was deinitialized")
+    }
+    
 }

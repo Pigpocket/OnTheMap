@@ -49,7 +49,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="oLg-vr-KMf">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="30t-lP-gTZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="30t-lP-gTZ">
+                            <connections>
+                                <action selector="logoutPressed:" destination="gJ8-rk-cKT" id="NAD-S0-nBY"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="FZ0-Mi-ngj"/>
                             <barButtonItem systemItem="refresh" id="H8Q-iV-JJi"/>
@@ -74,7 +78,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1wd-2T-swJ">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="4HG-b7-JUi"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="4HG-b7-JUi">
+                            <connections>
+                                <action selector="logoutPressed:" destination="1OG-0k-KXZ" id="zWb-Xv-IiK"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="0CT-UH-qVr"/>
                             <barButtonItem systemItem="refresh" id="U3g-q8-mpo"/>

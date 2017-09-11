@@ -148,6 +148,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXP-6D-Kpr">
                                                 <rect key="frame" x="0.0" y="0.0" width="244" height="30"/>
                                                 <state key="normal" title="Login"/>
+                                                <connections>
+                                                    <action selector="loginPressed:" destination="JXR-fS-yyK" eventType="touchUpInside" id="Luk-OQ-WD5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -179,7 +182,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Xvl-b5-XrV">
             <objects>
-                <tabBarController id="4ac-ul-Bxb" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="4ac-ul-Bxb" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vg5-52-J7t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -216,7 +219,7 @@
         <!--Map View-->
         <scene sceneID="GtY-A3-yfr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JHe-BP-3QT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MapViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JHe-BP-3QT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map View" id="iKE-Fw-n7B"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bm2-Ue-aPN">

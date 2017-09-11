@@ -18,5 +18,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func loginPressed(_ sender: AnyObject) {
+        let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        present(controller, animated: true, completion: nil)
+    }
     
 }

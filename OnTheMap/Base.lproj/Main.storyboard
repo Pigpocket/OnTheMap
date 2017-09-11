@@ -180,7 +180,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="login" destination="pXP-6D-Kpr" id="7jT-fy-vIx"/>
+                        <outlet property="loginButton" destination="pXP-6D-Kpr" id="HTx-RQ-Nx2"/>
+                        <outlet property="loginImageView" destination="akb-cO-NjK" id="LmN-aN-JXD"/>
+                        <outlet property="passwordLabel" destination="cdR-m9-FMF" id="cuT-EP-MVM"/>
+                        <outlet property="passwordTextField" destination="OCI-Di-P9a" id="H3A-Bq-pQK"/>
+                        <outlet property="usernameLabel" destination="dra-ZP-gI6" id="SzA-7O-vyA"/>
+                        <outlet property="usernameTextField" destination="eJm-sf-kdG" id="vMa-r1-EYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdF-PO-eda" userLabel="First Responder" sceneMemberID="firstResponder"/>

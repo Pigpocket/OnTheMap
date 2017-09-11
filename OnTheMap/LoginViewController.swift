@@ -11,13 +11,20 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: Outlets
+    @IBOutlet weak var loginImageView: UIImageView!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
     
-    @IBOutlet weak var login: UIButton!
-    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // MARK: Functions
     @IBAction func loginPressed(_ sender: AnyObject) {
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         present(controller, animated: true, completion: nil)

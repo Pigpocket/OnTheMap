@@ -23,9 +23,9 @@ class UdacityClient: NSObject {
     
     struct ParameterKeys {
         
-        static let udacityDict = [String:AnyObject]()
-        static let username = ""
-        static let password = ""
+        static let UdacityDict = [String:AnyObject]()
+        static let Username = "username"
+        static let Password = "password"
     }
     
 }

@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="824.79999999999995" y="152.47376311844079"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="DMw-hH-eWE">
             <objects>
-                <viewController id="JXR-fS-yyK" sceneMemberID="viewController">
+                <viewController id="JXR-fS-yyK" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ruq-3m-HM3"/>
                         <viewControllerLayoutGuide type="bottom" id="7XR-fw-oOc"/>
@@ -168,6 +168,9 @@
                             <constraint firstItem="00q-Rd-fqM" firstAttribute="leading" secondItem="yJg-TT-twp" secondAttribute="leadingMargin" constant="22" id="iLc-W4-5Us"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="login" destination="pXP-6D-Kpr" id="7jT-fy-vIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdF-PO-eda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

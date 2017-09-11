@@ -21,11 +21,16 @@ class UdacityClient: NSObject {
         static let SessionURL = "https://www.udacity.com/api/session"
     }
     
-    struct ParameterKeys {
+    struct UdacityParameterKeys {
         
         static let UdacityDict = [String:AnyObject]()
         static let Username = "username"
         static let Password = "password"
+    }
+    
+    struct UdacityResponseKeys {
+        
+        static let SessionID = "sessionID"
     }
     
 }

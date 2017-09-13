@@ -1,5 +1,5 @@
 //
-//  UdacityClient2.swift
+//  UdacityConvenience.swift
 //  OnTheMap
 //
 //  Created by Tomas Sidenfaden on 9/12/17.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-class UdacityClient: NSObject {
+extension UdacityClient {
     
-    var session = URLSession.shared
     
-    }
+}

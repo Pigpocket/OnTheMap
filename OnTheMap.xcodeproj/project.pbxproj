@@ -18,9 +18,11 @@
 		37E51F0C1F63418C0016E6DB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F0B1F63418C0016E6DB /* TableViewController.swift */; };
 		37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F0D1F65DC2C0016E6DB /* TableViewCell.swift */; };
 		37E51F131F65F4D90016E6DB /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F121F65F4D90016E6DB /* ParseClient.swift */; };
-		37E51F151F6600810016E6DB /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F141F6600810016E6DB /* UdacityClient.swift */; };
+		37E51F151F6600810016E6DB /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F141F6600810016E6DB /* UdacityConstants.swift */; };
 		37E51F171F661A840016E6DB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F161F661A840016E6DB /* LoginViewController.swift */; };
 		37E51F191F6649D20016E6DB /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F181F6649D20016E6DB /* GCD.swift */; };
+		37E51F1B1F68CF950016E6DB /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F1A1F68CF950016E6DB /* UdacityClient.swift */; };
+		37E51F1D1F68D1F30016E6DB /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51F1C1F68D1F30016E6DB /* UdacityConvenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +60,11 @@
 		37E51F0B1F63418C0016E6DB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		37E51F0D1F65DC2C0016E6DB /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		37E51F121F65F4D90016E6DB /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
-		37E51F141F6600810016E6DB /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		37E51F141F6600810016E6DB /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		37E51F161F661A840016E6DB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37E51F181F6649D20016E6DB /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		37E51F1A1F68CF950016E6DB /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		37E51F1C1F68D1F30016E6DB /* UdacityConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				37E51F121F65F4D90016E6DB /* ParseClient.swift */,
-				37E51F141F6600810016E6DB /* UdacityClient.swift */,
+				37E51F141F6600810016E6DB /* UdacityConstants.swift */,
+				37E51F1A1F68CF950016E6DB /* UdacityClient.swift */,
+				37E51F1C1F68D1F30016E6DB /* UdacityConvenience.swift */,
 			);
 			name = OTM;
 			sourceTree = "<group>";
@@ -313,9 +319,11 @@
 				37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */,
 				37E51F0A1F63417A0016E6DB /* MapViewController.swift in Sources */,
 				37E51F171F661A840016E6DB /* LoginViewController.swift in Sources */,
+				37E51F1D1F68D1F30016E6DB /* UdacityConvenience.swift in Sources */,
 				37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */,
 				37E51F191F6649D20016E6DB /* GCD.swift in Sources */,
-				37E51F151F6600810016E6DB /* UdacityClient.swift in Sources */,
+				37E51F1B1F68CF950016E6DB /* UdacityClient.swift in Sources */,
+				37E51F151F6600810016E6DB /* UdacityConstants.swift in Sources */,
 				37E51F0C1F63418C0016E6DB /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

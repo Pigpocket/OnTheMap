@@ -34,6 +34,8 @@ extension UdacityClient {
         static let SessionID = "id"
         static let Account = "account"
         static let AccountKey = "key"
+        
+        
     }
     
 }

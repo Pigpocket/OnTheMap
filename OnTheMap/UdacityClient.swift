@@ -101,7 +101,7 @@ class UdacityClient: NSObject {
         print("The LoginViewController was deinitialized")
     }
 
-func sharedInstance() -> UdacityClient {
+class func sharedInstance() -> UdacityClient {
     struct Singleton {
         static var sharedInstance = UdacityClient()
     }

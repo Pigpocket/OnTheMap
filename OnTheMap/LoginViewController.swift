@@ -26,8 +26,7 @@ class LoginViewController: UIViewController {
     
     // MARK: Functions
     @IBAction func loginPressed(_ sender: AnyObject) {
-        let udacityClient = UdacityClient()
-        udacityClient.taskForPostSessionID()
+        UdacityClient.sharedInstance().taskForPostSessionID()
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         present(controller, animated: true, completion: nil)
     }

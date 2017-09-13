@@ -31,6 +31,13 @@ class LoginViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    func connectionFailureAlert() {
+        let alertController = UIAlertController(title: "Network Failure", message: "You were unable to connect to the network", preferredStyle: .alert)
+        let networkFailureNotice = UIAlertAction(title: "network Failure", style: .default, handler: nil)
+        alertController.addAction(networkFailureNotice)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func taskForPostSessionID() {
         
         // Set the parameters
@@ -56,12 +63,14 @@ class LoginViewController: UIViewController {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 displayError("There was an error with your request: \(error!)")
+                self.connectionFailureAlert()
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                self.connectionFailureAlert()
                 return
             }
             

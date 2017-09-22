@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             //      segues to the next view
         }
         
-        ParseClient.sharedInstance().getStudentLocations { (results, studentLocation, error) in
+        ParseClient.sharedInstance().getStudentLocations { (studentLocation, error) in
 
         }
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController

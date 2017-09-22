@@ -55,11 +55,10 @@ extension UdacityClient {
             if let session = data[UdacityClient.UdacityResponseKeys.Session] as? [String:AnyObject] {
                 print("Able to extract session dictionary")
                     
-                // Extract session id -> udacitySessionID -- store in UdacityClient
+                // Extract session id and store in UdacityClient
                 if let sessionID = session[UdacityClient.UdacityResponseKeys.SessionID] as? String? {
                     print("Able to extract sessionID")
                     self.sessionID = sessionID
-                    print(sessionID!)
                     completionHandlerForAuthenticateUser(data, sessionID, nil)
                 } else {
                     completionHandlerForAuthenticateUser(nil, nil, "There ain't no session ID, pal")
@@ -68,24 +67,5 @@ extension UdacityClient {
             }
         }
     }
-    
-    func postSessionID(username: String, password: String, completionHandler: @escaping (_ results: String?, _ error: NSError?) -> Void) {
-    print("postSessionID is being called")
-        
-        authenticateUser(email: username, password: password) { (success, sessionID, error) in
-            
-            print("taskForPostMethod is being called")
-            
-            guard error == nil else {
-                let userInfo = [NSLocalizedDescriptionKey: "There was an error"]
-                completionHandler(nil, NSError(domain: "postSessionID", code: 0, userInfo: userInfo))
-                return
-            }
-
-            }
-        }
-
-        /* 6. Use the data! */
-
 }
 

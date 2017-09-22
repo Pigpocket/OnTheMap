@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3753E5931F74C8A4008AE18D /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5921F74C8A4008AE18D /* StudentLocation.swift */; };
 		37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDB1F633D730016E6DB /* AppDelegate.swift */; };
 		37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDD1F633D730016E6DB /* ViewController.swift */; };
 		37E51EE11F633D730016E6DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EDF1F633D730016E6DB /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3753E5921F74C8A4008AE18D /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		37E51ED81F633D730016E6DB /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E51EDB1F633D730016E6DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E51EDD1F633D730016E6DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3753E5901F74C73D008AE18D /* ParseClient */ = {
+			isa = PBXGroup;
+			children = (
+				37E51F121F65F4D90016E6DB /* ParseClient.swift */,
+			);
+			name = ParseClient;
+			sourceTree = "<group>";
+		};
+		3753E5911F74C893008AE18D /* StudentLocation */ = {
+			isa = PBXGroup;
+			children = (
+				3753E5921F74C8A4008AE18D /* StudentLocation.swift */,
+			);
+			name = StudentLocation;
+			sourceTree = "<group>";
+		};
 		37E51ECF1F633D730016E6DB = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +170,7 @@
 		37E51F0F1F65F4A00016E6DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3753E5911F74C893008AE18D /* StudentLocation */,
 				37E51F101F65F4B70016E6DB /* Clients */,
 			);
 			name = Model;
@@ -161,20 +180,20 @@
 		37E51F101F65F4B70016E6DB /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				37E51F111F65F4C30016E6DB /* OTM */,
+				3753E5901F74C73D008AE18D /* ParseClient */,
+				37E51F111F65F4C30016E6DB /* UdacityClient */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
 		};
-		37E51F111F65F4C30016E6DB /* OTM */ = {
+		37E51F111F65F4C30016E6DB /* UdacityClient */ = {
 			isa = PBXGroup;
 			children = (
-				37E51F121F65F4D90016E6DB /* ParseClient.swift */,
 				37E51F141F6600810016E6DB /* UdacityConstants.swift */,
 				37E51F1A1F68CF950016E6DB /* UdacityClient.swift */,
 				37E51F1C1F68D1F30016E6DB /* UdacityConvenience.swift */,
 			);
-			name = OTM;
+			name = UdacityClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3753E5931F74C8A4008AE18D /* StudentLocation.swift in Sources */,
 				37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */,
 				37E51F131F65F4D90016E6DB /* ParseClient.swift in Sources */,
 				37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */,

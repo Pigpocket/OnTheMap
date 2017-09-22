@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         
         // guard that username AND passowrd is != ""
         
-        UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, error) in
+        UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, sessionID, error) in
             //
             // guard for success
             
@@ -42,19 +42,6 @@ class LoginViewController: UIViewController {
             //      segues to the next view
         }
         
-        
-        
-        
-        
-        UdacityClient.sharedInstance().postSessionID(username: usernameTextField.text!, password: passwordTextField.text!) {(sessionID, error) in
-            print("postSessionID is running in loginPressed")
-            if let sessionID = sessionID {
-                print("The sessionID is \(sessionID)")
-                UdacityClient.sharedInstance().sessionID = sessionID
-            } else {
-            print("Failed to get sessionID")
-            }
-        }
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         present(controller, animated: true, completion: nil)
     }

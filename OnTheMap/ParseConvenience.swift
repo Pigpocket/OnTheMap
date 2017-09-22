@@ -21,7 +21,7 @@ extension ParseClient {
                 completionHandlerForGetStudentLocations(nil, nil, "There was an error when trying to authenticate")
             } else {
                 if let parsedData = data {
-                    completionHandlerForGetStudentLocations(data, nil, nil)
+                completionHandlerForGetStudentLocations(data, nil, nil)
                 }
                 
                 // Guard that you can parse data -> parsedData
@@ -30,50 +30,56 @@ extension ParseClient {
                     return
                 }
                 
-                // Loop through the results
-                
-                // Guard that "account" is in data
+                // Guard that "results" is in the data
                 if let results = data["results"] as? [[String:AnyObject]] {
                     
+                    // Loop through the results
                     for result in results {
                         print("---STUDENT LOCATION---")
                         
+                        // Extract objectId
                         if let objectID = result["objectId"] as! String? {
                             print("ObjectId: \(objectID)")
                         } else {
                             print("***DEF DIDN'T GET THE OBJECTID")
                         }
                         
+                        // Extract firstName
                         if let firstName = result["firstName"] as! String? {
                             print("firstName: \(firstName)")
                         } else {
                             print("***DIDN'T GET THAT FIRST NAME, BROHAMOVICH")
                         }
                         
+                        // Extract lastName
                         if let lastName = result["lastName"] as! String? {
                             print("lastName: \(lastName)")
                         } else {
                             print("***DIDN'T GET THAT LAST NAME, BROHAMOVICH")
                         }
                         
+                        // Extract mapString
                         if let mapString = result["mapString"] as! String? {
                             print("mapString: \(mapString)")
                         } else {
                             print("***DIDN'T GET THAT MAPSTRING, BROHAMOVICH")
                         }
                         
+                        // Extract mediaURL
                         if let mediaURL = result["mediaURL"] as! String? {
                             print("mediaURL: \(mediaURL)")
                         } else {
                             print("***DIDN'T GET THAT MEDIAURL, BROHAMOVICH")
                         }
                         
+                        // Extract latitude
                         if let latitude = result["latitude"] as! Double? {
                             print("latitude: \(latitude)")
                         } else {
                             print("***DIDN'T GET THAT LATITUDE, BROHAMOVICH")
                         }
                         
+                        // Extract longitude
                         if let longitude = result["longitude"] as! Double? {
                             print("longitude: \(longitude)")
                         } else {

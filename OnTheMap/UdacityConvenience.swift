@@ -29,7 +29,6 @@ extension UdacityClient {
             } else {
                 if let parsedData = data {
                     completionHandlerForAuthenticateUser(data, nil, nil)
-                    print("This is the \(parsedData)")
                 }
                 
             // Guard that you can parse data -> parsedData

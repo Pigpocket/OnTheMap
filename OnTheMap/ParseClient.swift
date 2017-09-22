@@ -52,7 +52,7 @@ class ParseClient: NSObject {
                 return
             }
         
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
+            //print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
         
             /* Parse the data */
         
@@ -73,7 +73,6 @@ class ParseClient: NSObject {
             let userInfo = [NSLocalizedDescriptionKey: "Could not parse the data as JSON: \(data)"]
             completionHandlerForConvertData(nil, NSError(domain: "parseJSONObject", code: 0, userInfo: userInfo))
         }
-        print("ParseClient parsedResult is \(parsedResult)")
         completionHandlerForConvertData(parsedResult, nil)
     }
 

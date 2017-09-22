@@ -18,12 +18,13 @@ extension UdacityClient {
     
     struct Method {
         
-        static let SessionURL = "https://www.udacity.com/api/session"
+        static let Session = "session"
+        //static let SessionURL = "https://www.udacity.com/api/session"
     }
     
-    struct UdacityParameterKeys {
+    struct JSONBodyKeys {
         
-        static let UdacityDict = [String:AnyObject]()
+        static let UdacityDict = "udacity"
         static let Username = "username"
         static let Password = "password"
     }

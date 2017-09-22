@@ -26,10 +26,41 @@ class LoginViewController: UIViewController {
     
     // MARK: Functions
     @IBAction func loginPressed(_ sender: AnyObject) {
-        UdacityClient.sharedInstance().taskForPostSessionID()
+        
+        
+        // guard that username AND passowrd is != ""
+        
+        UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, error) in
+            //
+            // guard for success
+            
+            // get your public user data from Udacity using Udacity API (goal: get first_name, last_name only!)
+            //   in the completion handler:
+            //      guard for success;
+            //      access Parse for your own student location -> append into your array of student locations
+            //      access the latest 100 student locations -> append into your array of student locations
+            //      segues to the next view
+        }
+        
+        
+        
+        
+        
+        UdacityClient.sharedInstance().postSessionID(username: usernameTextField.text!, password: passwordTextField.text!) {(sessionID, error) in
+            print("postSessionID is running in loginPressed")
+            if let sessionID = sessionID {
+                print("The sessionID is \(sessionID)")
+                UdacityClient.sharedInstance().sessionID = sessionID
+            } else {
+            print("Failed to get sessionID")
+            }
+        }
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         present(controller, animated: true, completion: nil)
     }
+    
+    
+    
     
     /*
     func connectionFailureAlert() {

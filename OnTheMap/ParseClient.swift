@@ -13,7 +13,9 @@ class ParseClient: NSObject {
     
     var session = URLSession.shared
     
-    func taskForGetStudentLocations(limit: Int, skip: Int, order: String, completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    var studentLocation: [StudentLocation] = []
+    
+    func taskForGetManyLocations(limit: Int?, skip: Int?, order: String?, completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
     
         let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -75,4 +77,10 @@ class ParseClient: NSObject {
         completionHandlerForConvertData(parsedResult, nil)
     }
 
+    class func sharedInstance() -> ParseClient {
+        struct Singleton {
+            static var sharedInstance = ParseClient()
+        }
+        return Singleton.sharedInstance
+    }
 }

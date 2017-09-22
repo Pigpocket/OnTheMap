@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3753E5931F74C8A4008AE18D /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5921F74C8A4008AE18D /* StudentLocation.swift */; };
 		3753E5951F74CA5E008AE18D /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5941F74CA5E008AE18D /* ParseClient.swift */; };
+		3753E5971F74D8D7008AE18D /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5961F74D8D7008AE18D /* ParseConvenience.swift */; };
 		37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDB1F633D730016E6DB /* AppDelegate.swift */; };
 		37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDD1F633D730016E6DB /* ViewController.swift */; };
 		37E51EE11F633D730016E6DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EDF1F633D730016E6DB /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		3753E5921F74C8A4008AE18D /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		3753E5941F74CA5E008AE18D /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		3753E5961F74D8D7008AE18D /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 		37E51ED81F633D730016E6DB /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E51EDB1F633D730016E6DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E51EDD1F633D730016E6DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				37E51F121F65F4D90016E6DB /* ParseConstants.swift */,
 				3753E5941F74CA5E008AE18D /* ParseClient.swift */,
+				3753E5961F74D8D7008AE18D /* ParseConvenience.swift */,
 			);
 			name = ParseClient;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3753E5931F74C8A4008AE18D /* StudentLocation.swift in Sources */,
+				3753E5971F74D8D7008AE18D /* ParseConvenience.swift in Sources */,
 				37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */,
 				37E51F131F65F4D90016E6DB /* ParseConstants.swift in Sources */,
 				37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */,

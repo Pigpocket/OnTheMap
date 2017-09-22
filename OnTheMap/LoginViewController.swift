@@ -42,6 +42,10 @@ class LoginViewController: UIViewController {
             //      segues to the next view
         }
         
+        ParseClient.sharedInstance().taskForGetManyLocations(limit: 100, skip: 4, order: nil, completionHandlerForGET: { (results, error) in
+        
+        })
+        
         let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         present(controller, animated: true, completion: nil)
     }

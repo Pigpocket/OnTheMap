@@ -44,6 +44,40 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C2p-06-NhM" id="hd8-xB-XdR">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P6b-ed-hCF">
+                                            <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="6XK-Pk-2Y8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IMW-3C-TrA">
+                                            <rect key="frame" x="71" y="0.0" width="249" height="63"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tpL-FT-3vT" userLabel="Name Text View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="249" height="29.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMH-O6-Gx0" userLabel="Media URL Text View">
+                                                    <rect key="frame" x="0.0" y="33.5" width="249" height="29.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="IMW-3C-TrA" secondAttribute="trailing" id="1Mt-Ve-zHb"/>
+                                        <constraint firstItem="IMW-3C-TrA" firstAttribute="leading" secondItem="P6b-ed-hCF" secondAttribute="trailing" constant="8" id="4eW-5f-ZNM"/>
+                                        <constraint firstAttribute="bottom" secondItem="IMW-3C-TrA" secondAttribute="bottom" id="IlW-em-3az"/>
+                                        <constraint firstItem="P6b-ed-hCF" firstAttribute="top" secondItem="IMW-3C-TrA" secondAttribute="top" id="JZ2-nB-WbN"/>
+                                        <constraint firstItem="P6b-ed-hCF" firstAttribute="leading" secondItem="hd8-xB-XdR" secondAttribute="leading" id="Qs8-h3-tFo"/>
+                                        <constraint firstItem="IMW-3C-TrA" firstAttribute="top" secondItem="hd8-xB-XdR" secondAttribute="top" id="tmN-FN-tQ9"/>
+                                        <constraint firstItem="P6b-ed-hCF" firstAttribute="bottom" secondItem="IMW-3C-TrA" secondAttribute="bottom" id="zHN-pV-itv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -65,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWb-td-yVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.79999999999995" y="807.34632683658174"/>
+            <point key="canvasLocation" x="823.125" y="807.04225352112678"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="I5w-qF-dDQ">
@@ -112,24 +146,24 @@
                                 <rect key="frame" x="38" y="64" width="244" height="440"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaI-cm-c0R">
-                                        <rect key="frame" x="0.0" y="0.0" width="244" height="335"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="332"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="akb-cO-NjK">
-                                                <rect key="frame" x="0.0" y="0.0" width="244" height="335"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="244" height="332"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kY0-7X-Z3L">
-                                        <rect key="frame" x="0.0" y="341" width="244" height="27"/>
+                                        <rect key="frame" x="0.0" y="338" width="244" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dra-ZP-gI6" userLabel="Username Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-sf-kdG">
-                                                <rect key="frame" x="91.5" y="0.0" width="152.5" height="27"/>
+                                                <rect key="frame" x="91.5" y="0.0" width="152.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>

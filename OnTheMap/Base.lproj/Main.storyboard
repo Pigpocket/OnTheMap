@@ -59,6 +59,9 @@
                             <barButtonItem systemItem="refresh" id="H8Q-iV-JJi"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="studentLocationsTableView" destination="o1y-wV-Iga" id="cKy-X1-8KX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWb-td-yVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

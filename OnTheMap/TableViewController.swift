@@ -11,12 +11,39 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    // MARK: Properties
+    
+    var studentLocations: [StudentLocation] = [StudentLocation]()
+    
+    // MARK: Outlets
+    
+    @IBOutlet var studentLocationsTableView: UITableView!
+
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ParseClient.sharedInstance().getStudentLocations { (studentLocations, error) in
+            if let studentLocations = studentLocations {
+                self.studentLocations = studentLocations
+                performUIUpdatesOnMain {
+                    self.studentLocationsTableView.reloadData()
+                }
+            } else {
+                print(error ?? "empty error")
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocation") as! TableViewCell
+        
+        
         return cell
     }
     

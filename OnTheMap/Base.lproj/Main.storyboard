@@ -54,18 +54,18 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IMW-3C-TrA">
                                             <rect key="frame" x="71" y="0.0" width="249" height="63"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tpL-FT-3vT" userLabel="Name Text View">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7Z-Fz-bXi" userLabel="Name Label">
                                                     <rect key="frame" x="0.0" y="0.0" width="249" height="29.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMH-O6-Gx0" userLabel="Media URL Text View">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egh-Gl-o5N" userLabel="MediaURL Label">
                                                     <rect key="frame" x="0.0" y="33.5" width="249" height="29.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -79,6 +79,10 @@
                                         <constraint firstItem="P6b-ed-hCF" firstAttribute="bottom" secondItem="IMW-3C-TrA" secondAttribute="bottom" id="zHN-pV-itv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mediaURLLabel" destination="Egh-Gl-o5N" id="9oo-1O-HRH"/>
+                                    <outlet property="nameLabel" destination="i7Z-Fz-bXi" id="2oe-mf-wxv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -94,6 +98,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="mediaURLLabel" destination="Egh-Gl-o5N" id="fEt-38-j0e"/>
+                        <outlet property="nameLabel" destination="i7Z-Fz-bXi" id="gB8-af-ATK"/>
                         <outlet property="studentLocationsTableView" destination="o1y-wV-Iga" id="cKy-X1-8KX"/>
                     </connections>
                 </viewController>

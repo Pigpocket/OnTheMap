@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UIViewController {
     
     // MARK: Properties
     
@@ -18,6 +18,7 @@ class TableViewController: UITableViewController {
     // MARK: Outlets
     
     @IBOutlet var studentLocationsTableView: UITableView!
+    
 
     // MARK: Lifecycle
     
@@ -40,25 +41,30 @@ class TableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    deinit {
+        print("The TableViewController was deinitialized")
+    }
+}
+
+extension TableViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var mediaURLLabel: UILabel!
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocation") as! TableViewCell
-        
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    deinit {
-        print("The TableViewController was deinitialized")
     }
 }

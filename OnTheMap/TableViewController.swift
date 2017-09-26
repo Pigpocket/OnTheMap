@@ -48,11 +48,13 @@ class TableViewController: UIViewController {
 
 extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var mediaURLLabel: UILabel!
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocation") as! TableViewCell
+        let studentLocation = studentLocations[indexPath.row]
+        
+        cell.textLabel!.text = "\(studentLocation.firstName) + \(studentLocation.lastName)"
+        cell.detailTextLabel!.text = "\(studentLocation.mediaURL)"
         
         return cell
     }

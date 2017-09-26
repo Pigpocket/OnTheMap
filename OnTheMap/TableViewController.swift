@@ -53,8 +53,8 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocation") as! TableViewCell
         let studentLocation = studentLocations[indexPath.row]
         
-        cell.textLabel!.text = "\(studentLocation.firstName) + \(studentLocation.lastName)"
-        cell.detailTextLabel!.text = "\(studentLocation.mediaURL)"
+        cell.textLabel!.text = "\(studentLocation.firstName!) \(studentLocation.lastName!)"
+        cell.detailTextLabel!.text = "\(studentLocation.mediaURL!)"
         
         return cell
     }

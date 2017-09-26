@@ -12,7 +12,7 @@ struct StudentLocation {
     
     let objectID: String
     let uniqueKey: String?
-    let firstName: String?
+    var firstName: String? = nil
     let lastName: String?
     let mapString: String?
     let mediaURL: String?

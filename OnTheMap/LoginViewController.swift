@@ -37,10 +37,6 @@ class LoginViewController: UIViewController {
                 
                 if success == true {
                     self.completeLogin()
-                    
-                    /*let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                    self.present(controller, animated: true, completion: nil) */
- 
                 } else {
                     OperationQueue.main.addOperation {
                     self.connectionFailureAlert(error!)

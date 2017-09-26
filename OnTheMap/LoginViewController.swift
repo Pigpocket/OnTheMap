@@ -30,8 +30,17 @@ class LoginViewController: UIViewController {
         
         // guard that username AND passowrd is != ""
         
-        UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, sessionID, error) in
-            
+        if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
+            self.connectionFailureAlert("Username or password field empty")
+        } else {
+        
+            UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, sessionID, error) in
+        
+                /*if success != true {
+                    print("This bullshit is being called")
+                    self.connectionFailureAlert("Unable to connect")
+                } */
+            }
         }
         
         ParseClient.sharedInstance().getStudentLocations { (studentLocation, error) in
@@ -45,11 +54,11 @@ class LoginViewController: UIViewController {
     
     
 
-    func connectionFailureAlert() {
+    func connectionFailureAlert(_ error: String) {
         let alertController = UIAlertController(title: "Network Failure", message: "You were unable to connect to the network", preferredStyle: .alert)
         let networkFailureNotice = UIAlertAction(title: "network Failure", style: .default, handler: nil)
         alertController.addAction(networkFailureNotice)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
  
         deinit {

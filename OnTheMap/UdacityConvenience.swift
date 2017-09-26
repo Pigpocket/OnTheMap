@@ -12,12 +12,6 @@ extension UdacityClient {
     
     
     func authenticateUser (email:String, password:String, completionHandlerForAuthenticateUser: @escaping (_ data: AnyObject?, _ sessionID: String?, _ error:String?) -> Void) {
-    
-        // MARK: TODO - if necessary, prep for calling taskForPOSTSession
-        
-        if email == "" && password == "" {
-        
-        }
         
         // MARK: TODO - call taskForPOSTSession
         taskForPOSTSession(email: email, password: password) { (data, error) in

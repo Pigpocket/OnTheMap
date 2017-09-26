@@ -25,7 +25,6 @@ extension ParseClient {
                     
                     let studentLocations = StudentLocation.studentLocationsFromResults(results)
                     completionHandlerForGetStudentLocations(studentLocations, nil)
-                    print("Successfully extracted student locations! And here they are: \(studentLocations)")
                 } else {
                     completionHandlerForGetStudentLocations(nil, "Unable to get array of student locations")
                 }

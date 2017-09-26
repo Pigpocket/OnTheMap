@@ -63,6 +63,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gJ8-rk-cKT" id="hiH-Sh-XzE"/>
+                            <outlet property="delegate" destination="gJ8-rk-cKT" id="Pvz-5e-kOG"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="oLg-vr-KMf">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="30t-lP-gTZ">

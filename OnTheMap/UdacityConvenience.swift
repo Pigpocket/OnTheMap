@@ -11,7 +11,7 @@ import Foundation
 extension UdacityClient {
     
     
-    func authenticateUser (email:String, password:String, completionHandlerForAuthenticateUser: @escaping (_ data: AnyObject?, _ sessionID: String?, _ error:String?) -> Void) {
+    func authenticateUser (email:String, password:String, completionHandlerForAuthenticateUser: @escaping (_ success: Bool, _ error:String?) -> Void) {
         
         // MARK: TODO - call taskForPOSTSession
         taskForPOSTSession(email: email, password: password) { (data, error) in
@@ -19,15 +19,11 @@ extension UdacityClient {
             // Guard that there is no error
             if let error = error {
                 print(error)
-                completionHandlerForAuthenticateUser(nil, nil, "There was an error when trying to authenticate")
+                completionHandlerForAuthenticateUser(false, "Wrong username or password")
             } else {
-                if let parsedData = data {
-                    completionHandlerForAuthenticateUser(data, nil, nil)
-                }
-                
-            // Guard that you can parse data -> parsedData
             guard let data = data else {
-                print("Data is not available")
+                print(error!)
+                completionHandlerForAuthenticateUser(false, "Could not get data")
                 return
             }
                 
@@ -40,7 +36,7 @@ extension UdacityClient {
                     print("accountKey was extracted from account")
                     self.accountKey = accountKey
                 } else {
-                    completionHandlerForAuthenticateUser(nil, nil, "Unable to extract account key")
+                    completionHandlerForAuthenticateUser(false, "Unable to extract account key")
                 }
             }
                 
@@ -52,9 +48,9 @@ extension UdacityClient {
                 if let sessionID = session[UdacityClient.UdacityResponseKeys.SessionID] as? String? {
                     print("Able to extract sessionID")
                     self.sessionID = sessionID
-                    completionHandlerForAuthenticateUser(data, sessionID, nil)
+                    completionHandlerForAuthenticateUser(true, nil)
                 } else {
-                    completionHandlerForAuthenticateUser(nil, nil, "There ain't no session ID, pal")
+                    completionHandlerForAuthenticateUser(false, "There ain't no session ID, pal")
                     }
                 }
             }

@@ -33,35 +33,43 @@ class LoginViewController: UIViewController {
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
             self.connectionFailureAlert("Username or password field empty")
         } else {
-        
-            UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, sessionID, error) in
-        
-                /*if success != true {
-                    print("This bullshit is being called")
-                    self.connectionFailureAlert("Unable to connect")
-                } */
+            UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, error) in
+                
+                if success == true {
+                    self.completeLogin()
+                    
+                    /*let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                    self.present(controller, animated: true, completion: nil) */
+ 
+                } else {
+                    OperationQueue.main.addOperation {
+                    self.connectionFailureAlert(error!)
+                    }
+                }
             }
         }
-        
+
         ParseClient.sharedInstance().getStudentLocations { (studentLocation, error) in
 
         }
-        let controller = storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        present(controller, animated: true, completion: nil)
+
     }
     
+    func completeLogin() {
+        performUIUpdatesOnMain {
+            let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
     
-    
-    
-
     func connectionFailureAlert(_ error: String) {
-        let alertController = UIAlertController(title: "Network Failure", message: "You were unable to connect to the network", preferredStyle: .alert)
-        let networkFailureNotice = UIAlertAction(title: "network Failure", style: .default, handler: nil)
+        let alertController = UIAlertController(title: "Login Error", message: error, preferredStyle: .alert)
+        let networkFailureNotice = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(networkFailureNotice)
         present(alertController, animated: true, completion: nil)
     }
  
-        deinit {
+    deinit {
         print("The LoginViewController was deinitialized")
     }
 }

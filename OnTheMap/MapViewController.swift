@@ -8,13 +8,15 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-class MapViewController: UIViewController {
-    
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         navigationController?.navigationBar.isHidden = false
     }
+    
+    
     
     @IBAction func logoutPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

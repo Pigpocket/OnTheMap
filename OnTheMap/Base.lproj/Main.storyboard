@@ -106,8 +106,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="96W-9W-wL8" firstAttribute="leading" secondItem="pIW-5a-gm3" secondAttribute="leadingMargin" constant="-16" id="3X8-G8-ajy"/>
-                            <constraint firstItem="Qjm-2o-Jj3" firstAttribute="top" secondItem="96W-9W-wL8" secondAttribute="bottom" id="DlB-aO-0qT"/>
-                            <constraint firstItem="96W-9W-wL8" firstAttribute="top" secondItem="63a-Bb-H5F" secondAttribute="bottom" id="F2C-P7-6P4"/>
+                            <constraint firstItem="Qjm-2o-Jj3" firstAttribute="top" secondItem="96W-9W-wL8" secondAttribute="bottom" id="Nuj-Ul-nMN"/>
+                            <constraint firstItem="96W-9W-wL8" firstAttribute="top" secondItem="63a-Bb-H5F" secondAttribute="bottom" id="c8g-nZ-tbX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="96W-9W-wL8" secondAttribute="trailing" constant="-16" id="nAy-PC-0f0"/>
                         </constraints>
                     </view>
@@ -122,6 +122,9 @@
                             <barButtonItem systemItem="refresh" id="U3g-q8-mpo"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="96W-9W-wL8" id="IMt-fI-NgW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxI-e5-drt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,9 +15,9 @@ class ParseClient: NSObject {
     
     var studentLocation: [StudentLocation] = []
     
-    func taskForGetManyLocations(limit: Int?, skip: Int?, order: String?, completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForGetManyLocations(_ limit: Int!, _ skip: Int?, _ order: String?, completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
     
-        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=5")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
     
@@ -26,7 +26,7 @@ class ParseClient: NSObject {
             /* GUARD: Was there an error */
             guard error == nil else {
                 let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
-                completionHandlerForGET(nil, NSError(domain: "taskForGetStudentLocation", code: 0, userInfo: userInfo))
+                completionHandlerForGET(nil, NSError(domain: "taskForGetManyLocations", code: 0, userInfo: userInfo))
                 return
             }
         
@@ -34,13 +34,13 @@ class ParseClient: NSObject {
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 if let response = response as? HTTPURLResponse {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
-                    completionHandlerForGET(nil, NSError(domain: "taskForGetStudentLocation", code: 1, userInfo: userInfo))
+                    completionHandlerForGET(nil, NSError(domain: "taskForGetManyLocations", code: 1, userInfo: userInfo))
                 } else if let response = response {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
-                    completionHandlerForGET(nil, NSError(domain: "taskForGetStudentLocation", code: 2, userInfo: userInfo))
+                    completionHandlerForGET(nil, NSError(domain: "taskForGetManyLocations", code: 2, userInfo: userInfo))
                 } else {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response!"]
-                    completionHandlerForGET(nil, NSError(domain: "taskForGetStudentLocation", code: 3, userInfo: userInfo))
+                    completionHandlerForGET(nil, NSError(domain: "taskForGetManyLocations", code: 3, userInfo: userInfo))
                 }
                 return
             }

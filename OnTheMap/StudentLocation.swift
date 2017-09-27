@@ -10,25 +10,42 @@ struct StudentLocation {
     
     // MARK: Properties
     
-    let objectID: String
-    let uniqueKey: String?
-    var firstName: String? = nil
-    let lastName: String?
-    let mapString: String?
-    let mediaURL: String?
-    let latitude: Double?
-    let longitude: Double?
+    var objectID = ""
+    var uniqueKey = ""
+    var firstName = ""
+    var lastName = ""
+    var mapString = ""
+    var mediaURL = ""
+    var latitude = 0.0
+    var longitude = 0.0
     
     // construct a StudentLocation from a dictionary
     init(dictionary: [String:AnyObject]) {
-        objectID = dictionary["objectId"] as! String
-        uniqueKey = dictionary["uniqueKey"] as? String
-        firstName = dictionary["firstName"] as? String
-        lastName = dictionary["lastName"] as? String
-        mapString = dictionary["mapString"] as? String
-        mediaURL = dictionary["mediaURL"] as? String
-        latitude = dictionary["latitude"] as? Double
-        longitude = dictionary["longitude"] as? Double
+        
+        if let objectID = dictionary["objectId"] as? String {
+            self.objectID = objectID
+        }
+        if let uniqueKey = dictionary["uniqueKey"] as? String {
+            self.uniqueKey = uniqueKey
+        }
+        if let firstName = dictionary["firstName"] as? String {
+            self.firstName = firstName
+        }
+        if let lastName = dictionary["lastName"] as? String {
+            self.lastName = lastName
+        }
+        if let mapString = dictionary["mapString"] as? String {
+            self.mapString = mapString
+        }
+        if let mediaURL = dictionary["mediaURL"] as? String {
+            self.mediaURL = mediaURL
+        }
+        if let latitude = dictionary["latitude"] as? Double {
+            self.latitude = latitude
+        }
+        if let longitude = dictionary["longitude"] as? Double {
+            self.longitude = longitude
+        }
     }
     
     static func studentLocationsFromResults(_ results: [[String:AnyObject]]) -> [StudentLocation] {

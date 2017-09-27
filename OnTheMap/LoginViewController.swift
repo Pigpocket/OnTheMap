@@ -45,9 +45,9 @@ class LoginViewController: UIViewController {
             }
         }
 
-        ParseClient.sharedInstance().getStudentLocations { (studentLocation, error) in
+        //ParseClient.sharedInstance().getStudentLocations(limit: 5, skip: 10, order: "") { (studentLocation, error) in
 
-        }
+        
 
     }
     

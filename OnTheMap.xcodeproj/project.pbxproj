@@ -44,8 +44,8 @@
 		3753E5DA1F7DB914008AE18D /* logo-u.png in Resources */ = {isa = PBXBuildFile; fileRef = 3753E5B91F7DB914008AE18D /* logo-u.png */; };
 		3753E5DB1F7DB914008AE18D /* logo-u@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3753E5BA1F7DB914008AE18D /* logo-u@2x.png */; };
 		3753E5DC1F7DB914008AE18D /* logo-u@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3753E5BB1F7DB914008AE18D /* logo-u@3x.png */; };
+		3753E5DE1F7DC12F008AE18D /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5DD1F7DC12E008AE18D /* AddLocationViewController.swift */; };
 		37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDB1F633D730016E6DB /* AppDelegate.swift */; };
-		37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDD1F633D730016E6DB /* ViewController.swift */; };
 		37E51EE11F633D730016E6DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EDF1F633D730016E6DB /* Main.storyboard */; };
 		37E51EE31F633D730016E6DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EE21F633D730016E6DB /* Assets.xcassets */; };
 		37E51EE61F633D730016E6DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EE41F633D730016E6DB /* LaunchScreen.storyboard */; };
@@ -117,9 +117,9 @@
 		3753E5B91F7DB914008AE18D /* logo-u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-u.png"; sourceTree = "<group>"; };
 		3753E5BA1F7DB914008AE18D /* logo-u@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-u@2x.png"; sourceTree = "<group>"; };
 		3753E5BB1F7DB914008AE18D /* logo-u@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-u@3x.png"; sourceTree = "<group>"; };
+		3753E5DD1F7DC12E008AE18D /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		37E51ED81F633D730016E6DB /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E51EDB1F633D730016E6DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37E51EDD1F633D730016E6DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E51EE01F633D730016E6DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37E51EE21F633D730016E6DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E51EE51F633D730016E6DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 			children = (
 				37E51F181F6649D20016E6DB /* GCD.swift */,
 				37E51EDB1F633D730016E6DB /* AppDelegate.swift */,
-				37E51EDD1F633D730016E6DB /* ViewController.swift */,
+				3753E5DD1F7DC12E008AE18D /* AddLocationViewController.swift */,
 				37E51F161F661A840016E6DB /* LoginViewController.swift */,
 				37E51F091F63417A0016E6DB /* MapViewController.swift */,
 				37E51F0B1F63418C0016E6DB /* TableViewController.swift */,
@@ -486,13 +486,13 @@
 				3753E5971F74D8D7008AE18D /* ParseConvenience.swift in Sources */,
 				37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */,
 				37E51F131F65F4D90016E6DB /* ParseConstants.swift in Sources */,
-				37E51EDE1F633D730016E6DB /* ViewController.swift in Sources */,
 				37E51F0A1F63417A0016E6DB /* MapViewController.swift in Sources */,
 				37E51F171F661A840016E6DB /* LoginViewController.swift in Sources */,
 				37E51F1D1F68D1F30016E6DB /* UdacityConvenience.swift in Sources */,
 				37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */,
 				37E51F191F6649D20016E6DB /* GCD.swift in Sources */,
 				37E51F1B1F68CF950016E6DB /* UdacityClient.swift in Sources */,
+				3753E5DE1F7DC12F008AE18D /* AddLocationViewController.swift in Sources */,
 				3753E5991F7C8271008AE18D /* StudentLocationArray.swift in Sources */,
 				37E51F151F6600810016E6DB /* UdacityConstants.swift in Sources */,
 				37E51F0C1F63418C0016E6DB /* TableViewController.swift in Sources */,

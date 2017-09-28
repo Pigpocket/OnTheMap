@@ -12,37 +12,61 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
+    // MARK: Outlets
+    
     @IBOutlet weak var mapView: MKMapView!
     
+    // MARK: Variables
+    
+    var locations = [StudentLocation]()
+    
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
+        
         navigationController?.navigationBar.isHidden = false
         
-        let locations = StudentLocationArray.sharedInstance.studentArray
-        var annotations = [MKPointAnnotation]()
-        
-        for dictionary in locations {
+        ParseClient.sharedInstance().getStudentLocations(limit: 5, skip: 10, order: "") { (studentLocations, error) in
+            if let studentLocations = studentLocations {
+                self.locations = studentLocations
+                print("These are the locations in the MapViewController: \(self.locations)")
+            }
             
-            print("Is any of this shit being called")
-            let lat = CLLocationDegrees(dictionary.latitude)
-            let long = CLLocationDegrees(dictionary.longitude)
+            var annotations = [MKPointAnnotation]()
             
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            for dictionary in self.locations {
+                
+                let lat = CLLocationDegrees(dictionary.latitude)
+                let long = CLLocationDegrees(dictionary.longitude)
+                
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                
+                let first = dictionary.firstName
+                let last = dictionary.lastName
+                let mediaURL = dictionary.mediaURL
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = "\(first) \(last)"
+                annotation.subtitle = mediaURL
+                
+                annotations.append(annotation)
+                print("These are the annotations: \(annotations)")
+            }
             
-            let first = dictionary.firstName
-            let last = dictionary.lastName
-            let mediaURL = dictionary.mediaURL
+            self.mapView.delegate = self
             
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = "\(first) \(last)"
-            annotation.subtitle = mediaURL
-            
-            annotations.append(annotation)
-            print("These are the annotations: \(annotations)")
+            performUIUpdatesOnMain {
+                self.mapView.addAnnotations(annotations)
+            }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        self.mapView.delegate = self
-        self.mapView.addAnnotations(annotations)
+        for annotation: MKAnnotation in mapView.annotations {
+            mapView.removeAnnotation(annotation)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

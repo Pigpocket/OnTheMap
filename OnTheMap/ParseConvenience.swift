@@ -15,7 +15,6 @@ extension ParseClient {
         
         taskForGetManyLocations(limit, skip, order) { (data, error) in
             
-            print("***THE LIMIT IS 5 THOUGH***")
             // Guard that there is no error
             if let error = error {
                 print(error)
@@ -25,7 +24,6 @@ extension ParseClient {
                 if let results = data?["results"] as? [[String:AnyObject]] {
                     
                     let studentLocations = StudentLocation.studentLocationsFromResults(results)
-                    print(studentLocations)
                     completionHandlerForGetStudentLocations(studentLocations, nil)
                 } else {
                     completionHandlerForGetStudentLocations(nil, "Unable to get array of student locations")

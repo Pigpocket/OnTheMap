@@ -64,9 +64,16 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        let studentLocation = studentLocations[indexPath.row]
+        
+        let app = UIApplication.shared
+        app.open(URL(string: studentLocation.mediaURL)!, options: [:], completionHandler: nil)
+        
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }

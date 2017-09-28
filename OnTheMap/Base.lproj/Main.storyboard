@@ -75,7 +75,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="FZ0-Mi-ngj"/>
+                            <barButtonItem image="icon_pin.png" id="FZ0-Mi-ngj"/>
                             <barButtonItem systemItem="refresh" id="H8Q-iV-JJi"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -286,4 +286,7 @@
             <point key="canvasLocation" x="-114.40000000000001" y="152.47376311844079"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_pin.png" width="24" height="24"/>
+    </resources>
 </document>

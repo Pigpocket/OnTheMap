@@ -14,7 +14,7 @@
         <!--Add Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Add Location View Controller" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationViewController" id="BYZ-38-t0r" userLabel="Add Location View Controller" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -75,7 +75,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_pin.png" id="FZ0-Mi-ngj"/>
+                            <barButtonItem image="icon_pin.png" id="FZ0-Mi-ngj">
+                                <connections>
+                                    <action selector="addLocationPressed:" destination="gJ8-rk-cKT" id="UhI-bE-3PF"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="refresh" id="H8Q-iV-JJi"/>
                         </rightBarButtonItems>
                     </navigationItem>

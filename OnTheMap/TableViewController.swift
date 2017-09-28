@@ -40,6 +40,7 @@ class TableViewController: UIViewController {
             }
         }
     }
+
     
     deinit {
         print("The TableViewController was deinitialized")
@@ -72,8 +73,15 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    @IBAction func addLocationPressed(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
 }

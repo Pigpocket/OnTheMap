@@ -22,6 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         for dictionary in locations {
             
+            print("Is any of this shit being called")
             let lat = CLLocationDegrees(dictionary.latitude)
             let long = CLLocationDegrees(dictionary.longitude)
             
@@ -37,8 +38,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             annotation.subtitle = mediaURL
             
             annotations.append(annotation)
+            print("These are the annotations: \(annotations)")
         }
         
+        self.mapView.delegate = self
         self.mapView.addAnnotations(annotations)
     }
     

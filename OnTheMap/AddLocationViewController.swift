@@ -11,4 +11,22 @@ import UIKit
 
 class AddLocationViewController: UIViewController {
     
+    // MARK: Outlets
+    
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var websiteTextField: UITextField!
+    @IBOutlet weak var findLocationButton: UIButton!
+    
+    
+    
+    // MARK: Actions
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("The AddLocationViewController was dismissed")
+    }
+    
 }

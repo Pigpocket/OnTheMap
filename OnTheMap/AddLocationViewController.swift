@@ -17,7 +17,12 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
     
+    // MARK: Lifecycle
     
+    override func viewDidLoad() {
+        
+        
+    }
     
     // MARK: Actions
     

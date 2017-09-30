@@ -31,5 +31,26 @@ extension ParseClient {
             }
         }
     }
+    
+    /*func postStudentLocation(name: String, mediaURL: String, completionHandlerForPostStudentLocation: @escaping (_ studentLocation: StudentLocation?, _ error: String?) -> Void) {
+        
+        taskForPostStudentLocation(name: name, mediaURL: mediaURL) { (data, error) in
+            
+            // Guard that there is no error
+            if let error = error {
+                print(error)
+                completionHandlerForPostStudentLocation(nil, "There was an error when trying to post location")
+            } else {
+                
+                if let results = data?["results"] as? [[String:AnyObject]] {
+                    
+                    let studentLocation = StudentLocation.studentLocationsFromResults(results)
+                    completionHandlerForPostStudentLocation(studentLocation, nil)
+                } else {
+                    completionHandlerForPostStudentLocation(nil, "Unable to get array of student locations")
+                }
+            }
+        }
+    } */
 }
 

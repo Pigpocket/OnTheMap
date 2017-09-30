@@ -29,7 +29,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         ParseClient.sharedInstance().getStudentLocations(limit: 5, skip: 10, order: "") { (studentLocations, error) in
             if let studentLocations = studentLocations {
                 self.locations = studentLocations
-                print("These are the locations in the MapViewController: \(self.locations)")
             }
             
             var annotations = [MKPointAnnotation]()
@@ -51,7 +50,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 annotation.subtitle = mediaURL
                 
                 annotations.append(annotation)
-                print("These are the annotations: \(annotations)")
             }
             
             self.mapView.delegate = self

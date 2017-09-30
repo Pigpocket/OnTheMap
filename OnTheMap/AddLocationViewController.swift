@@ -30,6 +30,23 @@ class AddLocationViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func findLocationPressed(_ sender: Any) {
+        
+        ParseClient.sharedInstance().taskForPostStudentLocation(name: locationTextField.text!, mediaURL: websiteTextField.text!) { (studentLocation, error) in
+            if let error = error {
+                print(error)
+            } else {
+                if let studentLocation = studentLocation {
+                    print("student location is \(studentLocation)")
+                }
+            }
+        }
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
+    
     deinit {
         print("The AddLocationViewController was dismissed")
     }

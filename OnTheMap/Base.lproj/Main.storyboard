@@ -69,6 +69,9 @@
                                                 <state key="normal" title="FIND LOCATION">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="findLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n2q-UH-z3c"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -169,7 +172,7 @@
         <!--Map View Controller-->
         <scene sceneID="I5w-qF-dDQ">
             <objects>
-                <viewController id="1OG-0k-KXZ" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="1OG-0k-KXZ" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63a-Bb-H5F"/>
                         <viewControllerLayoutGuide type="bottom" id="Qjm-2o-Jj3"/>

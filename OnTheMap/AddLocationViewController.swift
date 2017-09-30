@@ -41,7 +41,7 @@ class AddLocationViewController: UIViewController {
                 }
             }
         }
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
         self.present(controller, animated: true, completion: nil)
     }
     

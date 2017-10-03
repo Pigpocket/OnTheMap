@@ -58,7 +58,7 @@ extension ParseClient {
                     // Assign objectId to user struct
                     user.objectId = objectId
                     print("This is my objectId: \(objectId)")
-                    completionHandlerForGetStudentLocation(true, "")
+                    completionHandlerForGetStudentLocation(true, nil)
                 } else {
                     completionHandlerForGetStudentLocation(false, "Unable to get array of student locations")
                 }

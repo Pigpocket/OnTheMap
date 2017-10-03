@@ -32,6 +32,18 @@ class AddLocationViewController: UIViewController {
     
     @IBAction func findLocationPressed(_ sender: Any) {
         
+        
+        ParseClient.sharedInstance().getMyObjectID { (success, error) in
+            print("This function is being called")
+            if let error = error {
+                print(error)
+            } else {
+                if success == true {
+                print("Successfully completed getMyObjectID")
+                }
+            }
+        }
+        
         ParseClient.sharedInstance().taskForPostStudentLocation(name: locationTextField.text!, mediaURL: websiteTextField.text!) { (studentLocation, error) in
             if let error = error {
                 print(error)
@@ -41,6 +53,8 @@ class AddLocationViewController: UIViewController {
                 }
             }
         }
+        
+        // Present the ConfirmLocationViewController
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
         self.present(controller, animated: true, completion: nil)
     }

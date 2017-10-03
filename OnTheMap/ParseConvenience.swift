@@ -32,6 +32,40 @@ extension ParseClient {
         }
     }
     
+    func getMyObjectID(completionHandlerForGetStudentLocation: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        
+        taskForGetStudentLocation() { (results, error) in
+            
+            // Guard that there is no error
+            if let error = error {
+                print(error)
+                completionHandlerForGetStudentLocation(false, "There was an error when trying to get the student location")
+            } else {
+                
+                if let results = results?["results"] as? [[String:AnyObject]] {
+                    
+                    // Get my location dictionary
+                    let myLocation = results[results.count - 1]
+                    print("This is myLocation: \(myLocation)")
+                    
+                    // Get my objectId
+                    guard let objectId = myLocation["objectId"] as? String else {
+                        print("Couldn't get objectId")
+                        completionHandlerForGetStudentLocation(false, "Couldn't find key objectId in \(results)")
+                        return
+                    }
+                    
+                    // Assign objectId to user struct
+                    user.objectId = objectId
+                    print("This is my objectId: \(objectId)")
+                    completionHandlerForGetStudentLocation(true, "")
+                } else {
+                    completionHandlerForGetStudentLocation(false, "Unable to get array of student locations")
+                }
+            }
+        }
+    }
+    
     /*func postStudentLocation(name: String, mediaURL: String, completionHandlerForPostStudentLocation: @escaping (_ studentLocation: StudentLocation?, _ error: String?) -> Void) {
         
         taskForPostStudentLocation(name: name, mediaURL: mediaURL) { (data, error) in

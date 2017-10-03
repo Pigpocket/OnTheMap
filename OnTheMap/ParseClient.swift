@@ -63,7 +63,7 @@ class ParseClient: NSObject {
         task.resume()
     }
     
-    func getStudentLocation(completionHandlerForGetStudentLocation: @escaping (_ results: AnyObject?, _ error: NSError) -> Void) {
+    func taskForGetStudentLocation(completionHandlerForGetStudentLocationParse: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
         let urlString = "https://parse.udacity.com/parse/classes/StudentLocation"
         let url = URL(string: urlString)
@@ -75,7 +75,7 @@ class ParseClient: NSObject {
             
             guard error == nil else {
                 let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
-                completionHandlerForGetStudentLocation(nil, NSError(domain: "getStudentLocation", code: 0, userInfo: userInfo))
+                completionHandlerForGetStudentLocationParse(nil, NSError(domain: "taskForGetStudentLocation", code: 0, userInfo: userInfo))
                 return
             }
             
@@ -83,13 +83,13 @@ class ParseClient: NSObject {
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 if let response = response as? HTTPURLResponse {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
-                    completionHandlerForGetStudentLocation(nil, NSError(domain: "getStudentLocation", code: 1, userInfo: userInfo))
+                    completionHandlerForGetStudentLocationParse(nil, NSError(domain: "taskForGetStudentLocation", code: 1, userInfo: userInfo))
                 } else if let response = response {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
-                    completionHandlerForGetStudentLocation(nil, NSError(domain: "getStudentLocation", code: 2, userInfo: userInfo))
+                    completionHandlerForGetStudentLocationParse(nil, NSError(domain: "taskForGetStudentLocation", code: 2, userInfo: userInfo))
                 } else {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response!"]
-                    completionHandlerForGetStudentLocation(nil, NSError(domain: "getStudentLocation", code: 3, userInfo: userInfo))
+                    completionHandlerForGetStudentLocationParse(nil, NSError(domain: "taskForGetStudentLocation", code: 3, userInfo: userInfo))
                 }
                 return
             }
@@ -97,12 +97,14 @@ class ParseClient: NSObject {
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
-                completionHandlerForGetStudentLocation(nil, NSError(domain: "getStudentLocation", code: 1, userInfo: userInfo))
+                completionHandlerForGetStudentLocationParse(nil, NSError(domain: "taskForGetStudentLocation", code: 1, userInfo: userInfo))
                 return
             }
             
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
+            self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForGetStudentLocationParse)
+            //print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
             print("This is the data that was extracted from getStudentLocation: \(data)")
+            
         }
         task.resume()
     }

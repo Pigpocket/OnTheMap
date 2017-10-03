@@ -18,7 +18,7 @@ extension ParseClient {
             // Guard that there is no error
             if let error = error {
                 print(error)
-                completionHandlerForGetStudentLocations(nil, "There was an error when trying to authenticate")
+                completionHandlerForGetStudentLocations(nil, "There was an error when trying to get student locations")
             } else {
                 
                 if let results = data?["results"] as? [[String:AnyObject]] {

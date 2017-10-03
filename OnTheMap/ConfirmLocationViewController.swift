@@ -12,4 +12,9 @@ import MapKit
 
 class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

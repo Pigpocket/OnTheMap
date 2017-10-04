@@ -155,6 +155,55 @@ class ParseClient: NSObject {
         task.resume()
     }
     
+    func taskForPutStudentLocation(objectId: String?, completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+        
+        let urlString = "https://parse.udacity.com/parse/classes/StudentLocation/dIqcxfBwFp"
+        let url = URL(string: urlString)
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "PUT"
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: String.Encoding.utf8)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
+            /* GUARD: Was there an error */
+            guard error == nil else {
+                let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
+                completionHandlerForPutMethod(nil, NSError(domain: "taskForPutStudentLocation", code: 0, userInfo: userInfo))
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                if let response = response as? HTTPURLResponse {
+                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
+                    completionHandlerForPutMethod(nil, NSError(domain: "taskForPutStudentLocation", code: 1, userInfo: userInfo))
+                } else if let response = response {
+                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
+                    completionHandlerForPutMethod(nil, NSError(domain: "taskForPutStudentLocation", code: 2, userInfo: userInfo))
+                } else {
+                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response!"]
+                    completionHandlerForPutMethod(nil, NSError(domain: "taskForPutStudentLocation", code: 3, userInfo: userInfo))
+                }
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
+                completionHandlerForPutMethod(nil, NSError(domain: "taskForPutStudentLocation", code: 1, userInfo: userInfo))
+                return
+            }
+            
+            self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForPutMethod)
+            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
+            print("This is what the PUT data looks like: \(data)")
+        }
+        task.resume()
+    }
+    
     func parseJSONObject(_ data: Data, completionHandlerForConvertData: (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
         var parsedResult: AnyObject!

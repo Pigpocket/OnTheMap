@@ -54,6 +54,14 @@ class AddLocationViewController: UIViewController {
             }
         }
         
+        ParseClient.sharedInstance().taskForPutStudentLocation(objectId: "AgaDXQdRtt") { (results, error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("Put function executed successfully")
+            }
+        }
+        
         // Present the ConfirmLocationViewController
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
         self.present(controller, animated: true, completion: nil)

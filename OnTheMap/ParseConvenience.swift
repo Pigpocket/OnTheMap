@@ -65,6 +65,36 @@ extension ParseClient {
             }
         }
     }
+    /*
+    func putStudentLocation(objectId: String?, completionHandlerForPut: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        
+        taskForPutStudentLocation(objectId: objectId) { (results, error) in
+        
+            if let error = error {
+                print(error)
+                completionHandlerForPut(false, "There was an error when trying to change the student location")
+            } else {
+                
+                if let results = results?["results"] as? [[String:AnyObject]] {
+                    
+                    // Get updatedAt
+                    guard let updatedAt = results["updatedAt"] as? String else {
+                        print("Couldn't get updatedAt")
+                        completionHandlerForPut(false, "Couldn't find key objectId in \(results)")
+                        return
+                    }
+                    
+                    // Assign objectId to user struct
+                    user.objectId = objectId
+                    print("This is my objectId: \(objectId)")
+                    completionHandlerForGetStudentLocation(true, nil)
+                } else {
+                    completionHandlerForGetStudentLocation(false, "Unable to get array of student locations")
+                }
+            }
+        }
+    }
+ */
     
     /*func postStudentLocation(name: String, mediaURL: String, completionHandlerForPostStudentLocation: @escaping (_ studentLocation: StudentLocation?, _ error: String?) -> Void) {
         
@@ -78,8 +108,14 @@ extension ParseClient {
                 
                 if let results = data?["results"] as? [[String:AnyObject]] {
                     
-                    let studentLocation = StudentLocation.studentLocationsFromResults(results)
-                    completionHandlerForPostStudentLocation(studentLocation, nil)
+                    let studentLocations = StudentLocation.studentLocationsFromResults(results)
+                    
+                    for student in studentLocations {
+                        if name = results["firstName"] as? String {
+                            
+                        }
+                    }
+                    completionHandlerForPostStudentLocation(student, nil)
                 } else {
                     completionHandlerForPostStudentLocation(nil, "Unable to get array of student locations")
                 }

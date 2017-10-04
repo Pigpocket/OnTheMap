@@ -12,9 +12,23 @@ import MapKit
 
 class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     
+
+    // MARK: Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
+    // MARK: Actions
     @IBAction func cancelPressed(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func finishPressed(_ sender: Any) {
+    }
+    
+    
     
 }

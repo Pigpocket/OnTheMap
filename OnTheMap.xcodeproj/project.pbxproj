@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371EAE471F8566B1004D18D1 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371EAE461F8566B1004D18D1 /* LocationData.swift */; };
 		3753E5931F74C8A4008AE18D /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5921F74C8A4008AE18D /* StudentLocation.swift */; };
 		3753E5951F74CA5E008AE18D /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5941F74CA5E008AE18D /* ParseClient.swift */; };
 		3753E5971F74D8D7008AE18D /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5961F74D8D7008AE18D /* ParseConvenience.swift */; };
@@ -46,7 +47,7 @@
 		3753E5DC1F7DB914008AE18D /* logo-u@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3753E5BB1F7DB914008AE18D /* logo-u@3x.png */; };
 		3753E5DE1F7DC12F008AE18D /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5DD1F7DC12E008AE18D /* AddLocationViewController.swift */; };
 		3753E5E41F7F25C1008AE18D /* ConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5E31F7F25C1008AE18D /* ConfirmLocationViewController.swift */; };
-		3753E5E61F83FA99008AE18D /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5E51F83FA99008AE18D /* UserStruct.swift */; };
+		3753E5E61F83FA99008AE18D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753E5E51F83FA99008AE18D /* User.swift */; };
 		37E51EDC1F633D730016E6DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E51EDB1F633D730016E6DB /* AppDelegate.swift */; };
 		37E51EE11F633D730016E6DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EDF1F633D730016E6DB /* Main.storyboard */; };
 		37E51EE31F633D730016E6DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E51EE21F633D730016E6DB /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		371EAE461F8566B1004D18D1 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		3753E5921F74C8A4008AE18D /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		3753E5941F74CA5E008AE18D /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		3753E5961F74D8D7008AE18D /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		3753E5BB1F7DB914008AE18D /* logo-u@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-u@3x.png"; sourceTree = "<group>"; };
 		3753E5DD1F7DC12E008AE18D /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		3753E5E31F7F25C1008AE18D /* ConfirmLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmLocationViewController.swift; sourceTree = "<group>"; };
-		3753E5E51F83FA99008AE18D /* UserStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
+		3753E5E51F83FA99008AE18D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		37E51ED81F633D730016E6DB /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E51EDB1F633D730016E6DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E51EE01F633D730016E6DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,7 +187,8 @@
 			children = (
 				3753E5921F74C8A4008AE18D /* StudentLocation.swift */,
 				3753E5981F7C8271008AE18D /* StudentLocationArray.swift */,
-				3753E5E51F83FA99008AE18D /* UserStruct.swift */,
+				3753E5E51F83FA99008AE18D /* User.swift */,
+				371EAE461F8566B1004D18D1 /* LocationData.swift */,
 			);
 			name = StudentLocation;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				371EAE471F8566B1004D18D1 /* LocationData.swift in Sources */,
 				3753E5931F74C8A4008AE18D /* StudentLocation.swift in Sources */,
 				3753E5971F74D8D7008AE18D /* ParseConvenience.swift in Sources */,
 				37E51F0E1F65DC2C0016E6DB /* TableViewCell.swift in Sources */,
@@ -499,7 +503,7 @@
 				37E51F191F6649D20016E6DB /* GCD.swift in Sources */,
 				37E51F1B1F68CF950016E6DB /* UdacityClient.swift in Sources */,
 				3753E5DE1F7DC12F008AE18D /* AddLocationViewController.swift in Sources */,
-				3753E5E61F83FA99008AE18D /* UserStruct.swift in Sources */,
+				3753E5E61F83FA99008AE18D /* User.swift in Sources */,
 				3753E5991F7C8271008AE18D /* StudentLocationArray.swift in Sources */,
 				37E51F151F6600810016E6DB /* UdacityConstants.swift in Sources */,
 				3753E5E41F7F25C1008AE18D /* ConfirmLocationViewController.swift in Sources */,

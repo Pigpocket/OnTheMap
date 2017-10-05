@@ -27,8 +27,15 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func finishPressed(_ sender: Any) {
+        
+        
+        
+        //let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        //self.present(controller, animated: true, completion: nil)
     }
     
-    
-    
+    deinit {
+        print("ConfirmLocationViewController was dismissed")
+    }
+
 }

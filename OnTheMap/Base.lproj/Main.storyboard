@@ -160,6 +160,9 @@
                             <constraint firstAttribute="trailing" secondItem="lrO-sD-2LW" secondAttribute="trailing" constant="16" id="yoz-ul-B0C"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="5gO-7H-c0W" id="Ndj-nO-XRY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9U-Hr-HEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

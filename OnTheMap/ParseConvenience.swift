@@ -32,9 +32,11 @@ extension ParseClient {
         }
     }
     
-    func getMyObjectID(completionHandlerForGetStudentLocation: @escaping (_ success: Bool, _ error: String?) -> Void) {
+    func getMyObjectID(uniqueKey: String, completionHandlerForGetStudentLocation: @escaping (_ success: Bool, _ error: String?) -> Void) {
         
-        taskForGetStudentLocation() { (results, error) in
+        let parameters = [ParseClient.Constants.WhereQuery: uniqueKey as AnyObject]
+        
+        taskForGetStudentLocation(ParseClient.Methods.Location, parameters: parameters) { (results, error) in
             
             // Guard that there is no error
             if let error = error {
@@ -48,18 +50,53 @@ extension ParseClient {
                     let myLocation = results[results.count - 1]
                     print("This is myLocation: \(myLocation)")
                     
-                    // Get my objectId
+                    // GUARD: Get my objectId
                     guard let objectId = myLocation["objectId"] as? String else {
                         print("Couldn't get objectId")
                         completionHandlerForGetStudentLocation(false, "Couldn't find key objectId in \(results)")
                         return
                     }
                     
-                    // Assign objectId to user struct
+                    // GUARD: Get my first name
+                    guard let firstName = myLocation["firstName"] as? String else {
+                        print("Couldn't get first name")
+                        completionHandlerForGetStudentLocation(false, "Couldn't get first name in \(results)")
+                        return
+                    }
+                    
+                    // GUARD: Get my last name
+                    guard let lastName = myLocation["lastName"] as? String else {
+                        print("Couldn't get last name")
+                        completionHandlerForGetStudentLocation(false, "Couldn't get last name in \(results)")
+                        return
+                    }
+                    
+                    // GUARD: Get my unique key
+                    guard let uniqueKey = myLocation["uniqueKey"] as? String else {
+                        print ("Couldn't get unique key")
+                        completionHandlerForGetStudentLocation(false, "Couldn't get unique key in \(results)")
+                        return
+                    }
+                    
+                    // GUARD: Get my userId???
+                    
+                    // Assign values to user struct
                     user.objectId = objectId
                     print("This is my objectId: \(objectId)")
+                    
+                    user.firstName = firstName
+                    print("This is my first name: \(firstName)")
+                    
+                    user.lastName = lastName
+                    print("This is my last name: \(lastName)")
+                    
+                    user.uniqueKey = uniqueKey
+                    print("This is my unique key: \(uniqueKey)")
+                    
                     completionHandlerForGetStudentLocation(true, nil)
+                    
                 } else {
+                    
                     completionHandlerForGetStudentLocation(false, "Unable to get array of student locations")
                 }
             }

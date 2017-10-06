@@ -21,8 +21,6 @@ class AddLocationViewController: UIViewController {
     // MARK: Lifecycle
     
     override func viewDidLoad() {
-        
-        
     }
     
     // MARK: Actions
@@ -36,7 +34,7 @@ class AddLocationViewController: UIViewController {
         if self.locationTextField.text == "" || self.websiteTextField.text == "" {
             
             let alertController = UIAlertController()
-            let alert = UIAlertAction(title: "Error", style: .cancel, handler: nil)
+            let alert = UIAlertAction(title: "You didn't enter a location or website", style: .cancel, handler: nil)
             alertController.addAction(alert)
             present(alertController, animated: true, completion: nil)
             
@@ -45,27 +43,35 @@ class AddLocationViewController: UIViewController {
             locationData.locationText = self.locationTextField.text!
             locationData.mediaURL = self.websiteTextField.text!
         
-            let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(locationTextField.text!) { (placemark, error) in
-            
-            if error != nil {
-                print(error!)
-            } else {
-                
-            }
-        }
+            getLocation(completionHandler: { (success, error) in
+                if success {
+                    ParseClient.sharedInstance().getMyObjectID(uniqueKey: user.objectId) { (success, error) in
+                        
+                        if user.objectId == "" {
+                            ParseClient.sharedInstance().taskForPostStudentLocation(name: user.firstName, mediaURL: locationData.mediaURL, completionHandlerForPOST: { (results, error) in
+                            })
+                        } else {
+                            ParseClient.sharedInstance().taskForPostStudentLocation(name: user.firstName, mediaURL: locationData.mediaURL, completionHandlerForPOST: { (results, error) in
+                            })
+                        }
+                        print("This function is being called")
+                        if let error = error {
+                            print(error)
+                        } else {
+                            if success == true {
+                                print("Successfully completed getMyObjectID")
+                                
+                                // Ensure user struct has info in it
+                                print("User name exists and first name is: \(user.firstName)")
+                                print("Location exists and location text is: \(locationData.locationText)")
+                            }
+                        }
+                    }
+                }
+            })
         }
         
-        ParseClient.sharedInstance().getMyObjectID { (success, error) in
-            print("This function is being called")
-            if let error = error {
-                print(error)
-            } else {
-                if success == true {
-                print("Successfully completed getMyObjectID")
-                }
-            }
-        }
+        
         
         ParseClient.sharedInstance().taskForPostStudentLocation(name: locationTextField.text!, mediaURL: websiteTextField.text!) { (studentLocation, error) in
             if let error = error {
@@ -86,6 +92,7 @@ class AddLocationViewController: UIViewController {
         }
         
         // Present the ConfirmLocationViewController
+        
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
         self.present(controller, animated: true, completion: nil)
     }

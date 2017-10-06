@@ -21,8 +21,22 @@ extension ParseClient {
         // MARK: URLs
         static let ApiScheme = "https"
         static let ApiHost = "parse.udacity.com"
-        static let ApiPath = "parse/classes"
+        static let ApiPath = "/parse/classes/"
         static let AuthorizationURL = ""
+        static let WhereQuery = "where"
+        
+    }
+    
+    struct ParameterKeys {
+        
+        static let ApplicationID = "X-Parse-Application-Id"
+        static let RestAPIKey = "X-Parse-REST-API-Key"
+    }
+    
+    struct Methods {
+        
+        static let Location = "StudentLocation"
+        
     }
     
     func ParseURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {

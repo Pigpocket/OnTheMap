@@ -28,15 +28,18 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: AnyObject) {
         
         
-        // guard that username AND passowrd is != ""
-        
+        // GUARD: Confirm that username AND passowrd is != ""
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
             self.connectionFailureAlert("Username or password field empty")
+        
         } else {
+            
+            // Authenticate the user
             UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, error) in
                 
                 if success == true {
                     self.completeLogin()
+                
                 } else {
                     OperationQueue.main.addOperation {
                     self.connectionFailureAlert(error!)
@@ -44,11 +47,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-
-        //ParseClient.sharedInstance().getStudentLocations(limit: 5, skip: 10, order: "") { (studentLocation, error) in
-
-        
-
     }
     
     func completeLogin() {

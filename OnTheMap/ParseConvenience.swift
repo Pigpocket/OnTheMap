@@ -105,31 +105,6 @@ extension ParseClient {
     }
     
     func putStudentLocation(objectId: String?, method: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Double, longitude: Double, completionHandlerForPut: @escaping (_ success: Bool, _ error: String?) -> Void) {
-        
-        /*
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(mapString) { (placemark, error) in
-        
-            guard let placemark = placemark else {
-                print(error)
-                return
-            }
-            
-            guard let latitude = placemark[0].location?.coordinate.latitude else {
-                print(error)
-                return
-            }
-            
-            guard let longitude = placemark[0].location?.coordinate.longitude else {
-                print(error)
-                return
-            }
-            
-            locationData.latitude = latitude
-            locationData.longitude = longitude
-        }
- 
- */
             
         let jsonBody: [String: AnyObject] = [
             JSONBodyKeys.firstName: firstName as AnyObject,
@@ -142,6 +117,7 @@ extension ParseClient {
         
         taskForPutStudentLocation(objectId: objectId, method: method, jsonBody: jsonBody) { (results, error) in
         
+            // Check that there is no error
             if let error = error {
                 print(error)
                 completionHandlerForPut(false, "There was an error when trying to put the new student location")
@@ -149,13 +125,20 @@ extension ParseClient {
                 
                 // Confirm the results exist
                 guard let results = results as? [String:AnyObject] else {
-                    print("Couldn't get updatedAt")
-                    completionHandlerForPut(false, "Could not find the results")
+                    print("Couldn't get the results")
+                    completionHandlerForPut(false, "Could not find the results in taskForPutStudentLocation")
+                    return
+                }
+                
+                // Confirm the objectId exists
+                guard let objectId = results["objectId"] as? String else {
+                    print("Couldn't get the objectId")
+                    completionHandlerForPut(false, "Could not find the objectId in \(results)")
                     return
                 }
                     
                 // Assign objectId to user struct
-                user.objectId = objectId!
+                user.objectId = objectId
                 print("This is my objectId, created in the putStudentLocation function: \(objectId)")
                 completionHandlerForPut(true, nil)
             }
@@ -163,29 +146,6 @@ extension ParseClient {
     }
     
     func postStudentLocation(firstName: String, lastName: String, mapString: String, mediaURL: String, latitude: Double, longitude: Double, completionHandlerForPostStudentLocation: @escaping (_ success: Bool, _ error: String?) -> Void) {
-        
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(mapString) { (placemark, error) in
-            
-            guard let placemark = placemark else {
-                print(error!)
-                return
-            }
-            
-            guard let latitude = placemark[0].location?.coordinate.latitude else {
-                print("We couldn't find the fucking latitude, bro")
-                return
-            }
-            
-            guard let longitude = placemark[0].location?.coordinate.longitude else {
-                print("We couldn't find the fucking longitude, bro")
-                return
-            }
-            
-            locationData.latitude = latitude
-            locationData.longitude = longitude
-        
-        }
         
         let jsonBody: [String:AnyObject] = [
             JSONBodyKeys.firstName: firstName as AnyObject,
@@ -198,26 +158,32 @@ extension ParseClient {
         
         taskForPostStudentLocation(method: ParseClient.Methods.Location, jsonBody: jsonBody) { (data, error) in
             
-            // Guard that there is no error
+            // Check that there is no error
          	   if let error = error {
                 print(error)
                 completionHandlerForPostStudentLocation(false, "There was an error when trying to post location")
             } else {
+                    
+                // GUARD: Confirm the data exists
+                guard let data = data as? [String:AnyObject] else {
+                    print("The data did not exist")
+                    completionHandlerForPostStudentLocation(false, "Couldn't find the data in taskForPostStudentLocation")
+                    return
+                }
                 
                 // Get the createdAt date
-                guard let createdAt = jsonBody["createdAt"] as? String else {
-                    print(error)
+                guard let createdAt = data["createdAt"] as? String else {
                     completionHandlerForPostStudentLocation(false, "Couldn't find the createdAt key: \(error)")
                     return
                 }
                 
                 // Get the objectId
-                guard let objectId = jsonBody["objectId"] as? String else {
-                    print(error)
+                guard let objectId = data["objectId"] as? String else {
                     completionHandlerForPostStudentLocation(false, "Couldn't find the objectId: \(error)")
                     return
                 }
                 
+                // Assign objectId and createdAt to student location struct
                 user.objectId = objectId
                 user.createdAt = createdAt
             }

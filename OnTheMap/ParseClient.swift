@@ -161,7 +161,7 @@ class ParseClient: NSObject {
         task.resume()
     }
     
-    func taskForPutStudentLocation(objectId: String?, completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForPutStudentLocation(objectId: String?, method: String, jsonBody: [String:AnyObject], completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
         let urlString = "https://parse.udacity.com/parse/classes/StudentLocation/dIqcxfBwFp"
         let url = URL(string: urlString)
@@ -170,7 +170,12 @@ class ParseClient: NSObject {
         request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.ParameterKeys.ApplicationID)
         request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.ParameterKeys.RestAPIKey)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: String.Encoding.utf8)
+        
+        do {
+            request.httpBody = try! JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
+        }
+        
+        //request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             

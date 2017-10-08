@@ -110,14 +110,19 @@ class ParseClient: NSObject {
         task.resume()
     }
     
-    func taskForPostStudentLocation(name: String, mediaURL: String, completionHandlerForPOST: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForPostStudentLocation(method: String, jsonBody: [String:AnyObject], completionHandlerForPOST: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
         let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.httpMethod = "POST"
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.ParameterKeys.ApplicationID)
+        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.ParameterKeys.RestAPIKey)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Stinky\", \"lastName\": \"Pete\",\"mapString\": \"Palm Desert, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
+        
+        do {
+            request.httpBody = try! JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
+        }
+            
+            //"{\"uniqueKey\": \"1234\", \"firstName\": \"Stinky\", \"lastName\": \"Pete\",\"mapString\": \"Palm Desert, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
@@ -162,8 +167,8 @@ class ParseClient: NSObject {
         let url = URL(string: urlString)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "PUT"
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.ParameterKeys.ApplicationID)
+        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.ParameterKeys.RestAPIKey)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: String.Encoding.utf8)
         let session = URLSession.shared

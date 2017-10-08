@@ -48,13 +48,21 @@ class AddLocationViewController: UIViewController {
                     ParseClient.sharedInstance().getMyObjectID(uniqueKey: user.objectId) { (success, error) in
                         
                         if user.objectId == "" {
-                            ParseClient.sharedInstance().taskForPostStudentLocation(name: user.firstName, mediaURL: locationData.mediaURL, completionHandlerForPOST: { (results, error) in
+                            
+                            ParseClient.sharedInstance().postStudentLocation(firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaURL: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPostStudentLocation: { (success, error) in
+                                
+                                    performUIUpdatesOnMain {
+                                        if success {
+                                            print("We successfully posted the Student Location")
+                                    }
+                                }
                             })
+                            
                         } else {
-                            ParseClient.sharedInstance().taskForPostStudentLocation(name: user.firstName, mediaURL: locationData.mediaURL, completionHandlerForPOST: { (results, error) in
+                            
+                            ParseClient.sharedInstance().taskForPutStudentLocation(objectId: user.objectId, completionHandlerForPutMethod: { (results, error) in
                             })
                         }
-                        print("This function is being called")
                         if let error = error {
                             print(error)
                         } else {
@@ -69,18 +77,6 @@ class AddLocationViewController: UIViewController {
                     }
                 }
             })
-        }
-        
-        
-        
-        ParseClient.sharedInstance().taskForPostStudentLocation(name: locationTextField.text!, mediaURL: websiteTextField.text!) { (studentLocation, error) in
-            if let error = error {
-                print(error)
-            } else {
-                if let studentLocation = studentLocation {
-                    print("student location is \(studentLocation)")
-                }
-            }
         }
         
         ParseClient.sharedInstance().taskForPutStudentLocation(objectId: "AgaDXQdRtt") { (results, error) in

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension ParseClient {
     
@@ -133,31 +134,66 @@ extension ParseClient {
     }
  */
     
-    /*func postStudentLocation(name: String, mediaURL: String, completionHandlerForPostStudentLocation: @escaping (_ studentLocation: StudentLocation?, _ error: String?) -> Void) {
+    func postStudentLocation(firstName: String, lastName: String, mapString: String, mediaURL: String, latitude: Double, longitude: Double, completionHandlerForPostStudentLocation: @escaping (_ success: Bool, _ error: String?) -> Void) {
         
-        taskForPostStudentLocation(name: name, mediaURL: mediaURL) { (data, error) in
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(mapString) { (placemark, error) in
+            
+            guard let placemark = placemark else {
+                print(error!)
+                return
+            }
+            
+            guard let latitude = placemark[0].location?.coordinate.latitude else {
+                print("We couldn't find the fucking latitude, bro")
+                return
+            }
+            
+            guard let longitude = placemark[0].location?.coordinate.longitude else {
+                print("We couldn't find the fucking longitude, bro")
+                return
+            }
+        
+        }
+        
+        let jsonBody: [String:AnyObject] = [
+            JSONBodyKeys.firstName: firstName as AnyObject,
+            JSONBodyKeys.lastName: lastName as AnyObject,
+            JSONBodyKeys.mapString: mapString as AnyObject,
+            JSONBodyKeys.mediaURL: mediaURL as AnyObject,
+            JSONBodyKeys.latitude: latitude as AnyObject,
+            JSONBodyKeys.longitude: longitude as AnyObject
+        ]
+        
+        taskForPostStudentLocation(method: ParseClient.Methods.Location, jsonBody: jsonBody) { (data, error) in
             
             // Guard that there is no error
             if let error = error {
                 print(error)
-                completionHandlerForPostStudentLocation(nil, "There was an error when trying to post location")
+                completionHandlerForPostStudentLocation(false, "There was an error when trying to post location")
             } else {
                 
-                if let results = data?["results"] as? [[String:AnyObject]] {
-                    
-                    let studentLocations = StudentLocation.studentLocationsFromResults(results)
-                    
-                    for student in studentLocations {
-                        if name = results["firstName"] as? String {
-                            
-                        }
-                    }
-                    completionHandlerForPostStudentLocation(student, nil)
-                } else {
-                    completionHandlerForPostStudentLocation(nil, "Unable to get array of student locations")
+                // Get the createdAt date
+                guard let createdAt = jsonBody["createdAt"] as? String else {
+                    print(error)
+                    completionHandlerForPostStudentLocation(false, "Couldn't find the createdAt key: \(error)")
+                    return
                 }
+                
+                // Get the objectId
+                guard let objectId = jsonBody["objectId"] as? String else {
+                    print(error)
+                    completionHandlerForPostStudentLocation(false, "Couldn't find the objectId: \(error)")
+                    return
+                }
+                
+                user.objectId = objectId
+                user.createdAt = createdAt
             }
+            
+            completionHandlerForPostStudentLocation(true, nil)
         }
-    } */
+    }
 }
+
 

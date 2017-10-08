@@ -27,6 +27,18 @@ extension ParseClient {
         
     }
     
+    struct JSONBodyKeys {
+        
+        static let uniqueKey = "uniqueKey"
+        static let firstName = "firstName"
+        static let lastName = "lastName"
+        static let mediaURL = "mediaUrl"
+        static let mapString = "mapString"
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+
+    }
+    
     struct ParameterKeys {
         
         static let ApplicationID = "X-Parse-Application-Id"

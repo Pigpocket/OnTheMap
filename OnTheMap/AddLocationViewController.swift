@@ -54,49 +54,17 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 // If geocoding successful...
                 if success {
                     
-                    // Get my objectId
-                    ParseClient.sharedInstance().getMyObjectID(uniqueKey: user.objectId) { (success, error) in
-                        
-                        print("***The locationData prior to put function is: \n Latitude: \(locationData.latitude) \n \(locationData.longitude)")
-                        // If the objectId field in 'user' struct is empty...
-                        if user.objectId == "" {
-                            
-                            // Post my student location
-                            ParseClient.sharedInstance().postStudentLocation(firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaURL: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPostStudentLocation: { (success, error) in
-                                
-                                    // Update the UI
-                                    performUIUpdatesOnMain {
-                                        if success {
-                                            print("We successfully posted the Student Location")
-                                    }
-                                }
-                            })
-                            
-                        } else {
-                            
-                            print("***put Function is being called***")
-                            // Change my student location
-                            ParseClient.sharedInstance().putStudentLocation(objectId: user.objectId, firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
-                                
-                                // Update the UI
-                                performUIUpdatesOnMain {
-                                    if success == true {
-                                        print("Successfully completed putStudentLocation")
-                                        
-                                        // Ensure user struct has info in it
-                                        print("User name exists and first name is: \(user.firstName)")
-                                        print("Location exists and location text is: \(locationData.locationText)")
-                                    }
-                                }
-                            })
-                        }
-                    }
+                    // Present the ConfirmLocationViewController
+                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
+                    self.present(controller, animated: true, completion: nil)
+                } else {
+                    
+                    let alertController = UIAlertController()
+                    let alert = UIAlertAction(title: "Couldn't find that location", style: .cancel, handler: nil)
+                    alertController.addAction(alert)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             })
-        
-            // Present the ConfirmLocationViewController
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
-            self.present(controller, animated: true, completion: nil)
         }
     }
     

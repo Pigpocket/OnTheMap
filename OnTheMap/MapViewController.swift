@@ -23,8 +23,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Lifecycle
     
     override func viewDidLoad() {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         navigationController?.navigationBar.isHidden = false
+        
+        for annotation: MKAnnotation in mapView.annotations {
+            mapView.removeAnnotation(annotation)
+        }
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
@@ -57,13 +64,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             performUIUpdatesOnMain {
                 self.mapView.addAnnotations(annotations)
             }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        for annotation: MKAnnotation in mapView.annotations {
-            mapView.removeAnnotation(annotation)
         }
     }
     

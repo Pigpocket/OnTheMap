@@ -29,11 +29,9 @@ extension UdacityClient {
                 
             // Guard that "account" is in newData
             if let account = data[UdacityResponseKeys.Account] as? [String:AnyObject] {
-                print("account dictionary was extracted from parsedResults")
                     
                 // Extract account key and store in UdacityClient
                 if let accountKey = account[UdacityResponseKeys.AccountKey] as? String? {
-                    print("accountKey was extracted from account")
                     self.accountKey = accountKey
                 } else {
                     completionHandlerForAuthenticateUser(false, "Unable to extract account key")
@@ -42,11 +40,9 @@ extension UdacityClient {
                 
             // Guard that "session" is in newData
             if let session = data[UdacityClient.UdacityResponseKeys.Session] as? [String:AnyObject] {
-                print("Able to extract session dictionary")
                     
                 // Extract session id and store in UdacityClient
                 if let sessionID = session[UdacityClient.UdacityResponseKeys.SessionID] as? String? {
-                    print("Able to extract sessionID")
                     self.sessionID = sessionID
                     completionHandlerForAuthenticateUser(true, nil)
                 } else {

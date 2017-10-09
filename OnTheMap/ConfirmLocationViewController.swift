@@ -28,30 +28,31 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
-        // Set the annotation
+        // Set the coordinates
         let coordinates = CLLocationCoordinate2D(latitude: locationData.latitude, longitude: locationData.longitude)
+        print(coordinates)
         
         // Set the map region
-        
         let region = MKCoordinateRegionMake(coordinates, MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.delegate = self
         
-        
+        // Set the annotation
         let title = "\((user.firstName) + " " + (user.lastName))"
         let subtitle = locationData.mediaURL
         annotation.coordinate = coordinates
         annotation.title = title
         annotation.subtitle = subtitle
         
-        self.mapView.delegate = self
+        // Add the annotation
         mapView.addAnnotation(self.annotation)
-        
         self.mapView.addAnnotation(self.annotation)
-        self.mapView.setRegion(region, animated: true)
+        
         print("the current map region is: \(region)")
         
-        performUIUpdatesOnMain {
+        /*performUIUpdatesOnMain {
             
-        }
+        } */
     }
     
     // MARK: Actions

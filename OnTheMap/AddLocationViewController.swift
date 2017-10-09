@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Outlets
     
@@ -21,6 +21,9 @@ class AddLocationViewController: UIViewController {
     // MARK: Lifecycle
     
     override func viewDidLoad() {
+        
+        locationTextField.delegate = self
+        websiteTextField.delegate = self
     }
     
     // MARK: Actions

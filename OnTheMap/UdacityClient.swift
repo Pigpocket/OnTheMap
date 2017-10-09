@@ -63,7 +63,6 @@ class UdacityClient: NSObject {
             
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
-            print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
             
             /* 5. Parse the data */
             
@@ -83,7 +82,6 @@ class UdacityClient: NSObject {
             let userInfo = [NSLocalizedDescriptionKey: "Could not parse the data as JSON: \(data)"]
             completionHandlerForConvertData(nil, NSError(domain: "parseJSONObject", code: 0, userInfo: userInfo))
         }
-        print(parsedResult)
         completionHandlerForConvertData(parsedResult, nil)
     }
 

@@ -57,6 +57,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                     // Get my objectId
                     ParseClient.sharedInstance().getMyObjectID(uniqueKey: user.objectId) { (success, error) in
                         
+                        print("***The locationData prior to put function is: \n Latitude: \(locationData.latitude) \n \(locationData.longitude)")
                         // If the objectId field in 'user' struct is empty...
                         if user.objectId == "" {
                             

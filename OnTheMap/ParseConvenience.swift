@@ -58,6 +58,7 @@ extension ParseClient {
                     let myLocation = results[results.count - 1]
                     print("This is myLocation: \(myLocation)")
                     
+                    
                     // GUARD: Get my objectId
                     guard let objectId = myLocation["objectId"] as? String else {
                         print("Couldn't get objectId")
@@ -117,6 +118,7 @@ extension ParseClient {
         
         taskForPutStudentLocation(objectId: objectId, method: ParseClient.Methods.LocationSlash, jsonBody: jsonBody) { (results, error) in
         
+            print("taskforPutStudentLocation is being called")
             // Check that there is no error
             if let error = error {
                 print(error)

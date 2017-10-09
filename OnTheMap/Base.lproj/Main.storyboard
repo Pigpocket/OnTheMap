@@ -219,7 +219,11 @@
                                     <action selector="addLocationPressed:" destination="gJ8-rk-cKT" id="UhI-bE-3PF"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="H8Q-iV-JJi"/>
+                            <barButtonItem systemItem="refresh" id="H8Q-iV-JJi">
+                                <connections>
+                                    <action selector="refreshLocations:" destination="gJ8-rk-cKT" id="7Wc-Lf-NBs"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

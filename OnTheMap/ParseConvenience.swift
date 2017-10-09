@@ -12,9 +12,16 @@ import MapKit
 
 extension ParseClient {
     
-    func getStudentLocations(limit: Int!, skip: Int?, order: String? = "updateAt", completionHandlerForGetStudentLocations: @escaping (_ studentLocation: [StudentLocation]?, _ error: String?) -> Void) {
+    func getStudentLocations(completionHandlerForGetStudentLocations: @escaping (_ studentLocation: [StudentLocation]?, _ error: String?) -> Void) {
         
-        taskForGetManyLocations(limit, skip, order) { (data, error) in
+        let parameters: [String:AnyObject] = [
+            
+            JSONParameterKeys.limit: 100 as AnyObject,
+            JSONParameterKeys.skip: 4 as AnyObject,
+            JSONParameterKeys.order: "-updatedAt" as AnyObject
+        ]
+        
+        taskForGetManyLocations(method: Methods.Location, parameters: parameters) { (data, error) in
             
             // Guard that there is no error
             if let error = error {
@@ -37,7 +44,7 @@ extension ParseClient {
         
         let parameters = [ParseClient.Constants.WhereQuery: uniqueKey as AnyObject]
         
-        taskForGetStudentLocation(ParseClient.Methods.Location, parameters: parameters) { (results, error) in
+        taskForGetStudentLocation(method: ParseClient.Methods.Location, parameters: parameters) { (results, error) in
             
             // Guard that there is no error
             if let error = error {
@@ -83,16 +90,9 @@ extension ParseClient {
                     
                     // Assign values to user struct
                     user.objectId = objectId
-                    print("This is my objectId: \(objectId)")
-                    
                     user.firstName = firstName
-                    print("This is my first name: \(firstName)")
-                    
                     user.lastName = lastName
-                    print("This is my last name: \(lastName)")
-                    
                     user.uniqueKey = uniqueKey
-                    print("This is my unique key: \(uniqueKey)")
                     
                     completionHandlerForGetStudentLocation(true, nil)
                     

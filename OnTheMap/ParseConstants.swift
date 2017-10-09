@@ -27,6 +27,8 @@ extension ParseClient {
         
         static let parseBaseURL = "https://parse.udacity.com/parse/classes/"
         
+        
+        
     }
     
     struct JSONBodyKeys {
@@ -47,6 +49,10 @@ extension ParseClient {
         
         static let ApplicationID = "X-Parse-Application-Id"
         static let RestAPIKey = "X-Parse-REST-API-Key"
+        
+        static let limit = "limit"
+        static let skip = "skip"
+        static let order = "order"
         
     }
     

@@ -29,7 +29,7 @@ class TableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        ParseClient.sharedInstance().getStudentLocations(limit: 5, skip: 10, order: "") { (studentLocations, error) in
+        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 performUIUpdatesOnMain {

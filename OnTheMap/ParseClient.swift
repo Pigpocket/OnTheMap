@@ -15,12 +15,14 @@ class ParseClient: NSObject {
     
     var studentLocation: [StudentLocation] = []
     
-    func taskForGetManyLocations(_ limit: Int!, _ skip: Int?, _ order: String?, completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForGetManyLocations(method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
     
-        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=10")!)
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        // Make the URL request
+        let request = NSMutableURLRequest(url: parseURLFromParametersForGET(parameters, withPathExtension: method))
+        request.addValue(Constants.ParseApplicationID, forHTTPHeaderField: JSONParameterKeys.ApplicationID)
+        request.addValue(Constants.ApiKey, forHTTPHeaderField: JSONParameterKeys.RestAPIKey)
     
+        // Make the task
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
         
             /* GUARD: Was there an error */
@@ -51,11 +53,8 @@ class ParseClient: NSObject {
                 completionHandlerForGET(nil, NSError(domain: "taskForGetStudentLocation", code: 1, userInfo: userInfo))
                 return
             }
-        
-            //print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
-        
-            /* Parse the data */
-        
+
+            /* Parse the data */        
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForGET)
         
         }
@@ -63,9 +62,9 @@ class ParseClient: NSObject {
         task.resume()
     }
     
-    func taskForGetStudentLocation(_ method: String, parameters: [String:AnyObject], completionHandlerForGetStudentLocationParse: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForGetStudentLocation(method: String, parameters: [String:AnyObject], completionHandlerForGetStudentLocationParse: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        let urlString = "https://parse.udacity.com/parse/classes/StudentLocation"
+        let urlString = ParseClient.Constants.parseBaseURL + method
         let url = URL(string: urlString)
         print(parseURLFromParameters(parameters, withPathExtension: method))
         let request = NSMutableURLRequest(url: url!)
@@ -243,6 +242,23 @@ class ParseClient: NSObject {
             components.queryItems!.append(queryItem)
         }
 
+        return components.url!
+    }
+    
+    private func parseURLFromParametersForGET(_ parameters: [String: AnyObject], withPathExtension: String? = nil) -> URL {
+        
+        var components = URLComponents()
+        components.scheme = Constants.ApiScheme
+        components.host = Constants.ApiHost
+        components.path = Constants.ApiPath + (withPathExtension ?? "")
+        components.queryItems = [URLQueryItem]()
+        
+        for (key, value) in parameters {
+            
+            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            components.queryItems!.append(queryItem)
+        }
+        
         return components.url!
     }
 

@@ -26,7 +26,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         navigationController?.navigationBar.isHidden = false
         
-        ParseClient.sharedInstance().getStudentLocations(limit: 5, skip: 10, order: "") { (studentLocations, error) in
+        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
                 self.locations = studentLocations
             }

@@ -20,7 +20,7 @@ class UdacityClient: NSObject {
     func taskForPOSTSession(email:String, password:String, completionHandlerForPostSession: @escaping (_ data:AnyObject?, _ error: NSError?) -> Void) {
     
         // Make the request
-        let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
+        let request = NSMutableURLRequest(url: URL(string: UdacityClient.Constants.UdacityBaseURL + UdacityClient.Method.Session)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

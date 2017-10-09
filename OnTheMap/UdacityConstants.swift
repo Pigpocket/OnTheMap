@@ -14,6 +14,7 @@ extension UdacityClient {
     // MARK: Constants
     struct Constants {
         
+        static let UdacityBaseURL = "https://www.udacity.com/api/"
     }
     
     struct Method {

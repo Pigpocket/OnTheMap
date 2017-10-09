@@ -70,8 +70,8 @@ class ParseClient: NSObject {
         print(parseURLFromParameters(parameters, withPathExtension: method))
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
-        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.ParameterKeys.ApplicationID)
-        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.ParameterKeys.RestAPIKey)
+        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.JSONParameterKeys.ApplicationID)
+        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.JSONParameterKeys.RestAPIKey)
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
             guard error == nil else {
@@ -114,8 +114,8 @@ class ParseClient: NSObject {
         
         let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.httpMethod = "POST"
-        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.ParameterKeys.ApplicationID)
-        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.ParameterKeys.RestAPIKey)
+        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.JSONParameterKeys.ApplicationID)
+        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.JSONParameterKeys.RestAPIKey)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
@@ -161,14 +161,14 @@ class ParseClient: NSObject {
         task.resume()
     }
     
-    func taskForPutStudentLocation(objectId: String?, method: String, jsonBody: [String:AnyObject], completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForPutStudentLocation(objectId: String, method: String, jsonBody: [String:AnyObject], completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        let urlString = "https://parse.udacity.com/parse/classes/StudentLocation/dIqcxfBwFp"
+        let urlString = ParseClient.Constants.parseBaseURL + method + objectId
         let url = URL(string: urlString)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "PUT"
-        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.ParameterKeys.ApplicationID)
-        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.ParameterKeys.RestAPIKey)
+        request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.JSONParameterKeys.ApplicationID)
+        request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.JSONParameterKeys.RestAPIKey)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
@@ -176,6 +176,7 @@ class ParseClient: NSObject {
         }
         
         //request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: String.Encoding.utf8)
+        
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             

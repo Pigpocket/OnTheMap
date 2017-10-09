@@ -104,7 +104,7 @@ extension ParseClient {
         }
     }
     
-    func putStudentLocation(objectId: String?, method: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Double, longitude: Double, completionHandlerForPut: @escaping (_ success: Bool, _ error: String?) -> Void) {
+    func putStudentLocation(objectId: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Double, longitude: Double, completionHandlerForPut: @escaping (_ success: Bool, _ error: String?) -> Void) {
             
         let jsonBody: [String: AnyObject] = [
             JSONBodyKeys.firstName: firstName as AnyObject,
@@ -115,7 +115,7 @@ extension ParseClient {
             JSONBodyKeys.longitude: longitude as AnyObject
         ]
         
-        taskForPutStudentLocation(objectId: objectId, method: method, jsonBody: jsonBody) { (results, error) in
+        taskForPutStudentLocation(objectId: objectId, method: ParseClient.Methods.LocationSlash, jsonBody: jsonBody) { (results, error) in
         
             // Check that there is no error
             if let error = error {
@@ -130,16 +130,7 @@ extension ParseClient {
                     return
                 }
                 
-                // Confirm the objectId exists
-                guard let objectId = results["objectId"] as? String else {
-                    print("Couldn't get the objectId")
-                    completionHandlerForPut(false, "Could not find the objectId in \(results)")
-                    return
-                }
-                    
-                // Assign objectId to user struct
-                user.objectId = objectId
-                print("This is my objectId, created in the putStudentLocation function: \(objectId)")
+                print(results)
                 completionHandlerForPut(true, nil)
             }
         }
@@ -182,6 +173,8 @@ extension ParseClient {
                     completionHandlerForPostStudentLocation(false, "Couldn't find the objectId: \(error)")
                     return
                 }
+                    
+                    print("The data for posting student locations looks like this: \(data)")
                 
                 // Assign objectId and createdAt to student location struct
                 user.objectId = objectId

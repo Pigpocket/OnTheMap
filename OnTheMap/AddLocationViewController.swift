@@ -72,7 +72,7 @@ class AddLocationViewController: UIViewController {
                             
                             print("***put Function is being called***")
                             // Change my student location
-                            ParseClient.sharedInstance().putStudentLocation(objectId: user.objectId, method: "", firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
+                            ParseClient.sharedInstance().putStudentLocation(objectId: user.objectId, firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
                                 
                                 // Update the UI
                                 performUIUpdatesOnMain {

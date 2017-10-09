@@ -25,9 +25,13 @@ extension ParseClient {
         static let AuthorizationURL = ""
         static let WhereQuery = "where"
         
+        static let parseBaseURL = "https://parse.udacity.com/parse/classes/"
+        
     }
     
     struct JSONBodyKeys {
+        
+        static let udacity = "udacity"
         
         static let uniqueKey = "uniqueKey"
         static let firstName = "firstName"
@@ -39,15 +43,19 @@ extension ParseClient {
 
     }
     
-    struct ParameterKeys {
+    struct JSONParameterKeys {
         
         static let ApplicationID = "X-Parse-Application-Id"
         static let RestAPIKey = "X-Parse-REST-API-Key"
+        
     }
     
     struct Methods {
         
         static let Location = "StudentLocation"
+        static let LocationSlash = "StudentLocation/"
+        
+        static let Session = "session"
         
     }
     

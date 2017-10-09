@@ -40,26 +40,23 @@ class TableViewController: UIViewController {
             }
         }
     }
-
-    
-    deinit {
-        print("The TableViewController was deinitialized")
-    }
     
     @IBAction func refreshLocations(_ sender: Any) {
-        
-        print("Is this shit being called???")
+
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 performUIUpdatesOnMain {
                     self.studentLocationsTableView.reloadData()
-                    print("Data is being reloaded")
                 }
             } else {
                 print(error ?? "empty error")
             }
         }
+    }
+    
+    deinit {
+        print("The TableViewController was deinitialized")
     }
 }
 

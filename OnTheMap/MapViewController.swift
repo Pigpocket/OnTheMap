@@ -99,6 +99,46 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func refreshPins(_ sender: Any) {
+    
+        for annotation: MKAnnotation in mapView.annotations {
+            mapView.removeAnnotation(annotation)
+        }
+        
+        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            if let studentLocations = studentLocations {
+                self.locations = studentLocations
+            }
+            
+            var annotations = [MKPointAnnotation]()
+            
+            for dictionary in self.locations {
+                
+                let lat = CLLocationDegrees(dictionary.latitude)
+                let long = CLLocationDegrees(dictionary.longitude)
+                
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                
+                let first = dictionary.firstName
+                let last = dictionary.lastName
+                let mediaURL = dictionary.mediaURL
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = "\(first) \(last)"
+                annotation.subtitle = mediaURL
+                
+                annotations.append(annotation)
+            }
+            
+            self.mapView.delegate = self
+            
+            performUIUpdatesOnMain {
+                self.mapView.addAnnotations(annotations)
+            }
+        }
+    }
+    
     deinit {
         print("The MapViewController was deinitialized")
     }

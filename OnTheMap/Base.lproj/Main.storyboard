@@ -266,7 +266,11 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="0CT-UH-qVr"/>
-                            <barButtonItem systemItem="refresh" id="U3g-q8-mpo"/>
+                            <barButtonItem systemItem="refresh" id="U3g-q8-mpo">
+                                <connections>
+                                    <action selector="refreshPins:" destination="1OG-0k-KXZ" id="kJQ-48-7jH"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

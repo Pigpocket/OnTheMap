@@ -265,7 +265,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_pin.png" id="0CT-UH-qVr"/>
+                            <barButtonItem image="icon_pin.png" id="0CT-UH-qVr">
+                                <connections>
+                                    <action selector="addLocationPressed:" destination="1OG-0k-KXZ" id="X7w-yt-iuK"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="refresh" id="U3g-q8-mpo">
                                 <connections>
                                     <action selector="refreshPins:" destination="1OG-0k-KXZ" id="kJQ-48-7jH"/>

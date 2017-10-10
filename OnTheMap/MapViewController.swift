@@ -139,6 +139,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    @IBAction func addLocationPressed(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     deinit {
         print("The MapViewController was deinitialized")
     }

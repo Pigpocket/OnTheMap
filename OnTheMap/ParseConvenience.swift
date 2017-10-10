@@ -44,6 +44,8 @@ extension ParseClient {
         
         let parameters = [ParseClient.Constants.WhereQuery: uniqueKey as AnyObject]
         
+        //https://parse.udacity.com/parse/classes/StudentLocation?where={"uniqueKey":"1234"}
+        
         taskForGetStudentLocation(method: ParseClient.Methods.Location, parameters: parameters) { (results, error) in
             
             // Guard that there is no error
@@ -90,10 +92,10 @@ extension ParseClient {
                     // GUARD: Get my userId???
                     
                     // Assign values to user struct
-                    user.objectId = objectId
-                    user.firstName = firstName
-                    user.lastName = lastName
-                    user.uniqueKey = uniqueKey
+                    User.shared.objectId = objectId
+                    User.shared.firstName = firstName
+                    User.shared.lastName = lastName
+                    User.shared.uniqueKey = uniqueKey
                     
                     completionHandlerForGetStudentLocation(true, nil)
                     
@@ -176,16 +178,27 @@ extension ParseClient {
                     return
                 }
                     
-                    print("The data for posting student locations looks like this: \(data)")
+                    //print("The data for posting student locations looks like this: \(data)")
                 
                 // Assign objectId and createdAt to student location struct
-                user.objectId = objectId
-                user.createdAt = createdAt
+                User.shared.objectId = objectId
+                User.shared.createdAt = createdAt
             }
             
             completionHandlerForPostStudentLocation(true, nil)
         }
     }
 }
+// **** UDACITY API  => UdacityStudent struct -> uniquekey, fname,lname and objectId
+
+// Login _. UniqueKey
+// First name and last name from UDacity server -> get GETting Public User Data
+
+//
+// *** taps on post location
+// location // a location => logged in user => object Id
+// finish
+//First getObjectId -> POST and PUT working
+//Flow -> userId before user location is posted / put
 
 

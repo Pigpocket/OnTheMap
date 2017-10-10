@@ -61,14 +61,63 @@ class UdacityClient: NSObject {
                 return
             }
             
+            
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
+            //print("This is the taskForPostSessionData: \n \(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!) \n")
             
             /* 5. Parse the data */
             
             self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForPostSession)
             
             })
+        task.resume()
+    }
+    
+    func taskForGETPublicUserData(method: String, uniqueKey: String, completionHandlerForGetPublicUserData: @escaping (_ data: AnyObject?, _ error: NSError?) -> Void) {
+        
+        // Make the request
+        let request = NSMutableURLRequest(url: URL(string: Constants.UdacityBaseURL + method + uniqueKey)!)
+        print(request)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
+            guard error == nil else {
+                let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
+                completionHandlerForGetPublicUserData(nil, NSError(domain: "taskForGETPublicUserData", code: 1, userInfo: userInfo))
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                if let response = response as? HTTPURLResponse {
+                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
+                    completionHandlerForGetPublicUserData(nil, NSError(domain: "taskForGETPublicUserData", code: 0, userInfo: userInfo))
+                } else if let response = response {
+                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
+                    completionHandlerForGetPublicUserData(nil, NSError(domain: "taskForGETPublicUserData", code: 1, userInfo: userInfo))
+                } else {
+                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response!"]
+                    completionHandlerForGetPublicUserData(nil, NSError(domain: "taskForGETPublicUserData", code: 2, userInfo: userInfo))
+                }
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
+                completionHandlerForGetPublicUserData(nil, NSError(domain: "taskForGETPublicUserData", code: 1, userInfo: userInfo))
+                return
+            }
+            
+            let range = Range(5..<data.count)
+            let newData = data.subdata(in: range) /* subset response data! */
+            //print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
+            
+            self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForGetPublicUserData)
+            
+        }
+        
         task.resume()
     }
     

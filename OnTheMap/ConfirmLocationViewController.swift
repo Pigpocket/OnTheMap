@@ -38,7 +38,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         
         // Set the annotation
-        let title = "\((user.firstName) + " " + (user.lastName))"
+        let title = "\((User.shared.firstName) + " " + (User.shared.lastName))"
         let subtitle = locationData.mediaURL
         annotation.coordinate = coordinates
         annotation.title = title
@@ -63,14 +63,14 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     @IBAction func finishPressed(_ sender: Any) {
         
         // Get my objectId
-        ParseClient.sharedInstance().getMyObjectID(uniqueKey: user.objectId) { (success, error) in
+        ParseClient.sharedInstance().getMyObjectID(uniqueKey: User.shared.objectId) { (success, error) in
             
             print("***The locationData prior to put function is: \n Latitude: \(locationData.latitude) \n \(locationData.longitude)")
             // If the objectId field in 'user' struct is empty...
-            if user.objectId == "" {
+            if User.shared.objectId == "" {
                 
                 // Post my student location
-                ParseClient.sharedInstance().postStudentLocation(firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaURL: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPostStudentLocation: { (success, error) in
+                ParseClient.sharedInstance().postStudentLocation(firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: locationData.locationText, mediaURL: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPostStudentLocation: { (success, error) in
                     
                     // Update the UI
                     performUIUpdatesOnMain {
@@ -85,7 +85,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                 
                 print("***put Function is being called***")
                 // Change my student location
-                ParseClient.sharedInstance().putStudentLocation(objectId: user.objectId, firstName: user.firstName, lastName: user.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
+                ParseClient.sharedInstance().putStudentLocation(objectId: User.shared.objectId, firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
                     
                     // Update the UI
                     performUIUpdatesOnMain {
@@ -93,7 +93,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                             print("Successfully completed putStudentLocation")
                             
                             // Ensure user struct has info in it
-                            print("User name exists and first name is: \(user.firstName)")
+                            print("User name exists and first name is: \(User.shared.firstName)")
                             print("Location exists and location text is: \(locationData.locationText)")
                         }
                     }
@@ -112,3 +112,8 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     }
 
 }
+
+//objectId -> getObject
+
+// POST
+//PUT

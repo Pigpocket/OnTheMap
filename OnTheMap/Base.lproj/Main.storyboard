@@ -314,14 +314,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kY0-7X-Z3L">
                                                 <rect key="frame" x="0.0" y="0.0" width="244" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dra-ZP-gI6" userLabel="Username Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-sf-kdG">
-                                                        <rect key="frame" x="91.5" y="0.0" width="152.5" height="30"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-sf-kdG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="244" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -331,14 +325,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="CjD-2p-ObL">
                                                 <rect key="frame" x="0.0" y="38" width="244" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-m9-FMF" userLabel="Password Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCI-Di-P9a">
-                                                        <rect key="frame" x="91.5" y="0.0" width="152.5" height="30"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCI-Di-P9a">
+                                                        <rect key="frame" x="0.0" y="0.0" width="244" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -381,9 +369,7 @@
                     <connections>
                         <outlet property="loginButton" destination="pXP-6D-Kpr" id="HTx-RQ-Nx2"/>
                         <outlet property="loginImageView" destination="akb-cO-NjK" id="LmN-aN-JXD"/>
-                        <outlet property="passwordLabel" destination="cdR-m9-FMF" id="cuT-EP-MVM"/>
                         <outlet property="passwordTextField" destination="OCI-Di-P9a" id="H3A-Bq-pQK"/>
-                        <outlet property="usernameLabel" destination="dra-ZP-gI6" id="SzA-7O-vyA"/>
                         <outlet property="usernameTextField" destination="eJm-sf-kdG" id="vMa-r1-EYW"/>
                     </connections>
                 </viewController>

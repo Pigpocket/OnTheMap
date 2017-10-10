@@ -15,12 +15,14 @@ extension UdacityClient {
     struct Constants {
         
         static let UdacityBaseURL = "https://www.udacity.com/api/"
+        static let SessionURL = "https://www.udacity.com/api/session"
     }
     
     struct Method {
         
         static let Session = "session"
-        //static let SessionURL = "https://www.udacity.com/api/session"
+        static let Users = "users/"
+        
     }
     
     struct JSONBodyKeys {

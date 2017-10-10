@@ -34,20 +34,37 @@ class LoginViewController: UIViewController {
         
         } else {
             
+            performUIUpdatesOnMain {
+                
             // Authenticate the user
-            UdacityClient.sharedInstance().authenticateUser(email: usernameTextField.text!, password: passwordTextField.text!) { (success, error) in
+            UdacityClient.sharedInstance().authenticateUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!) { (success, error) in
                 
+                // If authentication is successful...
                 if success == true {
+                    
                     self.completeLogin()
+                    
+                }
                 
-                } else {
-                    OperationQueue.main.addOperation {
-                    self.connectionFailureAlert(error!)
-                    }
+                    // Get the Udacity Public User Data
+                    UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.userId, completionHandlerForGetPublicUserData: { (success, error) in
+                        
+                        print("getUdacityPublicUserData is actually being called")
+                        // If sucessful...
+                        if success == true {
+                        
+                            print("***This shit ran successfully***")
+                        } else {
+                            OperationQueue.main.addOperation {
+                                print(error)
+                            }
+                        }
+                    })
                 }
             }
         }
     }
+    
     
     func completeLogin() {
         performUIUpdatesOnMain {

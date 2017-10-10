@@ -11,6 +11,8 @@ import UIKit
 
 struct User {
     
+    static var shared: User = User()
+    
     var firstName: String = ""
     var lastName: String = ""
     var userId: String = ""
@@ -20,4 +22,3 @@ struct User {
     
 }
 
-var user = User()

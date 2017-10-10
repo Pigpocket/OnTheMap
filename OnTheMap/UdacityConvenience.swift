@@ -32,7 +32,8 @@ extension UdacityClient {
                     
                 // Extract account key and store in UdacityClient
                 if let accountKey = account[UdacityResponseKeys.AccountKey] as? String? {
-                    self.accountKey = accountKey
+                    //self.accountKey = accountKey
+                    User.shared.userId = accountKey!
                 } else {
                     completionHandlerForAuthenticateUser(false, "Unable to extract account key")
                 }
@@ -49,6 +50,64 @@ extension UdacityClient {
                     completionHandlerForAuthenticateUser(false, "There ain't no session ID, pal")
                     }
                 }
+            }
+            
+            
+            
+            //get public data
+            // firstname and lastname -> Udacity API
+        }
+    }
+    
+    func getUdacityPublicUserData(uniqueKey: String, completionHandlerForGetPublicUserData: @escaping (_ success: Bool, _ error: String?) -> Void) {
+        
+        
+        taskForGETPublicUserData(method: Method.Users, uniqueKey: uniqueKey) { (data, error) in
+            
+            // Check for an error
+            if let error = error {
+                print(error)
+                completionHandlerForGetPublicUserData(false, "There was an error getting public user data")
+            }
+            
+            // GUARD: Check data exists
+            
+            guard let data = data as? [String:AnyObject] else {
+                completionHandlerForGetPublicUserData(false, "Could not retrieve the public user data")
+                return
+            }
+            
+            //print("This is the taskForGETPublicUserData: \n \(data)")
+            
+            // GUARD: The first name exists
+            guard let firstName = data["first_name"] as? String else {
+                completionHandlerForGetPublicUserData(false, "Could not find key 'firstName'")
+                return
+            }
+            
+            // GUARD: The last name exists
+            guard let lastName = data["last_name"] as? String else {
+                completionHandlerForGetPublicUserData(false, "Could not find key 'lastName'")
+                return
+            }
+            
+            // GUARD: The object ID exists
+            guard let key = data["key"] as? String else {
+                completionHandlerForGetPublicUserData(false, "Could not find key 'key'")
+                return
+            }
+            
+            //print("This is the taskForGETPublicUserData: \(data) \n")
+            
+            performUIUpdatesOnMain {
+                User.shared.firstName = firstName
+                print("firstName = \(firstName)")
+                User.shared.lastName = lastName
+                print("lastName = \(lastName)")
+                User.shared.userId = key
+                print("userId = \(key)")
+                
+                completionHandlerForGetPublicUserData(true, nil)
             }
         }
     }

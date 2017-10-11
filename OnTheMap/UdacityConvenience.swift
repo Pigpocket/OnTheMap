@@ -72,12 +72,10 @@ extension UdacityClient {
             
             // GUARD: Check data exists
             
-            guard let data = data as? [String:AnyObject] else {
+            guard let data = data!["user"] as? [String:AnyObject] else {
                 completionHandlerForGetPublicUserData(false, "Could not retrieve the public user data")
                 return
             }
-            
-            //print("This is the taskForGETPublicUserData: \n \(data)")
             
             // GUARD: The first name exists
             guard let firstName = data["first_name"] as? String else {
@@ -93,11 +91,9 @@ extension UdacityClient {
             
             // GUARD: The object ID exists
             guard let key = data["key"] as? String else {
-                completionHandlerForGetPublicUserData(false, "Could not find key 'key'")
+                completionHandlerForGetPublicUserData(false, "Could not find key")
                 return
             }
-            
-            //print("This is the taskForGETPublicUserData: \(data) \n")
             
             performUIUpdatesOnMain {
                 User.shared.firstName = firstName
@@ -112,4 +108,5 @@ extension UdacityClient {
         }
     }
 }
+
 

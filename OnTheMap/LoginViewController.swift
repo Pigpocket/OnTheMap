@@ -48,12 +48,10 @@ class LoginViewController: UIViewController {
                 
                     // Get the Udacity Public User Data
                     UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.userId, completionHandlerForGetPublicUserData: { (success, error) in
-                        
-                        print("getUdacityPublicUserData is actually being called")
+
                         // If sucessful...
                         if success == true {
-                        
-                            print("***This shit ran successfully***")
+
                         } else {
                             OperationQueue.main.addOperation {
                                 print(error)

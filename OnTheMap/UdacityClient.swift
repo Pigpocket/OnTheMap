@@ -78,7 +78,6 @@ class UdacityClient: NSObject {
         
         // Make the request
         let request = NSMutableURLRequest(url: URL(string: Constants.UdacityBaseURL + method + uniqueKey)!)
-        print(request)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             

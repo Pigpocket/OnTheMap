@@ -10,6 +10,7 @@ struct StudentLocation {
     
     // MARK: Properties
     
+    var createdAt = ""
     var objectID = ""
     var uniqueKey = ""
     var firstName = ""
@@ -22,6 +23,9 @@ struct StudentLocation {
     // construct a StudentLocation from a dictionary
     init(dictionary: [String:AnyObject]) {
         
+        if let createdAt = dictionary["createdAt"] as? String {
+            self.createdAt = createdAt
+        }
         if let objectID = dictionary["objectId"] as? String {
             self.objectID = objectID
         }
@@ -59,4 +63,6 @@ struct StudentLocation {
         
         return studentLocations
     }
+    
+    
 }

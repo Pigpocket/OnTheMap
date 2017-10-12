@@ -68,20 +68,6 @@ extension ParseClient {
                         return
                     }
                     
-                    // GUARD: Get my first name
-                    guard let firstName = myLocation["firstName"] as? String else {
-                        print("Couldn't get first name")
-                        completionHandlerForGetStudentLocation(false, "Couldn't get first name in \(results)")
-                        return
-                    }
-                    
-                    // GUARD: Get my last name
-                    guard let lastName = myLocation["lastName"] as? String else {
-                        print("Couldn't get last name")
-                        completionHandlerForGetStudentLocation(false, "Couldn't get last name in \(results)")
-                        return
-                    }
-                    
                     // GUARD: Get my unique key
                     guard let uniqueKey = myLocation["uniqueKey"] as? String else {
                         print ("Couldn't get unique key")
@@ -93,8 +79,8 @@ extension ParseClient {
                     
                     // Assign values to user struct
                     User.shared.objectId = objectId
-                    User.shared.firstName = firstName
-                    User.shared.lastName = lastName
+                    //User.shared.firstName = firstName
+                    //User.shared.lastName = lastName
                     User.shared.uniqueKey = uniqueKey
                     
                     completionHandlerForGetStudentLocation(true, nil)
@@ -107,18 +93,17 @@ extension ParseClient {
         }
     }
     
-    func putStudentLocation(objectId: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Double, longitude: Double, completionHandlerForPut: @escaping (_ success: Bool, _ error: String?) -> Void) {
+    func putStudentLocation(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Double, longitude: Double, completionHandlerForPut: @escaping (_ success: Bool, _ error: String?) -> Void) {
             
         let jsonBody: [String: AnyObject] = [
+            JSONBodyKeys.uniqueKey: uniqueKey as AnyObject,
             JSONBodyKeys.firstName: firstName as AnyObject,
             JSONBodyKeys.lastName: lastName as AnyObject,
-            JSONBodyKeys.mapString: mapString as AnyObject,
             JSONBodyKeys.mediaURL: mediaUrl as AnyObject,
-            JSONBodyKeys.latitude: latitude as AnyObject,
-            JSONBodyKeys.longitude: longitude as AnyObject
+            JSONBodyKeys.mapString: mapString as AnyObject,
         ]
         
-        taskForPutStudentLocation(objectId: objectId, method: ParseClient.Methods.LocationSlash, jsonBody: jsonBody) { (results, error) in
+        taskForPutStudentLocation(objectId: User.shared.objectId, method: ParseClient.Methods.LocationSlash, jsonBody: jsonBody) { (results, error) in
         
             print("taskforPutStudentLocation is being called")
             // Check that there is no error
@@ -134,8 +119,20 @@ extension ParseClient {
                     return
                 }
                 
+                // Get the createdAt date
+                guard let updatedAt = results["updatedAt"] as? String else {
+                    print("Couldn't get the createdAt date")
+                    completionHandlerForPut(false, "Couldn't get the updatedAt date in results")
+                    return
+                }
+                
+                performUIUpdatesOnMain {
+                    
+                User.shared.updatedAt = updatedAt
+                
                 print(results)
                 completionHandlerForPut(true, nil)
+                }
             }
         }
     }
@@ -179,13 +176,15 @@ extension ParseClient {
                 }
                     
                     //print("The data for posting student locations looks like this: \(data)")
-                
+                    performUIUpdatesOnMain {
+                        
                 // Assign objectId and createdAt to student location struct
                 User.shared.objectId = objectId
                 User.shared.createdAt = createdAt
+                    
+                completionHandlerForPostStudentLocation(true, nil)
+                }
             }
-            
-            completionHandlerForPostStudentLocation(true, nil)
         }
     }
 }

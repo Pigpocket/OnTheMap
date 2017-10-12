@@ -106,6 +106,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            
+            performUIUpdatesOnMain {
+            
             if let studentLocations = studentLocations {
                 self.locations = studentLocations
             }
@@ -132,10 +135,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             
             self.mapView.delegate = self
+            self.mapView.addAnnotations(annotations)
             
-            performUIUpdatesOnMain {
-                self.mapView.addAnnotations(annotations)
             }
+            
+            print("These are the locations after refreshingL: \(self.locations)")
         }
     }
     

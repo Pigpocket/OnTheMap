@@ -21,6 +21,7 @@ class ParseClient: NSObject {
         let request = NSMutableURLRequest(url: parseURLFromParametersForGET(parameters, withPathExtension: method))
         request.addValue(Constants.ParseApplicationID, forHTTPHeaderField: JSONParameterKeys.ApplicationID)
         request.addValue(Constants.ApiKey, forHTTPHeaderField: JSONParameterKeys.RestAPIKey)
+        print(request)
     
         // Make the task
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
@@ -102,8 +103,7 @@ class ParseClient: NSObject {
             }
             
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForGetStudentLocationParse)
-            //print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
-            print("This is the data that was extracted from getStudentLocation: \(data)")
+            print("\n This is the data that was extracted from getStudentLocation: \n \(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!) \n")
             
         }
         task.resume()
@@ -163,6 +163,7 @@ class ParseClient: NSObject {
     func taskForPutStudentLocation(objectId: String, method: String, jsonBody: [String:AnyObject], completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
         let urlString = ParseClient.Constants.parseBaseURL + method + objectId
+        print(urlString)
         let url = URL(string: urlString)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "PUT"
@@ -209,8 +210,7 @@ class ParseClient: NSObject {
             }
             
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForPutMethod)
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
-            print("This is what the PUT data looks like: \(data)")
+            print("This is what the PUT data looks like: \n \(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)")
         }
         task.resume()
     }

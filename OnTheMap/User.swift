@@ -18,6 +18,7 @@ struct User {
     var userId: String = ""
     var objectId: String = ""
     var uniqueKey: String = ""
+    var updatedAt: String = ""
     var createdAt: String = ""
     
 }

@@ -12,6 +12,10 @@ import MapKit
 
 class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: Properties
+    
+    var user = User()
+    
     // MARK: Outlets
     
     @IBOutlet weak var locationTextField: UITextField!

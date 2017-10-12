@@ -63,7 +63,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     @IBAction func finishPressed(_ sender: Any) {
         
         // Get my objectId
-        ParseClient.sharedInstance().getMyObjectID(uniqueKey: User.shared.objectId) { (success, error) in
+        ParseClient.sharedInstance().getMyObjectID(uniqueKey: User.shared.uniqueKey) { (success, error) in
             
             print("***The locationData prior to put function is: \n Latitude: \(locationData.latitude) \n \(locationData.longitude)")
             // If the objectId field in 'user' struct is empty...
@@ -85,25 +85,26 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                 
                 print("***put Function is being called***")
                 // Change my student location
-                ParseClient.sharedInstance().putStudentLocation(objectId: User.shared.objectId, firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
+                ParseClient.sharedInstance().putStudentLocation(uniqueKey: User.shared.uniqueKey, firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
                     
-                    // Update the UI
-                    performUIUpdatesOnMain {
+                    
+                    
                         if success == true {
                             print("Successfully completed putStudentLocation")
                             
                             // Ensure user struct has info in it
-                            print("User name exists and first name is: \(User.shared.firstName)")
-                            print("Location exists and location text is: \(locationData.locationText)")
-                        }
+                            print("Name: \(User.shared.firstName) \(User.shared.lastName)")
+                            print("UniqueKey: \(User.shared.uniqueKey)")
+                            print("Location exists: \(locationData.locationText)")
+                            }
+                        })
                     }
-                })
-            }
-        }
+                }
         
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.present(controller, animated: true, completion: nil)
-    }
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(controller, animated: true, completion: nil)
+        }
+    
     
     
     

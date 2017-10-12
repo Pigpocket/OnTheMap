@@ -32,7 +32,9 @@ extension ParseClient {
                 if let results = data?["results"] as? [[String:AnyObject]] {
                     
                     let studentLocations = StudentLocation.studentLocationsFromResults(results)
+                    
                     completionHandlerForGetStudentLocations(studentLocations, nil)
+                    print(studentLocations)
                 } else {
                     completionHandlerForGetStudentLocations(nil, "Unable to get array of student locations")
                 }
@@ -43,6 +45,8 @@ extension ParseClient {
     func getMyObjectID(uniqueKey: String, completionHandlerForGetStudentLocation: @escaping (_ success: Bool, _ error: String?) -> Void) {
         
         let parameters = [ParseClient.Constants.WhereQuery: uniqueKey as AnyObject]
+        
+        print("The user's UniqueKey prior to taskForGetStudentLocation is :\(User.shared.uniqueKey)")
         
         //https://parse.udacity.com/parse/classes/StudentLocation?where={"uniqueKey":"1234"}
         
@@ -69,11 +73,11 @@ extension ParseClient {
                     }
                     
                     // GUARD: Get my unique key
-                    guard let uniqueKey = myLocation["uniqueKey"] as? String else {
+                    /*guard let uniqueKey = myLocation["uniqueKey"] as? String else {
                         print ("Couldn't get unique key")
                         completionHandlerForGetStudentLocation(false, "Couldn't get unique key in \(results)")
                         return
-                    }
+                    } */
                     
                     // GUARD: Get my userId???
                     
@@ -81,7 +85,7 @@ extension ParseClient {
                     User.shared.objectId = objectId
                     //User.shared.firstName = firstName
                     //User.shared.lastName = lastName
-                    User.shared.uniqueKey = uniqueKey
+                    //User.shared.uniqueKey = uniqueKey
                     
                     completionHandlerForGetStudentLocation(true, nil)
                     

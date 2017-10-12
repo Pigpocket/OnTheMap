@@ -100,7 +100,8 @@ extension UdacityClient {
                 print("firstName = \(firstName)")
                 User.shared.lastName = lastName
                 print("lastName = \(lastName)")
-                User.shared.userId = key
+                User.shared.uniqueKey = key
+                self.accountKey = key
                 print("userId = \(key)")
                 
                 completionHandlerForGetPublicUserData(true, nil)

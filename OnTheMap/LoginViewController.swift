@@ -25,12 +25,15 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: Functions
+    
     @IBAction func loginPressed(_ sender: AnyObject) {
         
         
         // GUARD: Confirm that username AND passowrd is != ""
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            self.connectionFailureAlert("Username or password field empty")
+            
+            // Notify the user
+            AlertView.showAlert(view: self, message: "Username or password field empty")
         
         } else {
             
@@ -39,43 +42,44 @@ class LoginViewController: UIViewController {
             // Authenticate the user
             UdacityClient.sharedInstance().authenticateUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!) { (success, error) in
                 
-                // If authentication is successful...
-                if success == true {
+                // If authentication is unsuccessful...
+                if success == false {
                     
-                    self.completeLogin()
+                    // Notify the user
+                    AlertView.showAlert(view: self, message: "Username or password incorrect")
                     
-                }
-                
+                    } else {
+                    
                     // Get the Udacity Public User Data
                     UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.uniqueKey, completionHandlerForGetPublicUserData: { (success, error) in
-
-                        // If sucessful...
+                        
+                        // If sucessful in getting Udacity Public Data...
                         if success == true {
-
-                        } else {
-                            OperationQueue.main.addOperation {
-                                print(error)
+                            
+                            // Log in
+                            print("Getting public user data")
+                            self.completeLogin()
+                        
+                            // If unable to get Udacity Public Data...
+                            } else {
+                            
+                            // Notify the user and log in
+                            AlertView.showAlert(view: self, message: "Unable to get public user data")
+                            self.completeLogin()
+                            
                             }
-                        }
-                    })
+                        })
+                    }
                 }
             }
         }
     }
-    
     
     func completeLogin() {
         performUIUpdatesOnMain {
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(controller, animated: true, completion: nil)
         }
-    }
-    
-    func connectionFailureAlert(_ error: String) {
-        let alertController = UIAlertController(title: "Login Error", message: error, preferredStyle: .alert)
-        let networkFailureNotice = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(networkFailureNotice)
-        present(alertController, animated: true, completion: nil)
     }
  
     deinit {

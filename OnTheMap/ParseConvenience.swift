@@ -46,10 +46,6 @@ extension ParseClient {
         
         let parameters = [ParseClient.Constants.WhereQuery: uniqueKey as AnyObject]
         
-        print("The user's UniqueKey prior to taskForGetStudentLocation is :\(User.shared.uniqueKey)")
-        
-        //https://parse.udacity.com/parse/classes/StudentLocation?where={"uniqueKey":"1234"}
-        
         taskForGetStudentLocation(method: ParseClient.Methods.Location, parameters: parameters) { (results, error) in
             
             // Guard that there is no error
@@ -60,13 +56,12 @@ extension ParseClient {
                 
                 if let results = results?["results"] as? [[String:AnyObject]] {
                     
-                    let user = StudentLocation.studentLocationsFromResults(results)
-                    print("\n ****This is the student location from studentLocationsFromResults: \n \(user)*** ")
-                    
                     // Get my location dictionary
                     let myLocation = results[results.count - 1]
                     print("\n ***This is myLocation: \(myLocation)***")
                     
+                    let user = StudentLocation.studentLocationsFromResults([myLocation])
+                    print("\n ****This is the student location from studentLocationsFromResults: \n \(user)*** ")
                     
                     // GUARD: Get my objectId
                     guard let objectId = myLocation["objectId"] as? String else {

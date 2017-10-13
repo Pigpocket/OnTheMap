@@ -96,6 +96,9 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                             print("Name: \(User.shared.firstName) \(User.shared.lastName)")
                             print("UniqueKey: \(User.shared.uniqueKey)")
                             print("Location exists: \(locationData.locationText)")
+                            print("MediaURL: \(locationData.mediaURL)")
+                            print("Coordinates: Latitude = \(locationData.latitude) Longitude = \(locationData.longitude)")
+                            print("Updated at: \(User.shared.updatedAt)")
                             }
                         })
                     }

@@ -30,13 +30,16 @@ class TableViewController: UIViewController {
         super.viewWillAppear(animated)
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            
+            performUIUpdatesOnMain {
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
-                performUIUpdatesOnMain {
+                
                     self.studentLocationsTableView.reloadData()
-                }
+                
             } else {
                 print(error ?? "empty error")
+                }
             }
         }
     }

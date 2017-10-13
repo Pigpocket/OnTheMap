@@ -34,9 +34,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.removeAnnotations(allAnnotations)
         print(allAnnotations)
         
-        print("These are the annotations prior to running getStudentLocations: \(mapView.annotations)")
-        
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            
+            performUIUpdatesOnMain {
+                
             if let studentLocations = studentLocations {
                 self.locations = studentLocations
             }
@@ -64,7 +65,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             self.mapView.delegate = self
             
-            performUIUpdatesOnMain {
+            //performUIUpdatesOnMain {
                 self.mapView.addAnnotations(self.annotations)
             }
         }

@@ -70,6 +70,11 @@ class TableViewController: UIViewController {
         }
     }
     
+    @IBAction func addLocationPressed(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     deinit {
         print("The TableViewController was deinitialized")
     }
@@ -99,11 +104,6 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         let app = UIApplication.shared
         app.open(URL(string: studentLocation.mediaURL)!, options: [:], completionHandler: nil)
         
-    }
-    
-    @IBAction func addLocationPressed(_ sender: Any) {
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
-        self.present(controller, animated: true, completion: nil)
     }
     
 }

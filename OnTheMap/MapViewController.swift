@@ -19,6 +19,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Variables
     
     var locations = [StudentLocation]()
+    var annotations = [MKPointAnnotation]()
     
     // MARK: Lifecycle
     
@@ -29,16 +30,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         navigationController?.navigationBar.isHidden = false
         
-        for annotation: MKAnnotation in mapView.annotations {
-            mapView.removeAnnotation(annotation)
-        }
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+        print(allAnnotations)
+        
+        print("These are the annotations prior to running getStudentLocations: \(mapView.annotations)")
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             if let studentLocations = studentLocations {
                 self.locations = studentLocations
             }
             
-            var annotations = [MKPointAnnotation]()
+            //var annotations = [MKPointAnnotation]()
             
             for dictionary in self.locations {
                 
@@ -56,13 +59,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 annotation.title = "\(first) \(last)"
                 annotation.subtitle = mediaURL
                 
-                annotations.append(annotation)
+                self.annotations.append(annotation)
             }
             
             self.mapView.delegate = self
             
             performUIUpdatesOnMain {
-                self.mapView.addAnnotations(annotations)
+                self.mapView.addAnnotations(self.annotations)
             }
         }
     }

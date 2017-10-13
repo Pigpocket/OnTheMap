@@ -30,20 +30,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         navigationController?.navigationBar.isHidden = false
         
-        let allAnnotations = self.mapView.annotations
-        self.mapView.removeAnnotations(allAnnotations)
-        print(allAnnotations)
+        self.mapView.delegate = self
         
+        // Clear all annotations
+        self.mapView.removeAnnotations(annotations)
+        
+        // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
             performUIUpdatesOnMain {
-                
+            
+            // Assign student locations to local variable
             if let studentLocations = studentLocations {
                 self.locations = studentLocations
             }
             
-            //var annotations = [MKPointAnnotation]()
-            
+            // Populate annotations
             for dictionary in self.locations {
                 
                 let lat = CLLocationDegrees(dictionary.latitude)
@@ -63,13 +65,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.annotations.append(annotation)
             }
             
-            self.mapView.delegate = self
             
-            //performUIUpdatesOnMain {
-                self.mapView.addAnnotations(self.annotations)
+                
+            // Add the annotations to the annotations array
+            self.mapView.addAnnotations(self.annotations)
             }
         }
     }
+    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -82,14 +85,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        else {
+        } else {
             pinView!.annotation = annotation
         }
         
         return pinView
     }
     
+    // Show browser and navigate to media URL when annotation is tapped
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.shared
@@ -107,10 +110,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             if (data != nil) {
                 self.dismiss(animated: true, completion: nil)
-            } else {
-                print("Couldn't delete session")
+                } else {
+                AlertView.showAlert(view: self, message: "Couldn't delete session")
+                }
             }
-        }
         }
     }
     

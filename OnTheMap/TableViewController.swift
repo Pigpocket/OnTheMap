@@ -55,6 +55,21 @@ class TableViewController: UIViewController {
         }
     }
     
+    @IBAction func logoutPressed(_ sender: Any) {
+        
+        UdacityClient.sharedInstance().taskForDeleteSession(session: UdacityClient.sharedInstance().sessionID!) { (data, error) in
+            
+            performUIUpdatesOnMain {
+                
+                if (data != nil) {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print("Couldn't delete session")
+                }
+            }
+        }
+    }
+    
     deinit {
         print("The TableViewController was deinitialized")
     }
@@ -90,11 +105,5 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
         self.present(controller, animated: true, completion: nil)
     }
-    
-    @IBAction func logoutPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
     
 }

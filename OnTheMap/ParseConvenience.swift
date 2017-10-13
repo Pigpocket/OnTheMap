@@ -60,9 +60,12 @@ extension ParseClient {
                 
                 if let results = results?["results"] as? [[String:AnyObject]] {
                     
+                    let user = StudentLocation.studentLocationsFromResults(results)
+                    print("\n ****This is the student location from studentLocationsFromResults: \n \(user)*** ")
+                    
                     // Get my location dictionary
                     let myLocation = results[results.count - 1]
-                    print("This is myLocation: \(myLocation)")
+                    print("\n ***This is myLocation: \(myLocation)***")
                     
                     
                     // GUARD: Get my objectId
@@ -71,15 +74,6 @@ extension ParseClient {
                         completionHandlerForGetStudentLocation(false, "Couldn't find key objectId in \(results)")
                         return
                     }
-                    
-                    // GUARD: Get my unique key
-                    /*guard let uniqueKey = myLocation["uniqueKey"] as? String else {
-                        print ("Couldn't get unique key")
-                        completionHandlerForGetStudentLocation(false, "Couldn't get unique key in \(results)")
-                        return
-                    } */
-                    
-                    // GUARD: Get my userId???
                     
                     // Assign values to user struct
                     User.shared.objectId = objectId
@@ -105,6 +99,8 @@ extension ParseClient {
             JSONBodyKeys.lastName: lastName as AnyObject,
             JSONBodyKeys.mediaURL: mediaUrl as AnyObject,
             JSONBodyKeys.mapString: mapString as AnyObject,
+            JSONBodyKeys.latitude: latitude as AnyObject,
+            JSONBodyKeys.longitude: longitude as AnyObject
         ]
         
         taskForPutStudentLocation(objectId: User.shared.objectId, method: ParseClient.Methods.LocationSlash, jsonBody: jsonBody) { (results, error) in

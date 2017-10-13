@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
                 }
                 
                     // Get the Udacity Public User Data
-                    UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.userId, completionHandlerForGetPublicUserData: { (success, error) in
+                    UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.uniqueKey, completionHandlerForGetPublicUserData: { (success, error) in
 
                         // If sucessful...
                         if success == true {

@@ -96,7 +96,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        
+        UdacityClient.sharedInstance().taskForDeleteSession(session: UdacityClient.sharedInstance().sessionID!) { (data, error) in
+            
+            performUIUpdatesOnMain {
+            
+            if (data != nil) {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("Couldn't delete session")
+            }
+        }
+        }
     }
     
     @IBAction func refreshPins(_ sender: Any) {

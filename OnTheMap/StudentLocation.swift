@@ -11,13 +11,14 @@ struct StudentLocation {
     // MARK: Properties
     
     var createdAt = ""
+    var updatedAt = ""
     var objectID = ""
     var uniqueKey = ""
     var firstName = ""
     var lastName = ""
     var mapString = ""
     var mediaURL = ""
-    var latitude = 0.0
+    var latitude = 12.0
     var longitude = 0.0
     
     // construct a StudentLocation from a dictionary
@@ -49,6 +50,9 @@ struct StudentLocation {
         }
         if let longitude = dictionary["longitude"] as? Double {
             self.longitude = longitude
+        }
+        if let updatedAt = dictionary["updatedAt"] as? String {
+            self.updatedAt = updatedAt
         }
     }
     

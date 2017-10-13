@@ -38,7 +38,7 @@ extension ParseClient {
         static let uniqueKey = "uniqueKey"
         static let firstName = "firstName"
         static let lastName = "lastName"
-        static let mediaURL = "mediaUrl"
+        static let mediaURL = "mediaURL"
         static let mapString = "mapString"
         static let latitude = "latitude"
         static let longitude = "longitude"

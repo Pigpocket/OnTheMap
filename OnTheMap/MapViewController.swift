@@ -21,56 +21,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var locations = [StudentLocation]()
     var annotations = [MKPointAnnotation]()
     
+    // MARK: Delegates
+    
+    
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.mapView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         navigationController?.navigationBar.isHidden = false
         
-        self.mapView.delegate = self
-        
-        // Clear all annotations
-        self.mapView.removeAnnotations(annotations)
-        
-        // Get the student locations
-        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
-            
-            performUIUpdatesOnMain {
-            
-            // Assign student locations to local variable
-            if let studentLocations = studentLocations {
-                self.locations = studentLocations
-            }
-            
-            // Populate annotations
-            for dictionary in self.locations {
-                
-                let lat = CLLocationDegrees(dictionary.latitude)
-                let long = CLLocationDegrees(dictionary.longitude)
-                
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                let first = dictionary.firstName
-                let last = dictionary.lastName
-                let mediaURL = dictionary.mediaURL
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(first) \(last)"
-                annotation.subtitle = mediaURL
-                
-                self.annotations.append(annotation)
-            }
-            
-            
-                
-            // Add the annotations to the annotations array
-            self.mapView.addAnnotations(self.annotations)
-            }
-        }
+        setAnnotations()
     }
     
     
@@ -104,66 +72,76 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func logoutPressed(_ sender: Any) {
         
+        // Delete the session on the Udacity server
         UdacityClient.sharedInstance().taskForDeleteSession(session: UdacityClient.sharedInstance().sessionID!) { (data, error) in
             
             performUIUpdatesOnMain {
             
-            if (data != nil) {
-                self.dismiss(animated: true, completion: nil)
-                } else {
-                AlertView.showAlert(view: self, message: "Couldn't delete session")
+                // If successful...
+                if (data != nil) {
+                    
+                    // Dismiss the view controller
+                    self.dismiss(animated: true, completion: nil)
+                    
+                    } else {
+                    
+                    // Notify the user
+                    AlertView.showAlert(view: self, message: "Couldn't delete session")
                 }
             }
         }
     }
     
     @IBAction func refreshPins(_ sender: Any) {
-    
-        for annotation: MKAnnotation in mapView.annotations {
-            mapView.removeAnnotation(annotation)
-        }
         
-        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
-            
-            performUIUpdatesOnMain {
-            
-            if let studentLocations = studentLocations {
-                self.locations = studentLocations
-            }
-            
-            var annotations = [MKPointAnnotation]()
-            
-            for dictionary in self.locations {
-                
-                let lat = CLLocationDegrees(dictionary.latitude)
-                let long = CLLocationDegrees(dictionary.longitude)
-                
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                let first = dictionary.firstName
-                let last = dictionary.lastName
-                let mediaURL = dictionary.mediaURL
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(first) \(last)"
-                annotation.subtitle = mediaURL
-                
-                annotations.append(annotation)
-            }
-            
-            self.mapView.delegate = self
-            self.mapView.addAnnotations(annotations)
-            
-            }
-            
-            print("These are the locations after refreshingL: \(self.locations)")
-        }
+        setAnnotations()
+        print("These are the locations after refreshingL: \(self.locations)")
     }
     
     @IBAction func addLocationPressed(_ sender: Any) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    func setAnnotations() {
+        
+        // Clear all annotations
+        self.mapView.removeAnnotations(annotations)
+        
+        // Get the student locations
+        ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            
+            performUIUpdatesOnMain {
+                
+                // Assign student locations to local variable
+                if let studentLocations = studentLocations {
+                    self.locations = studentLocations
+                }
+                
+                // Populate annotations
+                for dictionary in self.locations {
+                    
+                    let lat = CLLocationDegrees(dictionary.latitude)
+                    let long = CLLocationDegrees(dictionary.longitude)
+                    
+                    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    
+                    let first = dictionary.firstName
+                    let last = dictionary.lastName
+                    let mediaURL = dictionary.mediaURL
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    annotation.title = "\(first) \(last)"
+                    annotation.subtitle = mediaURL
+                    
+                    self.annotations.append(annotation)
+                }
+                
+                // Add the annotations to the annotations array
+                self.mapView.addAnnotations(self.annotations)
+            }
+        }
     }
     
     deinit {

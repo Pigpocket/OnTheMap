@@ -68,6 +68,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
             print("***The locationData prior to put function is: \n Latitude: \(locationData.latitude) \n \(locationData.longitude)")
             // If the objectId field in 'user' struct is empty...
             if User.shared.objectId == "" {
+            
                 
                 // Post my student location
                 ParseClient.sharedInstance().postStudentLocation(firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: locationData.locationText, mediaURL: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPostStudentLocation: { (success, error) in
@@ -76,18 +77,18 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                     performUIUpdatesOnMain {
                         if success {
                             print("We successfully posted the Student Location")
-                            
+                        } else {
+                            AlertView.showAlert(view: self, message: error!)
                         }
                     }
                 })
-                
             } else {
                 
                 print("***put Function is being called***")
                 // Change my student location
                 ParseClient.sharedInstance().putStudentLocation(uniqueKey: User.shared.uniqueKey, firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: locationData.locationText, mediaUrl: locationData.mediaURL, latitude: locationData.latitude, longitude: locationData.longitude, completionHandlerForPut: { (success, error) in
                     
-                    
+                    performUIUpdatesOnMain {
                     
                         if success == true {
                             print("Successfully completed putStudentLocation")
@@ -99,17 +100,15 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                             print("MediaURL: \(locationData.mediaURL)")
                             print("Coordinates: Latitude = \(locationData.latitude) Longitude = \(locationData.longitude)")
                             print("Updated at: \(User.shared.updatedAt)")
+                            
                             }
+                    }
                         })
                     }
                 }
-        
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(controller, animated: true, completion: nil)
         }
-    
-    
-    
     
     deinit {
         print("ConfirmLocationViewController was dismissed")

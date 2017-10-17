@@ -17,7 +17,7 @@ extension ParseClient {
         let parameters: [String:AnyObject] = [
             
             JSONParameterKeys.limit: 100 as AnyObject,
-            JSONParameterKeys.skip: 4 as AnyObject,
+            
             JSONParameterKeys.order: "-updatedAt" as AnyObject
         ]
         
@@ -72,9 +72,7 @@ extension ParseClient {
                     
                     // Assign values to user struct
                     User.shared.objectId = objectId
-                    //User.shared.firstName = firstName
-                    //User.shared.lastName = lastName
-                    //User.shared.uniqueKey = uniqueKey
+                    print("The objectId is: \(objectId)")
                     
                     completionHandlerForGetStudentLocation(true, nil)
                     

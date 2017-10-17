@@ -21,10 +21,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var locations = [StudentLocation]()
     var annotations = [MKPointAnnotation]()
     
-    // MARK: Delegates
-    
-    
-    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -106,19 +102,25 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func setAnnotations() {
         
         // Clear all annotations
-        self.mapView.removeAnnotations(annotations)
+      //  self.mapView.removeAnnotations(annotations)
         
         // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
             performUIUpdatesOnMain {
                 
+                AlertView.startActivityIndicator(self.mapView)
+                
                 // Assign student locations to local variable
                 if let studentLocations = studentLocations {
                     self.locations = studentLocations
                 }
                 
+                
+                var tempArray = [MKPointAnnotation]()
+                //array =
                 // Populate annotations
+                
                 for dictionary in self.locations {
                     
                     let lat = CLLocationDegrees(dictionary.latitude)
@@ -134,12 +136,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     annotation.coordinate = coordinate
                     annotation.title = "\(first) \(last)"
                     annotation.subtitle = mediaURL
+                    tempArray.append(annotation)
                     
-                    self.annotations.append(annotation)
+                   // self.annotations.append(annotation)
                 }
                 
                 // Add the annotations to the annotations array
+              self.mapView.removeAnnotations(self.annotations)
+                self.annotations = tempArray
                 self.mapView.addAnnotations(self.annotations)
+                
+                AlertView.stopActivityIndicator(self.view)
             }
         }
     }

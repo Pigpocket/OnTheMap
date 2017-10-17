@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
                 if success == false {
                     
                     // Notify the user
+                    AlertView.stopActivityIndicator(self.view)
                     AlertView.showAlert(view: self, message: "Username or password incorrect")
                     
                     } else {
@@ -78,7 +79,10 @@ class LoginViewController: UIViewController {
     func completeLogin() {
         performUIUpdatesOnMain {
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            self.present(controller, animated: true, completion: nil)
+            AlertView.startActivityIndicator(self.view)
+            self.present(controller, animated: true, completion: {
+            AlertView.stopActivityIndicator(self.view)
+            })
         }
     }
  

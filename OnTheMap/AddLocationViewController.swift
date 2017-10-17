@@ -55,6 +55,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
             // Get the location
             getLocation(completionHandler: { (success, error) in
                 
+                //AlertView.activityIndicator
+                
                 // If geocoding successful...
                 if success {
                     

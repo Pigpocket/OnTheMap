@@ -58,7 +58,6 @@ class LoginViewController: UIViewController {
                         if success == true {
                             
                             // Log in
-                            print("Getting public user data")
                             self.completeLogin()
                         
                             // If unable to get Udacity Public Data...

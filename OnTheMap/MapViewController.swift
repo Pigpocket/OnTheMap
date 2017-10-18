@@ -37,7 +37,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         setAnnotations()
     }
     
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
@@ -115,7 +114,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 if let studentLocations = studentLocations {
                     self.locations = studentLocations
                 }
-                
                 
                 var tempArray = [MKPointAnnotation]()
                 //array =

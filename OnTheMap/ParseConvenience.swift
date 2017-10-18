@@ -34,7 +34,6 @@ extension ParseClient {
                     let studentLocations = StudentLocation.studentLocationsFromResults(results)
                     
                     completionHandlerForGetStudentLocations(studentLocations, nil)
-                    print(studentLocations)
                 } else {
                     completionHandlerForGetStudentLocations(nil, "Unable to get array of student locations")
                 }
@@ -60,9 +59,6 @@ extension ParseClient {
                     let myLocation = results[results.count - 1]
                     print("\n ***This is myLocation: \(myLocation)***")
                     
-                    let user = StudentLocation.studentLocationsFromResults([myLocation])
-                    print("\n ****This is the student location from studentLocationsFromResults: \n \(user)*** ")
-                    
                     // GUARD: Get my objectId
                     guard let objectId = myLocation["objectId"] as? String else {
                         print("Couldn't get objectId")
@@ -72,7 +68,6 @@ extension ParseClient {
                     
                     // Assign values to user struct
                     User.shared.objectId = objectId
-                    print("The objectId is: \(objectId)")
                     
                     completionHandlerForGetStudentLocation(true, nil)
                     

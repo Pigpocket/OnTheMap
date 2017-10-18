@@ -51,11 +51,6 @@ extension UdacityClient {
                     }
                 }
             }
-            
-            
-            
-            //get public data
-            // firstname and lastname -> Udacity API
         }
     }
     
@@ -96,12 +91,10 @@ extension UdacityClient {
             
             performUIUpdatesOnMain {
                 User.shared.firstName = firstName
-                print("firstName = \(firstName)")
                 User.shared.lastName = lastName
-                print("lastName = \(lastName)")
                 User.shared.uniqueKey = key
                 self.accountKey = key
-                print("userId = \(key)")
+                
                 
                 completionHandlerForGetPublicUserData(true, nil)
             }

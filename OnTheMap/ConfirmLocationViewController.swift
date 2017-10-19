@@ -22,13 +22,14 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        setAnnotations()
+    }
+
+    func setAnnotations() {
         
         // Set the coordinates
         let coordinates = CLLocationCoordinate2D(latitude: locationData.latitude, longitude: locationData.longitude)
@@ -49,12 +50,6 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         // Add the annotation
         mapView.addAnnotation(self.annotation)
         self.mapView.addAnnotation(self.annotation)
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
     }
     
     // MARK: Actions

@@ -30,8 +30,6 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        print("viewWillAppear in ConfirmLocationViewController has been called")
-        
         // Set the coordinates
         let coordinates = CLLocationCoordinate2D(latitude: locationData.latitude, longitude: locationData.longitude)
         print(coordinates)
@@ -51,12 +49,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         // Add the annotation
         mapView.addAnnotation(self.annotation)
         self.mapView.addAnnotation(self.annotation)
-        
-        print("the current map region is: \(region)")
-        
-        /*performUIUpdatesOnMain {
-            
-        } */
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +67,6 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         // Get my objectId
         ParseClient.sharedInstance().getMyObjectID(uniqueKey: User.shared.uniqueKey) { (success, error) in
             
-            print("***The locationData prior to put function is: \n Latitude: \(self.locationData.latitude) \n \(self.locationData.longitude)")
             // If the objectId field in 'user' struct is empty...
             if User.shared.objectId == "" {
             
@@ -84,37 +76,35 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                     
                     // Update the UI
                     performUIUpdatesOnMain {
-                        if success {
-                            print("We successfully posted the Student Location")
-                        } else {
-                            AlertView.showAlert(view: self, message: error!)
+                        
+                        // Handle error
+                        if error != nil {
+                            
+                            AlertView.showAlert(view: self, message: "Unable to post student location")
                         }
                     }
                 })
+             
+            // If the objectId in 'user' struct exists...
             } else {
-                
-                print("***put Function is being called***")
+
                 // Change my student location
                 ParseClient.sharedInstance().putStudentLocation(uniqueKey: User.shared.uniqueKey, firstName: User.shared.firstName, lastName: User.shared.lastName, mapString: self.locationData.locationText, mediaUrl: self.locationData.mediaURL, latitude: self.locationData.latitude, longitude: self.locationData.longitude, completionHandlerForPut: { (success, error) in
                     
+                    // Update the UI
                     performUIUpdatesOnMain {
                     
-                        if success == true {
-                            print("Successfully completed putStudentLocation")
-                            
-                            // Ensure user struct has info in it
-                            print("Name: \(User.shared.firstName) \(User.shared.lastName)")
-                            print("UniqueKey: \(User.shared.uniqueKey)")
-                            print("Location exists: \(self.locationData.locationText)")
-                            print("MediaURL: \(self.locationData.mediaURL)")
-                            print("Coordinates: Latitude = \(self.locationData.latitude) Longitude = \(self.locationData.longitude)")
-                            print("Updated at: \(User.shared.updatedAt)")
-                            
+                        // Handle error
+                        if error != nil {
+        
+                            AlertView.showAlert(view: self, message: "Unable to change student location")
+                                }
                             }
-                    }
                         })
                     }
                 }
+        
+            // Present the MapViewController
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(controller, animated: true, completion: nil)
         }

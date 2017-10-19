@@ -58,6 +58,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 
                 //AlertView.activityIndicator
                 
+                //performUIUpdatesOnMain {
+                    
                 // If geocoding successful...
                 if success {
                     
@@ -72,6 +74,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                     let alert = UIAlertAction(title: "Couldn't find that location", style: .cancel, handler: nil)
                     alertController.addAction(alert)
                     self.present(alertController, animated: true, completion: nil)
+                //}
                 }
             })
         }
@@ -83,6 +86,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(locationTextField.text!) { (placemark, error) in
             
+            performUIUpdatesOnMain {
+                
             // Check for an error when retrieving the coordinates
             if error != nil {
                 let userInfo = [NSLocalizedDescriptionKey: "There was an error attempting to retrieve your coordinates"]
@@ -111,8 +116,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 
-                performUIUpdatesOnMain {
-                    
                 // Populate locationData with latitude and longitude
                 self.locationData.latitude = latitude
                 self.locationData.longitude = longitude
@@ -125,10 +128,11 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "FinishSegue" {
             let controller = segue.destination as! ConfirmLocationViewController
-            controller.locationData = locationData
-            
+            controller.locationData = self.locationData
+            print("This is the locationData being sent via prepareForSegue: \(locationData)")
         }
     }
     

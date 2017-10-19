@@ -71,7 +71,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="findLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n2q-UH-z3c"/>
-                                                    <segue destination="mRc-gC-7BC" kind="presentation" identifier="FinishSegue" id="Nd5-cc-ovP"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -102,6 +101,7 @@
                         <outlet property="findLocationButton" destination="xUn-qh-d1Y" id="1sU-Eo-8ez"/>
                         <outlet property="locationTextField" destination="iR7-8D-Ugi" id="N4F-VR-U07"/>
                         <outlet property="websiteTextField" destination="gtw-rY-WdY" id="9KG-ww-qAp"/>
+                        <segue destination="mRc-gC-7BC" kind="presentation" identifier="FinishSegue" id="F4u-CY-DsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

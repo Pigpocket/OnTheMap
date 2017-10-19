@@ -28,6 +28,9 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        print("viewWillAppear in ConfirmLocationViewController has been called")
         
         // Set the coordinates
         let coordinates = CLLocationCoordinate2D(latitude: locationData.latitude, longitude: locationData.longitude)
@@ -54,6 +57,11 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         /*performUIUpdatesOnMain {
             
         } */
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
     }
     
     // MARK: Actions

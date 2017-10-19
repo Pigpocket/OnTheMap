@@ -15,6 +15,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     
     var user = User()
+    var locationData = LocationData()
     
     // MARK: Outlets
     
@@ -61,8 +62,10 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 if success {
                     
                     // Present the ConfirmLocationViewController
-                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
-                    self.present(controller, animated: true, completion: nil)
+                    
+                    self.performSegue(withIdentifier: "FinishSegue", sender: self)
+                    /*let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
+                    self.present(controller, animated: true, completion: nil) */
                 } else {
                     
                     let alertController = UIAlertController()
@@ -108,13 +111,24 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 
+                performUIUpdatesOnMain {
+                    
                 // Populate locationData with latitude and longitude
-                locationData.latitude = latitude
-                locationData.longitude = longitude
+                self.locationData.latitude = latitude
+                self.locationData.longitude = longitude
                 
                 completionHandler(true, nil)
                 print("getLocation was successful. \n Latitude=\(latitude) \n Longitude=\(longitude)")
+                }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FinishSegue" {
+            let controller = segue.destination as! ConfirmLocationViewController
+            controller.locationData = locationData
+            
         }
     }
     

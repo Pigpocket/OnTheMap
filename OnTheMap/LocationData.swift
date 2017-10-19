@@ -16,5 +16,3 @@ struct LocationData {
     var locationText: String = ""
     var mediaURL: String = ""
 }
-
-var locationData = LocationData()

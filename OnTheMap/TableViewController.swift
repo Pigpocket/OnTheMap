@@ -67,7 +67,7 @@ class TableViewController: UIViewController {
                 if (data != nil) {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    print("Couldn't delete session")
+                    AlertView.showAlert(view: self, message: "Couldn't delete session")
                 }
             }
         }

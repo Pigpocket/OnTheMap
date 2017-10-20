@@ -79,9 +79,7 @@ class LoginViewController: UIViewController {
         performUIUpdatesOnMain {
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             AlertView.startActivityIndicator(self.view)
-            self.present(controller, animated: true, completion: {
-            AlertView.stopActivityIndicator(self.view)
-            })
+            self.present(controller, animated: true, completion: nil)
         }
     }
  

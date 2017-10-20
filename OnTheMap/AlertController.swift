@@ -22,6 +22,18 @@ class AlertView: NSObject {
         }
     }
     
+    class func showAlertDialog(view: UIViewController, message: String) {
+        let alert = UIAlertController(title: "Overwrite location?", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        performUIUpdatesOnMain {
+            view.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     static func startActivityIndicator(_ view: UIView) {
         
         let activityIndicator = UIActivityIndicatorView()

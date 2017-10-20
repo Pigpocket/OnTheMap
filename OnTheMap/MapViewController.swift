@@ -93,8 +93,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func addLocationPressed(_ sender: Any) {
+        
+        if User.shared.objectId != "" {
+            
+            AlertView.showAlertDialog(view: self, message: "Your student location already exists. Would you like to overwrite it with a new location?")
+        } else {
+        
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
         self.present(controller, animated: true, completion: nil)
+        }
     }
     
     func setAnnotations() {

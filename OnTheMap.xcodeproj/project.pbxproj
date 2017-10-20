@@ -261,6 +261,7 @@
 			children = (
 				37E51F181F6649D20016E6DB /* GCD.swift */,
 				37E51EDB1F633D730016E6DB /* AppDelegate.swift */,
+				37BAD6CD1F9175EA001D69A1 /* AlertController.swift */,
 				3753E5DD1F7DC12E008AE18D /* AddLocationViewController.swift */,
 				3753E5E31F7F25C1008AE18D /* ConfirmLocationViewController.swift */,
 				37E51F161F661A840016E6DB /* LoginViewController.swift */,
@@ -272,7 +273,6 @@
 				37E51EE21F633D730016E6DB /* Assets.xcassets */,
 				37E51EE71F633D730016E6DB /* Info.plist */,
 				3753E59A1F7DB8DC008AE18D /* Images */,
-				37BAD6CD1F9175EA001D69A1 /* AlertController.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";

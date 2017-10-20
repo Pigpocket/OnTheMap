@@ -90,7 +90,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func refreshPins(_ sender: Any) {
         
         setAnnotations()
-        print("These are the locations after refreshingL: \(self.locations)")
     }
     
     @IBAction func addLocationPressed(_ sender: Any) {

@@ -80,6 +80,7 @@ class LoginViewController: UIViewController {
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             AlertView.startActivityIndicator(self.view)
             self.present(controller, animated: true, completion: nil)
+            AlertView.stopActivityIndicator(self.view)
         }
     }
  

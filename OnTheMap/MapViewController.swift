@@ -96,7 +96,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         if User.shared.objectId != "" {
             
-            AlertView.showAlertDialog(view: self, message: "Your student location already exists. Would you like to overwrite it with a new location?")
+            let alert = UIAlertController(title: "Overwrite location?", message: "Your student location already exists, do you want to overwrite it?", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+                //self.navigationController?.removeFromParentViewController()
+                self.present(controller, animated: true, completion: nil)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            performUIUpdatesOnMain {
+                self.present(alert, animated: true, completion: nil)
+            }
+            
         } else {
         
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
@@ -153,6 +166,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 AlertView.stopActivityIndicator(self.view)
             }
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        let controller = MapViewController()
+        controller.dismiss(animated: true, completion: nil)
     }
     
     deinit {

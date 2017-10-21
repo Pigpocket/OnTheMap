@@ -43,8 +43,6 @@ class AlertView: NSObject {
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         view.addSubview(activityIndicator)
         
-        print("/n *******startActivity running*****")
-        
         //activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }

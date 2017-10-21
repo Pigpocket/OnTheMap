@@ -121,7 +121,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 self.locationData.longitude = longitude
                 
                 completionHandler(true, nil)
-                print("getLocation was successful. \n Latitude=\(latitude) \n Longitude=\(longitude)")
                 }
             }
         }
@@ -132,10 +131,16 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "FinishSegue" {
             let controller = segue.destination as! ConfirmLocationViewController
             controller.locationData = self.locationData
-            print("This is the locationData being sent via prepareForSegue: \(locationData)")
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        let controller = AddLocationViewController()
+        controller.dismiss(animated: true, completion: nil)
+    }
+
     deinit {
         print("The AddLocationViewController was dismissed")
     }

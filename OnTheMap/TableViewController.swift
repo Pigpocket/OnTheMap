@@ -44,6 +44,13 @@ class TableViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        let controller = TableViewController()
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func refreshLocations(_ sender: Any) {
 
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in

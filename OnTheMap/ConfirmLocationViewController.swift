@@ -104,9 +104,18 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
             self.present(controller, animated: true, completion: nil)
         }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        let controller = ConfirmLocationViewController()
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     deinit {
         print("ConfirmLocationViewController was dismissed")
     }
+    
+    
 
 }
 

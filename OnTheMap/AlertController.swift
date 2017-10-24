@@ -21,6 +21,7 @@ class AlertView: NSObject {
     }
     
     class func showAlertDialog(view: UIViewController, message: String) {
+        
         let alert = UIAlertController(title: "Overwrite location?", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -32,29 +33,28 @@ class AlertView: NSObject {
         }
     }
     
-    static func startActivityIndicator(_ view: UIView, activityIndicator: UIActivityIndicatorView) -> UIActivityIndicatorView {
-        
-        //let activityIndicator = UIActivityIndicatorView()
+    static func startActivityIndicator(_ view: UIView, activityIndicator: UIActivityIndicatorView) {
         
         activityIndicator.center = view.center
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        //activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
-      let centerX =  NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
-        
-        
-       let centery =  NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
-        
-        view.addConstraints([centerX,centery])
+        let centerX =  NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+        let centerY =  NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+        view.addConstraints([centerX,centerY])
         
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-        
-        return activityIndicator
+    }
+    
+    static func stopActivityController(_ view: UIView, activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
 }
-    
+
+
+
     class ViewController: UIViewController {
         
         override func viewDidLoad() {

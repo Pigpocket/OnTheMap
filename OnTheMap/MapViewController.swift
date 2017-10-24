@@ -51,6 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
+            pinView!.animatesDrop = true
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             pinView!.annotation = annotation
@@ -92,7 +93,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func refreshPins(_ sender: Any) {
-        
         setAnnotations()
     }
     
@@ -122,32 +122,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func setAnnotations() {
         
-        // Clear all annotations
-      //  self.mapView.removeAnnotations(annotations)
-        
         AlertView.startActivityIndicator(self.view, activityIndicator: activityIndicator)
         
         // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
             performUIUpdatesOnMain {
-                
-              //  AlertView.startActivityIndicator(self.mapView)
-                
+
                 // Assign student locations to local variable
                 if let studentLocations = studentLocations {
                     self.locations = studentLocations
                 }
                 
                 var tempArray = [MKPointAnnotation]()
-                //array =
-                // Populate annotations
                 
                 for dictionary in self.locations {
                     
                     let lat = CLLocationDegrees(dictionary.latitude)
                     let long = CLLocationDegrees(dictionary.longitude)
-                    
                     let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                     
                     let first = dictionary.firstName
@@ -159,25 +151,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     annotation.title = "\(first) \(last)"
                     annotation.subtitle = mediaURL
                     tempArray.append(annotation)
-                    
-                   // self.annotations.append(annotation)
                 }
                 
                 // Add the annotations to the annotations array
-              self.mapView.removeAnnotations(self.annotations)
+                self.mapView.removeAnnotations(self.annotations)
                 self.annotations = tempArray
                 self.mapView.addAnnotations(self.annotations)
                 
-                self.activityIndicator.stopAnimating()
+                AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
             }
+            
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        
-        let controller = MapViewController()
-        controller.dismiss(animated: true, completion: nil)
     }
     
     deinit {

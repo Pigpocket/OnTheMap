@@ -11,8 +11,6 @@ import UIKit
 
 class AlertView: NSObject {
     
-    
-    
     class func showAlert(view: UIViewController , message: String) {
         let alert = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -34,9 +32,9 @@ class AlertView: NSObject {
         }
     }
     
-    static func startActivityIndicator(_ view: UIView) {
+    static func startActivityIndicator(_ view: UIView, activityIndicator: UIActivityIndicatorView) -> UIActivityIndicatorView {
         
-        let activityIndicator = UIActivityIndicatorView()
+        //let activityIndicator = UIActivityIndicatorView()
         
         activityIndicator.center = view.center
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -52,16 +50,9 @@ class AlertView: NSObject {
         
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-    }
-    
-    static func stopActivityIndicator(_ view: UIView) {
         
-        let activityIndicator = UIActivityIndicatorView()
-        
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
+        return activityIndicator
     }
-    
 }
     
     class ViewController: UIViewController {

@@ -12,6 +12,10 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
+    // MARK: Variables
+    
+    var activityIndicator = UIActivityIndicatorView()
+    
     // MARK: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
@@ -121,7 +125,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Clear all annotations
       //  self.mapView.removeAnnotations(annotations)
         
-         AlertView.startActivityIndicator(self.view)
+        AlertView.startActivityIndicator(self.view, activityIndicator: activityIndicator)
         
         // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
@@ -164,7 +168,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.annotations = tempArray
                 self.mapView.addAnnotations(self.annotations)
                 
-                AlertView.stopActivityIndicator(self.view)
+                self.activityIndicator.stopAnimating()
             }
         }
     }

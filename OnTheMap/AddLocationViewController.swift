@@ -42,10 +42,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         // Show alert if locationTextField or websiteTextField are empty
         if self.locationTextField.text == "" || self.websiteTextField.text == "" {
             
-            let alertController = UIAlertController()
-            let alert = UIAlertAction(title: "You didn't enter a location or website", style: .cancel, handler: nil)
-            alertController.addAction(alert)
-            present(alertController, animated: true, completion: nil)
+            AlertView.showAlert(view: self, message: "You didn't enter a location or website")
             
         } else {
             
@@ -64,11 +61,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                     
                 } else {
                     
-                    let alertController = UIAlertController()
-                    let alert = UIAlertAction(title: "Couldn't find that location", style: .cancel, handler: nil)
-                    alertController.addAction(alert)
-                    self.present(alertController, animated: true, completion: nil)
-                //}
+                    AlertView.showAlert(view: self, message: "Couldn't find that location")
                 }
             })
         }
@@ -126,13 +119,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
             let controller = segue.destination as! ConfirmLocationViewController
             controller.locationData = self.locationData
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        
-        let controller = AddLocationViewController()
-        controller.dismiss(animated: true, completion: nil)
     }
 
     deinit {

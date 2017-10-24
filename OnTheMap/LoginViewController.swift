@@ -11,6 +11,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: Variables
+    
+    var activityIndicator = UIActivityIndicatorView()
+    
     // MARK: Outlets
     @IBOutlet weak var loginImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
@@ -46,7 +50,6 @@ class LoginViewController: UIViewController {
                 if success == false {
                     
                     // Notify the user
-                    AlertView.stopActivityIndicator(self.view)
                     AlertView.showAlert(view: self, message: "Username or password incorrect")
                     
                     } else {

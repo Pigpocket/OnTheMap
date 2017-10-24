@@ -55,19 +55,13 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         
             // Get the location
             getLocation(completionHandler: { (success, error) in
-                
-                //AlertView.activityIndicator
-                
-                //performUIUpdatesOnMain {
                     
                 // If geocoding successful...
                 if success {
                     
                     // Present the ConfirmLocationViewController
-                    
                     self.performSegue(withIdentifier: "FinishSegue", sender: self)
-                    /*let controller = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmLocationViewController") as! ConfirmLocationViewController
-                    self.present(controller, animated: true, completion: nil) */
+                    
                 } else {
                     
                     let alertController = UIAlertController()

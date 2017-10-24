@@ -39,11 +39,18 @@ class AlertView: NSObject {
         let activityIndicator = UIActivityIndicatorView()
         
         activityIndicator.center = view.center
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         //activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
+      let centerX =  NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
         
-        //activityIndicator.startAnimating()
+        
+       let centery =  NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+        
+        view.addConstraints([centerX,centery])
+        
+        activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     

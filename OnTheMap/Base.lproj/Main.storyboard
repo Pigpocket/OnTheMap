@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGt-yt-XW3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Add Location" id="uFn-Mu-4vE">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WHI-6e-cFX">
@@ -36,7 +36,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="edn-24-bPk">
-                                <rect key="frame" x="67.5" y="80" width="240" height="218"/>
+                                <rect key="frame" x="67.5" y="124" width="240" height="218"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f7a-Qh-h4g">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="129"/>
@@ -97,16 +97,17 @@
                             <constraint firstItem="mGt-yt-XW3" firstAttribute="centerX" secondItem="edn-24-bPk" secondAttribute="centerX" id="h9Q-RO-4ee"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Nw6-1r-6Tf"/>
                     <connections>
                         <outlet property="findLocationButton" destination="xUn-qh-d1Y" id="1sU-Eo-8ez"/>
                         <outlet property="locationTextField" destination="iR7-8D-Ugi" id="N4F-VR-U07"/>
                         <outlet property="websiteTextField" destination="gtw-rY-WdY" id="9KG-ww-qAp"/>
-                        <segue destination="mRc-gC-7BC" kind="presentation" identifier="FinishSegue" id="F4u-CY-DsC"/>
+                        <segue destination="mRc-gC-7BC" kind="show" identifier="FinishSegue" id="F4u-CY-DsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1736.8" y="480.80959520239884"/>
+            <point key="canvasLocation" x="2676" y="480.80959520239884"/>
         </scene>
         <!--Confirm Location View Controller-->
         <scene sceneID="9oJ-Mm-ncH">
@@ -167,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9U-Hr-HEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583.1999999999998" y="479.91004497751129"/>
+            <point key="canvasLocation" x="3522.4000000000001" y="479.91004497751129"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="JMz-Tq-Lm9">
@@ -433,6 +434,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32y-Zc-Ffg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114.40000000000001" y="152.47376311844079"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6WL-j0-Ayf">
+            <objects>
+                <navigationController storyboardIdentifier="AddLocationNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="OxL-g2-bD7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aW7-Jd-uV6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qcF-IP-VEJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bkx-X1-kSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1736.8" y="480.80959520239884"/>
         </scene>
     </scenes>
     <resources>

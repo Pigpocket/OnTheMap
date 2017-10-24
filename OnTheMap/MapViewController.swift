@@ -98,8 +98,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             let alert = UIAlertController(title: "Overwrite location?", message: "Your student location already exists, do you want to overwrite it?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
-                //self.navigationController?.removeFromParentViewController()
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
                 self.present(controller, animated: true, completion: nil)
             })
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -112,7 +111,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
         } else {
         
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
         }
     }
@@ -122,12 +121,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Clear all annotations
       //  self.mapView.removeAnnotations(annotations)
         
+         AlertView.startActivityIndicator(self.view)
+        
         // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
             performUIUpdatesOnMain {
                 
-                AlertView.startActivityIndicator(self.mapView)
+              //  AlertView.startActivityIndicator(self.mapView)
                 
                 // Assign student locations to local variable
                 if let studentLocations = studentLocations {

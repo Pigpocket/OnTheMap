@@ -54,7 +54,9 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: Actions
     @IBAction func cancelPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if let controller = self.navigationController {
+            controller.popViewController(animated: true)
+        }
     }
 
     @IBAction func finishPressed(_ sender: Any) {
@@ -76,6 +78,8 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                         if error != nil {
                             
                             AlertView.showAlert(view: self, message: "Unable to post student location")
+                        } else {
+                            self.dismiss(animated: true, completion: nil)
                         }
                     }
                 })
@@ -93,29 +97,17 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                         if error != nil {
         
                             AlertView.showAlert(view: self, message: "Unable to change student location")
-                                }
-                            }
-                        })
+                        } else {
+                            self.dismiss(animated: true, completion: nil)
+                        }
                     }
-                }
-        
-            // Present the MapViewController
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            self.present(controller, animated: true, completion: nil)
+                })
+            }
         }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        
-        let controller = ConfirmLocationViewController()
-        controller.dismiss(animated: true, completion: nil)
     }
     
     deinit {
         print("ConfirmLocationViewController was dismissed")
     }
-    
-    
-
 }
 

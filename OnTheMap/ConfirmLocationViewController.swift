@@ -74,9 +74,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                     // Update the UI
                     performUIUpdatesOnMain {
                         
-                        // Handle error
                         if error != nil {
-                            
                             AlertView.showAlert(view: self, message: "Unable to post student location")
                         } else {
                             self.dismiss(animated: true, completion: nil)
@@ -93,9 +91,7 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
                     // Update the UI
                     performUIUpdatesOnMain {
                     
-                        // Handle error
                         if error != nil {
-        
                             AlertView.showAlert(view: self, message: "Unable to change student location")
                         } else {
                             self.dismiss(animated: true, completion: nil)

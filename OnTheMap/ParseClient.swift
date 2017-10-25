@@ -222,23 +222,6 @@ class ParseClient: NSObject {
         completionHandlerForConvertData(parsedResult, nil)
     }
     
-    private func parseURLFromParameters(_ parameters: [String: AnyObject], withPathExtension: String? = "") -> URL {
-        
-        var components = URLComponents()
-        components.scheme = Constants.ApiScheme
-        components.host = Constants.ApiHost
-        components.path = Constants.ApiPath + (withPathExtension ?? "")
-        components.queryItems = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            
-            let queryItem = URLQueryItem(name: key, value: "{\"uniqueKey\":\"\(value)\"}") // {"uniqueKey":"1234"}
-            components.queryItems!.append(queryItem)
-        }
-
-        return components.url!
-    }
-    
     private func parseURLFromParametersForGET(_ parameters: [String: AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()

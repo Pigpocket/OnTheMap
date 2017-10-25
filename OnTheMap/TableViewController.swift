@@ -14,12 +14,12 @@ class TableViewController: UIViewController {
     // MARK: Properties
     
     var studentLocations: [StudentLocation] = [StudentLocation]()
+    var activityIndicator = UIActivityIndicatorView()
     
     // MARK: Outlets
     
     @IBOutlet var studentLocationsTableView: UITableView!
     
-
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -29,38 +29,38 @@ class TableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        AlertView.startActivityIndicator(studentLocationsTableView, activityIndicator: self.activityIndicator)
+        
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
-            performUIUpdatesOnMain {
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
                 
+                performUIUpdatesOnMain {
                     self.studentLocationsTableView.reloadData()
-                
-            } else {
-                print(error ?? "empty error")
+                    AlertView.stopActivityController(self.studentLocationsTableView, activityIndicator: self.activityIndicator)
                 }
+            } else {
+                AlertView.showAlert(view: self, message: "Couldn't load student locations")
             }
         }
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        
-        let controller = TableViewController()
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
+
     @IBAction func refreshLocations(_ sender: Any) {
 
+        AlertView.startActivityIndicator(self.view, activityIndicator: self.activityIndicator)
+        
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
+            
             if let studentLocations = studentLocations {
                 self.studentLocations = studentLocations
+                
                 performUIUpdatesOnMain {
                     self.studentLocationsTableView.reloadData()
+                    AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
                 }
             } else {
-                print(error ?? "empty error")
+                AlertView.showAlert(view: self, message: "Couldn't load student locations")
             }
         }
     }
@@ -81,7 +81,7 @@ class TableViewController: UIViewController {
     }
     
     @IBAction func addLocationPressed(_ sender: Any) {
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
     }
     

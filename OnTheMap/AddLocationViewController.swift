@@ -16,6 +16,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     var user = User()
     var locationData = LocationData()
+    var activityIndicator = UIActivityIndicatorView()
     
     // MARK: Outlets
     
@@ -73,6 +74,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(locationTextField.text!) { (placemark, error) in
             
+            AlertView.startActivityIndicator(self.view, activityIndicator: self.activityIndicator)
+            
             performUIUpdatesOnMain {
                 
             // Check for an error when retrieving the coordinates
@@ -109,6 +112,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 
                 completionHandler(true, nil)
                 }
+                
+            AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
             }
         }
     }

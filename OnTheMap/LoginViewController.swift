@@ -11,10 +11,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    // MARK: Variables
-    
-    var activityIndicator = UIActivityIndicatorView()
-    
     // MARK: Outlets
     @IBOutlet weak var loginImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
@@ -32,6 +28,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: AnyObject) {
         
+        setUIEnabled(false)
         
         // GUARD: Confirm that username AND passowrd is != ""
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
@@ -74,6 +71,7 @@ class LoginViewController: UIViewController {
                         })
                     }
                 }
+                self.setUIEnabled(true)
             }
         }
     }

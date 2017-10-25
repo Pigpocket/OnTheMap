@@ -65,7 +65,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.shared
             if let toOpen = view.annotation?.subtitle! {
-                app.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
+                app.open(URL(string: toOpen)!, options: [:]) { (success) in
+                    
+                    if !success {
+                        AlertView.showAlert(view: self, message: "Unable to load URL")
+                    }
+                }
             }
         }
     }

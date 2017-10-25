@@ -11,9 +11,12 @@ import UIKit
 
 class ParseClient: NSObject {
     
-    var session = URLSession.shared
+    // MARK: Properties
     
+    var session = URLSession.shared
     var studentLocation: [StudentLocation] = []
+    
+    // MARK: Networking methods
     
     func taskForGetManyLocations(method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
     
@@ -58,14 +61,13 @@ class ParseClient: NSObject {
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForGET)
         
         }
-    
         task.resume()
     }
     
     func taskForGetStudentLocation(method: String, parameters: [String:AnyObject], completionHandlerForGetStudentLocationParse: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        let urlString = ParseClient.Constants.parseBaseURL + method
-        let url = URL(string: urlString)
+        //let urlString = ParseClient.Constants.parseBaseURL + method
+        let url = URL(string: ParseClient.Constants.parseBaseURL + method)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
         request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.JSONParameterKeys.ApplicationID)
@@ -100,6 +102,7 @@ class ParseClient: NSObject {
                 return
             }
             
+            /* Parse the data */
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForGetStudentLocationParse)
             
         }
@@ -108,17 +111,17 @@ class ParseClient: NSObject {
     
     func taskForPostStudentLocation(method: String, jsonBody: [String:AnyObject], completionHandlerForPOST: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        //let urlString = ParseClient.Constants.parseBaseURL + ParseClient.Methods.Location
+        let url = URL(string: ParseClient.Constants.parseBaseURL + ParseClient.Methods.Location)
+        let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "POST"
         request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.JSONParameterKeys.ApplicationID)
         request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.JSONParameterKeys.RestAPIKey)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(ParseClient.Constants.ApplicationJSON, forHTTPHeaderField: ParseClient.JSONParameterKeys.ContentType)
         
         do {
             request.httpBody = try! JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
         }
-            
-            //"{\"uniqueKey\": \"1234\", \"firstName\": \"Stinky\", \"lastName\": \"Pete\",\"mapString\": \"Palm Desert, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
@@ -151,27 +154,25 @@ class ParseClient: NSObject {
                 return
             }
             
+            /* Parse the data */
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForPOST)
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
         }
         task.resume()
     }
     
     func taskForPutStudentLocation(objectId: String, method: String, jsonBody: [String:AnyObject], completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        let urlString = ParseClient.Constants.parseBaseURL + method + objectId
-        let url = URL(string: urlString)
+        //let urlString = ParseClient.Constants.parseBaseURL + method + objectId
+        let url = URL(string: ParseClient.Constants.parseBaseURL + method + objectId)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "PUT"
         request.addValue(ParseClient.Constants.ParseApplicationID, forHTTPHeaderField: ParseClient.JSONParameterKeys.ApplicationID)
         request.addValue(ParseClient.Constants.ApiKey, forHTTPHeaderField: ParseClient.JSONParameterKeys.RestAPIKey)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(ParseClient.Constants.ApplicationJSON, forHTTPHeaderField: ParseClient.JSONParameterKeys.ContentType)
         
         do {
             request.httpBody = try! JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
         }
-        
-        //request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Cupertino, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: String.Encoding.utf8)
         
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
@@ -205,6 +206,7 @@ class ParseClient: NSObject {
                 return
             }
             
+            /* Parse the data */
             self.parseJSONObject(data, completionHandlerForConvertData: completionHandlerForPutMethod)
         }
         task.resume()

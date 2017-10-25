@@ -66,7 +66,6 @@ class ParseClient: NSObject {
     
     func taskForGetStudentLocation(method: String, parameters: [String:AnyObject], completionHandlerForGetStudentLocationParse: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        //let urlString = ParseClient.Constants.parseBaseURL + method
         let url = URL(string: ParseClient.Constants.parseBaseURL + method)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
@@ -111,7 +110,6 @@ class ParseClient: NSObject {
     
     func taskForPostStudentLocation(method: String, jsonBody: [String:AnyObject], completionHandlerForPOST: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        //let urlString = ParseClient.Constants.parseBaseURL + ParseClient.Methods.Location
         let url = URL(string: ParseClient.Constants.parseBaseURL + ParseClient.Methods.Location)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "POST"
@@ -162,7 +160,6 @@ class ParseClient: NSObject {
     
     func taskForPutStudentLocation(objectId: String, method: String, jsonBody: [String:AnyObject], completionHandlerForPutMethod: @escaping (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
-        //let urlString = ParseClient.Constants.parseBaseURL + method + objectId
         let url = URL(string: ParseClient.Constants.parseBaseURL + method + objectId)
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "PUT"

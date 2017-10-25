@@ -127,7 +127,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
-            if error != nil {
+            if error == nil {
             
             performUIUpdatesOnMain {
 

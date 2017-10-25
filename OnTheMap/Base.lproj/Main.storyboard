@@ -23,20 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGt-yt-XW3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Add Location" id="uFn-Mu-4vE">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WHI-6e-cFX">
-                                            <connections>
-                                                <action selector="cancelPressed:" destination="BYZ-38-t0r" id="WO7-0N-H4X"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="edn-24-bPk">
-                                <rect key="frame" x="67.5" y="124" width="240" height="218"/>
+                                <rect key="frame" x="68" y="124" width="240" height="218"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f7a-Qh-h4g">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="129"/>
@@ -90,14 +78,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="edn-24-bPk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="5OW-pO-6Rm"/>
                             <constraint firstItem="edn-24-bPk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K7i-aK-T6D"/>
-                            <constraint firstItem="edn-24-bPk" firstAttribute="top" secondItem="mGt-yt-XW3" secondAttribute="bottom" constant="16" id="MbP-39-K9e"/>
-                            <constraint firstItem="mGt-yt-XW3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bjU-YI-dlB"/>
-                            <constraint firstItem="mGt-yt-XW3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eet-76-pLy"/>
-                            <constraint firstItem="mGt-yt-XW3" firstAttribute="centerX" secondItem="edn-24-bPk" secondAttribute="centerX" id="h9Q-RO-4ee"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Nw6-1r-6Tf"/>
+                    <navigationItem key="navigationItem" title="Add Location" id="uFn-Mu-4vE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WHI-6e-cFX">
+                            <connections>
+                                <action selector="cancelPressed:" destination="BYZ-38-t0r" id="WO7-0N-H4X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="findLocationButton" destination="xUn-qh-d1Y" id="1sU-Eo-8ez"/>
                         <outlet property="locationTextField" destination="iR7-8D-Ugi" id="N4F-VR-U07"/>
@@ -122,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXt-9D-PfU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Confirm Location" id="O4y-MQ-Oyo">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FLu-cr-sLz">
@@ -134,7 +125,7 @@
                                 </items>
                             </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-7H-c0W">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrO-sD-2LW">
                                 <rect key="frame" x="16" y="618" width="343" height="29"/>

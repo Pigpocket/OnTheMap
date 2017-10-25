@@ -112,20 +112,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXt-9D-PfU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Confirm Location" id="O4y-MQ-Oyo">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FLu-cr-sLz">
-                                            <connections>
-                                                <action selector="cancelPressed:" destination="mRc-gC-7BC" id="Rre-I1-78E"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-7H-c0W">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrO-sD-2LW">
                                 <rect key="frame" x="16" y="618" width="343" height="29"/>
@@ -138,17 +126,29 @@
                                     <action selector="finishPressed:" destination="mRc-gC-7BC" eventType="touchUpInside" id="DST-oF-K1o"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXt-9D-PfU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Confirm Location" id="O4y-MQ-Oyo">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FLu-cr-sLz">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="mRc-gC-7BC" id="Rre-I1-78E"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5gO-7H-c0W" firstAttribute="top" secondItem="zZL-JY-pLk" secondAttribute="bottom" id="6YM-nV-7o1"/>
                             <constraint firstItem="5gO-7H-c0W" firstAttribute="leading" secondItem="nt6-nQ-yly" secondAttribute="leading" id="8ts-gk-YNZ"/>
                             <constraint firstItem="54i-7s-Rnb" firstAttribute="top" secondItem="5gO-7H-c0W" secondAttribute="bottom" id="9Ul-Mo-3ve"/>
                             <constraint firstItem="54i-7s-Rnb" firstAttribute="top" secondItem="lrO-sD-2LW" secondAttribute="bottom" constant="20" id="Ccr-vJ-Cwt"/>
-                            <constraint firstItem="5gO-7H-c0W" firstAttribute="top" secondItem="jXt-9D-PfU" secondAttribute="bottom" id="Oh6-BX-DTm"/>
                             <constraint firstItem="jXt-9D-PfU" firstAttribute="trailing" secondItem="5gO-7H-c0W" secondAttribute="trailing" id="hnJ-tN-Xco"/>
                             <constraint firstItem="jXt-9D-PfU" firstAttribute="leading" secondItem="5gO-7H-c0W" secondAttribute="leading" id="mey-dv-uTg"/>
                             <constraint firstItem="lrO-sD-2LW" firstAttribute="leading" secondItem="nt6-nQ-yly" secondAttribute="leading" constant="16" id="nxP-JB-SfE"/>
-                            <constraint firstItem="jXt-9D-PfU" firstAttribute="top" secondItem="zZL-JY-pLk" secondAttribute="bottom" id="t48-am-fV9"/>
+                            <constraint firstItem="jXt-9D-PfU" firstAttribute="top" secondItem="zZL-JY-pLk" secondAttribute="bottom" constant="-44" id="t48-am-fV9"/>
                             <constraint firstAttribute="trailing" secondItem="5gO-7H-c0W" secondAttribute="trailing" id="xjp-bP-7P3"/>
                             <constraint firstAttribute="trailing" secondItem="lrO-sD-2LW" secondAttribute="trailing" constant="16" id="yoz-ul-B0C"/>
                         </constraints>

@@ -127,6 +127,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Get the student locations
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
+            if error != nil {
+            
             performUIUpdatesOnMain {
 
                 // Assign student locations to local variable
@@ -159,8 +161,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.mapView.addAnnotations(self.annotations)
                 
                 AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                }
+            } else {
+                AlertView.showAlert(view: self, message: "Unable to get student locations")
             }
-            
         }
     }
     

@@ -20,7 +20,6 @@ class TableViewController: UIViewController {
     
     @IBOutlet var studentLocationsTableView: UITableView!
     
-
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -30,7 +29,7 @@ class TableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        AlertView.startActivityIndicator(self.view, activityIndicator: self.activityIndicator)
+        AlertView.startActivityIndicator(studentLocationsTableView, activityIndicator: self.activityIndicator)
         
         ParseClient.sharedInstance().getStudentLocations() { (studentLocations, error) in
             
@@ -39,7 +38,7 @@ class TableViewController: UIViewController {
                 
                 performUIUpdatesOnMain {
                     self.studentLocationsTableView.reloadData()
-                    AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                    AlertView.stopActivityController(self.studentLocationsTableView, activityIndicator: self.activityIndicator)
                 }
             } else {
                 AlertView.showAlert(view: self, message: "Couldn't load student locations")

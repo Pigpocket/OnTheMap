@@ -81,8 +81,27 @@ class TableViewController: UIViewController {
     }
     
     @IBAction func addLocationPressed(_ sender: Any) {
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
+  
+        if User.shared.objectId != "" {
+            
+            let alert = UIAlertController(title: "Overwrite location?", message: "Your student location already exists, do you want to overwrite it?", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
+                self.present(controller, animated: true, completion: nil)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            performUIUpdatesOnMain {
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        } else {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 }
 

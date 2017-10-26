@@ -172,8 +172,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
-    deinit {
-        print("The MapViewController was deinitialized")
-    }
 }

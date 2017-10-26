@@ -84,10 +84,6 @@ class TableViewController: UIViewController {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationNavigationViewController") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
     }
-    
-    deinit {
-        print("The TableViewController was deinitialized")
-    }
 }
 
 extension TableViewController: UITableViewDelegate, UITableViewDataSource {

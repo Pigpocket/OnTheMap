@@ -100,9 +100,5 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
-    deinit {
-        print("ConfirmLocationViewController was dismissed")
-    }
 }
 

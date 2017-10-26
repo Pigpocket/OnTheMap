@@ -187,8 +187,4 @@ class UdacityClient: NSObject {
         }
         return Singleton.sharedInstance
     }
-    
-    deinit {
-        print("The LoginViewController was deinitialized")
-    }
 }

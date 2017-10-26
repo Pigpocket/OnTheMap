@@ -125,9 +125,4 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
             controller.locationData = self.locationData
         }
     }
-
-    deinit {
-        print("The AddLocationViewController was dismissed")
-    }
-    
 }

@@ -82,10 +82,6 @@ class LoginViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
         }
     }
- 
-    deinit {
-        print("The LoginViewController was deinitialized")
-    }
 }
 
 extension LoginViewController {

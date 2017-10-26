@@ -15,22 +15,24 @@ extension UdacityClient {
         // MARK: TODO - call taskForPOSTSession
         taskForPOSTSession(email: email, password: password) { (data, error) in
             
-            // Guard that there is no error
+            // Check that there is no error
             if let error = error {
-                print(error)
-                completionHandlerForAuthenticateUser(false, "Wrong username or password")
+                completionHandlerForAuthenticateUser(false, "Wrong username or password: \(error)")
             } else {
+                
+            // GUARD: Does the data exist?
             guard let data = data else {
-                print(error!)
-                completionHandlerForAuthenticateUser(false, "Could not get data")
+                completionHandlerForAuthenticateUser(false, "Could not get data: \(error)")
                 return
             }
                 
-            // Guard that "account" is in newData
+            // Check that "account" is in newData
             if let account = data[UdacityResponseKeys.Account] as? [String:AnyObject] {
                     
                 // Extract account key and store in UdacityClient
                 if let accountKey = account[UdacityResponseKeys.AccountKey] as? String? {
+                    
+                    // Assign value to user struct
                     User.shared.uniqueKey = accountKey!
                 } else {
                     completionHandlerForAuthenticateUser(false, "Unable to extract account key")
@@ -63,7 +65,6 @@ extension UdacityClient {
             }
             
             // GUARD: Check data exists
-            
             guard let data = data!["user"] as? [String:AnyObject] else {
                 completionHandlerForGetPublicUserData(false, "Could not retrieve the public user data")
                 return

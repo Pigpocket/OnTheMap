@@ -11,8 +11,12 @@ import UIKit
 
 class UdacityClient: NSObject {
     
+    // MARK: Properties
+    
     var session = URLSession.shared
     var sessionID: String? = ""
+    
+    // MARK: Networking methods
     
     func taskForPOSTSession(email:String, password:String, completionHandlerForPostSession: @escaping (_ data:AnyObject?, _ error: NSError?) -> Void) {
     
@@ -23,7 +27,6 @@ class UdacityClient: NSObject {
         request.addValue(UdacityClient.Constants.ApplicationJSON, forHTTPHeaderField: UdacityClient.JSONParameterKeys.ContentType)
         
         let httpBodyString = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
-        
         request.httpBody = httpBodyString.data(using: String.Encoding.utf8)
         
         // Create the task

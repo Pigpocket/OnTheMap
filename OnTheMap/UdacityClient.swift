@@ -26,7 +26,7 @@ class UdacityClient: NSObject {
         request.addValue(UdacityClient.Constants.ApplicationJSON, forHTTPHeaderField: UdacityClient.JSONParameterKeys.Accept)
         request.addValue(UdacityClient.Constants.ApplicationJSON, forHTTPHeaderField: UdacityClient.JSONParameterKeys.ContentType)
         
-        let httpBodyString = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
+        let httpBodyString = "{\"\(UdacityClient.JSONBodyKeys.UdacityDict)\": {\"\(UdacityClient.JSONBodyKeys.Username)\": \"\(email)\", \"\(UdacityClient.JSONBodyKeys.Password)\": \"\(password)\"}}"
         request.httpBody = httpBodyString.data(using: String.Encoding.utf8)
         
         // Create the task

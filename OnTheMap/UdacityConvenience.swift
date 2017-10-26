@@ -60,8 +60,7 @@ extension UdacityClient {
             
             // Check for an error
             if let error = error {
-                print(error)
-                completionHandlerForGetPublicUserData(false, "There was an error getting public user data")
+                completionHandlerForGetPublicUserData(false, "There was an error getting public user data: \(error)")
             }
             
             // GUARD: Check data exists

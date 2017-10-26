@@ -11,18 +11,17 @@ import UIKit
 
 extension UdacityClient {
     
-    // MARK: Constants
     struct Constants {
         
         static let UdacityBaseURL = "https://www.udacity.com/api/"
         static let SessionURL = "https://www.udacity.com/api/session"
+        static let ApplicationJSON = "application/json"
     }
     
     struct Method {
         
         static let Session = "session"
         static let Users = "users/"
-        
     }
     
     struct JSONBodyKeys {
@@ -32,14 +31,18 @@ extension UdacityClient {
         static let Password = "password"
     }
     
+    struct JSONParameterKeys {
+        
+        static let Accept = "Accept"
+        static let ContentType = "Content-Type"
+    }
+    
     struct UdacityResponseKeys {
         
         static let Session = "session"
         static let SessionID = "id"
         static let Account = "account"
         static let AccountKey = "key"
-        
-        
     }
     
 }

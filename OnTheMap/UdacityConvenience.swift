@@ -10,7 +10,6 @@ import Foundation
 
 extension UdacityClient {
     
-    
     func authenticateUser (email:String, password:String, completionHandlerForAuthenticateUser: @escaping (_ success: Bool, _ error:String?) -> Void) {
         
         // MARK: TODO - call taskForPOSTSession
@@ -32,7 +31,6 @@ extension UdacityClient {
                     
                 // Extract account key and store in UdacityClient
                 if let accountKey = account[UdacityResponseKeys.AccountKey] as? String? {
-                    //self.accountKey = accountKey
                     User.shared.uniqueKey = accountKey!
                 } else {
                     completionHandlerForAuthenticateUser(false, "Unable to extract account key")
@@ -90,40 +88,16 @@ extension UdacityClient {
             }
             
             performUIUpdatesOnMain {
+                
+                // Assign values to user struct
                 User.shared.firstName = firstName
                 User.shared.lastName = lastName
                 User.shared.uniqueKey = key
-                self.accountKey = key
-                
                 
                 completionHandlerForGetPublicUserData(true, nil)
             }
         }
     }
-    
-    /*func deleteSession(session: String, completionHandlerForDelete: @escaping (_ success: Bool, _ error: String?) -> Void) {
-        
-        taskForDeleteSession(session: session) { (data, error) in
-            
-            // Check for an error
-            if let error = error {
-                print(error)
-                completionHandlerForDelete(false, "There was an error deleting the session")
-            }
-            
-            // GUARD: 
-            guard let data = data as? [String:AnyObject] else {
-                completionHandlerForDelete(false, "Could not retrieve the delete data")
-                return
-            }
-            
-            guard let id = data["id"] as? String else {
-                completionHandlerForDelete(false, "Could not find key 'id'")
-                return
-            }
-            
-        }
-    } */
 }
 
 

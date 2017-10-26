@@ -33,7 +33,6 @@ class ConfirmLocationViewController: UIViewController, MKMapViewDelegate {
         
         // Set the coordinates
         let coordinates = CLLocationCoordinate2D(latitude: locationData.latitude, longitude: locationData.longitude)
-        print(coordinates)
         
         // Set the map region
         let region = MKCoordinateRegionMake(coordinates, MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))

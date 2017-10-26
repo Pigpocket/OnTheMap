@@ -12,27 +12,24 @@ import UIKit
 class UdacityClient: NSObject {
     
     var session = URLSession.shared
-    
-    var accountKey: String? = ""
     var sessionID: String? = ""
-    
     
     func taskForPOSTSession(email:String, password:String, completionHandlerForPostSession: @escaping (_ data:AnyObject?, _ error: NSError?) -> Void) {
     
         // Make the request
         let request = NSMutableURLRequest(url: URL(string: UdacityClient.Constants.UdacityBaseURL + UdacityClient.Method.Session)!)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(UdacityClient.Constants.ApplicationJSON, forHTTPHeaderField: UdacityClient.JSONParameterKeys.Accept)
+        request.addValue(UdacityClient.Constants.ApplicationJSON, forHTTPHeaderField: UdacityClient.JSONParameterKeys.ContentType)
         
         let httpBodyString = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
         
         request.httpBody = httpBodyString.data(using: String.Encoding.utf8)
         
         // Create the task
-        
         let task = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
             
+            /* GUARD: There is no error */
             guard error == nil else {
                 let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
                 completionHandlerForPostSession(nil, NSError(domain: "taskForPostMethod", code: 1, userInfo: userInfo))
@@ -61,13 +58,11 @@ class UdacityClient: NSObject {
                 return
             }
             
-            
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
             
             /* 5. Parse the data */
             self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForPostSession)
-            
             })
         task.resume()
     }
@@ -79,6 +74,7 @@ class UdacityClient: NSObject {
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
+            /* GUARD: There is no error */
             guard error == nil else {
                 let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
                 completionHandlerForGetPublicUserData(nil, NSError(domain: "taskForGETPublicUserData", code: 1, userInfo: userInfo))
@@ -110,15 +106,14 @@ class UdacityClient: NSObject {
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
             
+            /* Parse the data */
             self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForGetPublicUserData)
         }
-        
         task.resume()
     }
     
     func taskForDeleteSession(session: String, completionHandlerForTaskForDelete: @escaping (_ data: AnyObject?, _ error: NSError?) -> Void) {
         
-        //let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
         let request = NSMutableURLRequest(url: URL(string: Constants.SessionURL)!)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
@@ -132,6 +127,7 @@ class UdacityClient: NSObject {
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
+            /* GUARD: There is no error */
             guard error == nil else {
                 let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
                 completionHandlerForTaskForDelete(nil, NSError(domain: "taskForDeleteSession", code: 1, userInfo: userInfo))
@@ -163,6 +159,7 @@ class UdacityClient: NSObject {
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
             
+            /* Parse the data */
             self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForTaskForDelete)
         }
         task.resume()

@@ -11,7 +11,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: Properties
+    
+    var activityIndicator = UIActivityIndicatorView()
+    
     // MARK: Outlets
+    
     @IBOutlet weak var loginImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -38,18 +43,22 @@ class LoginViewController: UIViewController {
         
         } else {
             
-            performUIUpdatesOnMain {
-                
+            AlertView.startActivityIndicator(self.view, activityIndicator: self.activityIndicator)
+            
             // Authenticate the user
             UdacityClient.sharedInstance().authenticateUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!) { (success, error) in
                 
                 // If authentication is unsuccessful...
                 if success == false {
                     
-                    // Notify the user
-                    AlertView.showAlert(view: self, message: "Username or password incorrect")
+                    performUIUpdatesOnMain {
                     
-                    } else {
+                        // Notify the user
+                        AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                        AlertView.showAlert(view: self, message: "Username or password incorrect")
+                    }
+                    
+                } else {
                     
                     // Get the Udacity Public User Data
                     UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.uniqueKey, completionHandlerForGetPublicUserData: { (success, error) in
@@ -57,22 +66,28 @@ class LoginViewController: UIViewController {
                         // If sucessful in getting Udacity Public Data...
                         if success == true {
                             
-                            // Log in
-                            self.completeLogin()
-                        
-                            // If unable to get Udacity Public Data...
-                            } else {
-                            
-                            // Notify the user and log in
-                            AlertView.showAlert(view: self, message: "Unable to get public user data")
-                            self.completeLogin()
-                            
+                            performUIUpdatesOnMain {
+                                
+                                // Log in
+                                AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                                self.completeLogin()
                             }
-                        })
-                    }
+                            
+                        // If unable to get Udacity Public Data...
+                        } else {
+                            
+                            performUIUpdatesOnMain {
+                                
+                                // Notify the user and log in
+                                AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                                AlertView.showAlert(view: self, message: "Unable to get public user data")
+                                self.completeLogin()
+                            }
+                        }
+                    })
                 }
-                self.setUIEnabled(true)
             }
+            self.setUIEnabled(true)
         }
     }
     

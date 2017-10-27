@@ -170,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocation" textLabel="Blt-0a-ixn" detailTextLabel="hOh-Q9-yAq" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="C2p-06-NhM" customClass="TableViewCell" customModule="OnTheMap" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocation" textLabel="Blt-0a-ixn" detailTextLabel="hOh-Q9-yAq" imageView="zvi-OK-fU6" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="C2p-06-NhM" customClass="TableViewCell" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C2p-06-NhM" id="hd8-xB-XdR">
@@ -178,19 +178,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Blt-0a-ixn">
-                                            <rect key="frame" x="15" y="14" width="34" height="21"/>
+                                            <rect key="frame" x="54" y="14" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hOh-Q9-yAq">
-                                            <rect key="frame" x="15" y="35" width="44" height="15"/>
+                                            <rect key="frame" x="54" y="35" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="icon_pin.png" id="zvi-OK-fU6">
+                                            <rect key="frame" x="15" y="19" width="24" height="24"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -392,7 +396,7 @@
         <scene sceneID="xhb-OH-mgq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GK1-af-3sQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table View" id="WPG-Mr-5ct"/>
+                    <tabBarItem key="tabBarItem" title="Table View" image="icon_listview-deselected.png" id="WPG-Mr-5ct"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RdG-JW-g34">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -411,7 +415,7 @@
         <scene sceneID="GtY-A3-yfr">
             <objects>
                 <navigationController storyboardIdentifier="MapViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="JHe-BP-3QT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map View" id="iKE-Fw-n7B"/>
+                    <tabBarItem key="tabBarItem" title="Map View" image="icon_mapview-deselected.png" id="iKE-Fw-n7B"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bm2-Ue-aPN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -446,6 +450,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_listview-deselected.png" width="75" height="50"/>
+        <image name="icon_mapview-deselected.png" width="75" height="50"/>
         <image name="icon_pin.png" width="24" height="24"/>
         <image name="icon_world.png" width="52" height="67"/>
         <image name="logo-u.png" width="62" height="62"/>

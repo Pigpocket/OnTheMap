@@ -52,14 +52,3 @@ class AlertView: NSObject {
         UIApplication.shared.endIgnoringInteractionEvents()
     }
 }
-
-
-
-    class ViewController: UIViewController {
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            AlertView.showAlert(view: self, message: "Test alert")
-            // Do any additional setup after loading the view, typically from a nib.
-        }
-}

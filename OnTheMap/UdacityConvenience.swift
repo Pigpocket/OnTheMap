@@ -10,7 +10,7 @@ import Foundation
 
 extension UdacityClient {
     
-    func authenticateUser (email:String, password:String, completionHandlerForAuthenticateUser: @escaping (_ success: Bool, _ error:String?) -> Void) {
+    func authenticateUser (email:String, password:String, completionHandlerForAuthenticateUser: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
         // MARK: TODO - call taskForPOSTSession
         taskForPOSTSession(email: email, password: password) { (data, error) in

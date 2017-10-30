@@ -46,33 +46,37 @@ class LoginViewController: UIViewController {
             AlertView.startActivityIndicator(self.view, activityIndicator: self.activityIndicator)
             
             // Authenticate the user
-            UdacityClient.sharedInstance().authenticateUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!) { (success, error) in
+            UdacityClient.sharedInstance().authenticateUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!, completionHandlerForAuthenticateUser: { (success, errorString) in
+                
+                // Check for error
+                if let errorString = errorString {
+                    AlertView.showAlert(view: self, message: errorString)
+                    return
+                }
                 
                 // If authentication is unsuccessful...
-                if success == false {
-                    
-                    performUIUpdatesOnMain {
-                    
-                        // Notify the user
-                        AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
-                        AlertView.showAlert(view: self, message: "Username or password incorrect")
-                    }
-                    
-                } else {
+                if success {
                     
                     // Get the Udacity Public User Data
-                    UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.uniqueKey, completionHandlerForGetPublicUserData: { (success, error) in
+                    UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.uniqueKey, completionHandlerForGetPublicUserData: { (success, errorString) in
+                        
+                        // Check for error
+                        if let errorString = errorString {
+                            AlertView.showAlert(view: self, message: errorString)
+                            return
+                        }
                         
                         // If sucessful in getting Udacity Public Data...
-                        if success == true {
+                        if success {
                             
                             performUIUpdatesOnMain {
                                 
                                 // Log in
                                 AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
                                 self.completeLogin()
+                                
                             }
-                            
+                        
                         // If unable to get Udacity Public Data...
                         } else {
                             
@@ -85,12 +89,23 @@ class LoginViewController: UIViewController {
                             }
                         }
                     })
+                
+                // If unable to authenticate...
+                } else {
+                            
+                    performUIUpdatesOnMain {
+                    
+                        // Notify the user
+                        AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                        AlertView.showAlert(view: self, message: "Username or password incorrect")
+                    }
                 }
-            }
-            self.setUIEnabled(true)
+            })
         }
+        self.setUIEnabled(true)
     }
-    
+
+
     func completeLogin() {
         performUIUpdatesOnMain {
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController

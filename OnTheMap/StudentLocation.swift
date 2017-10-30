@@ -18,43 +18,40 @@ struct StudentLocation {
     var lastName = ""
     var mapString = ""
     var mediaURL = ""
-    var latitude = 12.0
+    var latitude = 0.0
     var longitude = 0.0
     
     // construct a StudentLocation from a dictionary
-    init(dictionary: [String:AnyObject]) {
+    init?(dictionary: [String:AnyObject]) {
         
-        if let createdAt = dictionary["createdAt"] as? String {
+        // GUARD: Do all dictionary keys have values?
+        guard
+            let createdAt = dictionary["createdAt"] as? String,
+            let objectID = dictionary["objectId"] as? String,
+            let uniqueKey = dictionary["uniqueKey"] as? String,
+            let firstName = dictionary["firstName"] as? String,
+            let lastName = dictionary["lastName"] as? String,
+            let mapString = dictionary["mapString"] as? String,
+            let mediaURL = dictionary["mediaURL"] as? String,
+            let latitude = dictionary["latitude"] as? Double,
+            let longitude = dictionary["longitude"] as? Double,
+            let updatedAt = dictionary["updatedAt"] as? String
+            
+            // If not, return nil
+            else { return nil }
+
+            // Otherwise initalize values
             self.createdAt = createdAt
-        }
-        if let objectID = dictionary["objectId"] as? String {
             self.objectID = objectID
-        }
-        if let uniqueKey = dictionary["uniqueKey"] as? String {
             self.uniqueKey = uniqueKey
-        }
-        if let firstName = dictionary["firstName"] as? String {
             self.firstName = firstName
-        }
-        if let lastName = dictionary["lastName"] as? String {
             self.lastName = lastName
-        }
-        if let mapString = dictionary["mapString"] as? String {
             self.mapString = mapString
-        }
-        if let mediaURL = dictionary["mediaURL"] as? String {
             self.mediaURL = mediaURL
-        }
-        if let latitude = dictionary["latitude"] as? Double {
             self.latitude = latitude
-        }
-        if let longitude = dictionary["longitude"] as? Double {
             self.longitude = longitude
-        }
-        if let updatedAt = dictionary["updatedAt"] as? String {
             self.updatedAt = updatedAt
         }
-    }
     
     static func studentLocationsFromResults(_ results: [[String:AnyObject]]) -> [StudentLocation] {
         
@@ -62,11 +59,10 @@ struct StudentLocation {
         
         // iterate through array of dictionaries, each Movie is a dictionary
         for result in results {
-            studentLocations.append(StudentLocation(dictionary: result))
+            if let studentLocation = StudentLocation(dictionary: result) {
+                studentLocations.append(studentLocation)
+            }
         }
-        
         return studentLocations
     }
-    
-    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+/*
 class StudentLocationArray {
     
     class var sharedInstance: StudentLocationArray {
@@ -22,14 +22,15 @@ class StudentLocationArray {
     
     var studentArray: [StudentLocation] = [StudentLocation]()
     
-    static func locationsFromResults(_ results: [[String: AnyObject]]) -> [StudentLocation] {
+    /*static func locationsFromResults(_ results: [[String: AnyObject]]) -> [StudentLocation] {
         
         var studentLocations = [StudentLocation]()
         for result in results {
-            studentLocations.append(StudentLocation(dictionary: result))
+            studentLocations.append(StudentLocation(dictionary: result)!)
         }
         
         return studentLocations
     }
-    
+ 
 }
+*/*/

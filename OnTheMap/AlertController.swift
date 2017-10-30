@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AlertView: NSObject {
+class AlertView {
     
     class func showAlert(view: UIViewController , message: String) {
         let alert = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)

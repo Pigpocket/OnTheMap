@@ -34,8 +34,7 @@ class UdacityClient: NSObject {
             
             /* GUARD: There is no error */
             guard error == nil else {
-                let userInfo = [NSLocalizedDescriptionKey: "There was an error with your request: \(error)"]
-                completionHandlerForPostSession(nil, NSError(domain: "taskForPostMethod", code: 1, userInfo: userInfo))
+                completionHandlerForPostSession(nil, error! as NSError)
                 return
             }
             

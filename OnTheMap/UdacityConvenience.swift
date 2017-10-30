@@ -17,7 +17,8 @@ extension UdacityClient {
             
             // Check that there is no error
             if let error = error {
-                completionHandlerForAuthenticateUser(false, "Wrong username or password: \(error)")
+                completionHandlerForAuthenticateUser(false, error.localizedDescription)
+                return
             } else {
                 
             // GUARD: Does the data exist?

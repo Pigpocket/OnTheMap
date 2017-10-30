@@ -50,8 +50,14 @@ class LoginViewController: UIViewController {
                 
                 // Check for error
                 if let errorString = errorString {
-                    AlertView.showAlert(view: self, message: errorString)
-                    return
+                    
+                    performUIUpdatesOnMain {
+                    
+                        AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                        AlertView.showAlert(view: self, message: errorString)
+                        self.setUIEnabled(true)
+                        return
+                    }
                 }
                 
                 // If authentication is unsuccessful...
@@ -60,27 +66,26 @@ class LoginViewController: UIViewController {
                     // Get the Udacity Public User Data
                     UdacityClient.sharedInstance().getUdacityPublicUserData(uniqueKey: User.shared.uniqueKey, completionHandlerForGetPublicUserData: { (success, errorString) in
                         
-                        // Check for error
-                        if let errorString = errorString {
-                            AlertView.showAlert(view: self, message: errorString)
-                            return
-                        }
-                        
-                        // If sucessful in getting Udacity Public Data...
-                        if success {
+                        performUIUpdatesOnMain {
                             
-                            performUIUpdatesOnMain {
+                            // Check for error
+                            if let errorString = errorString {
+                            
+                                AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
+                                AlertView.showAlert(view: self, message: errorString)
+                                self.setUIEnabled(true)
+                                return
+                                }
+                        
+                            // If sucessful in getting Udacity Public Data...
+                            if success {
                                 
                                 // Log in
                                 AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
                                 self.completeLogin()
-                                
-                            }
-                        
-                        // If unable to get Udacity Public Data...
-                        } else {
                             
-                            performUIUpdatesOnMain {
+                            // If unable to get Udacity Public Data...
+                            } else {
                                 
                                 // Notify the user and log in
                                 AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
@@ -104,7 +109,6 @@ class LoginViewController: UIViewController {
         }
         self.setUIEnabled(true)
     }
-
 
     func completeLogin() {
         performUIUpdatesOnMain {

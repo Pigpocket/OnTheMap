@@ -17,7 +17,18 @@ extension UdacityClient {
             
             // Check that there is no error
             if let error = error {
-                completionHandlerForAuthenticateUser(false, error.localizedDescription)
+                print(error) // network off       // change the url for udacity request //
+               // completionHandlerForAuthenticateUser(false, error.localizedDescription)
+                
+                var messgae = ""
+                if error.code  == 234 { // check for no connectivity
+                    messgae = "no itnernet"
+                } else {
+                    messgae = "we can not finsih this requst"
+                }
+          //      else if // on the nap domain and code = 1111 => invlaid user name and password
+                
+                completionHandlerForAuthenticateUser(false, messgae)
                 return
             } else {
                 
@@ -26,7 +37,7 @@ extension UdacityClient {
                 completionHandlerForAuthenticateUser(false, "Could not get data: \(error)")
                 return
             }
-                
+               // incorrect user name and pasword -> error -> ""
             // Check that "account" is in newData
             if let account = data[UdacityResponseKeys.Account] as? [String:AnyObject] {
                     

@@ -34,7 +34,8 @@ class UdacityClient: NSObject {
             
             /* GUARD: There is no error */
             guard error == nil else {
-                completionHandlerForPostSession(nil, error! as NSError)
+                // valid error when ther eis no interne or any other error
+                completionHandlerForPostSession(nil, error! as NSError)// will not come if user name and passwrod is incorrect
                 return
             }
             
@@ -42,17 +43,32 @@ class UdacityClient: NSObject {
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 if let response = response as? HTTPURLResponse {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
-                    completionHandlerForPostSession(nil, NSError(domain: "taskForPostSession", code: 0, userInfo: userInfo))
+                    
+                    guard let data = data else {
+                        let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
+                        completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostMethod", code: 1, userInfo: userInfo))
+                        return
+                    }
+                    
+                    let range = Range(5..<data.count)
+                    let newData = data.subdata(in: range) /* subset response data! */
+                    
+                    /* 5. Parse the data */
+                    self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForPostSession)
+                    // error object
+                    // invalid user name and pasword => your own domain (OnTheMap) code = 1111
+                    completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostSession", code: 0000, userInfo: userInfo))
                 } else if let response = response {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
-                    completionHandlerForPostSession(nil, NSError(domain: "taskForPostSession", code: 1, userInfo: userInfo))
+                    completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostSession", code: 1111, userInfo: userInfo))
                 } else {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response!"]
-                    completionHandlerForPostSession(nil, NSError(domain: "taskForPostSession", code: 2, userInfo: userInfo))
+                    completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostSession", code: 2222, userInfo: userInfo))
                 }
                 return
             }
             
+            //parsedata()
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
@@ -62,13 +78,25 @@ class UdacityClient: NSObject {
             
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
-            
+        
             /* 5. Parse the data */
             self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForPostSession)
             })
         task.resume()
     }
-    
+
+    /*
+    func dataCheck() {
+        guard let data = data else {
+            let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
+            completionHandlerForPostSession(nil, NSError(domain: "taskForPostMethod", code: 1, userInfo: userInfo))
+            return
+        }
+        
+        let range = Range(5..<data.count)
+        let newData = data.subdata(in: range) /* subset response data! */
+    } */
+
     func taskForGETPublicUserData(method: String, uniqueKey: String, completionHandlerForGetPublicUserData: @escaping (_ data: AnyObject?, _ error: NSError?) -> Void) {
         
         // Make the request
@@ -140,6 +168,7 @@ class UdacityClient: NSObject {
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 if let response = response as? HTTPURLResponse {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
+                    ///
                     completionHandlerForTaskForDelete(nil, NSError(domain: "taskForDeleteSession", code: 0, userInfo: userInfo))
                 } else if let response = response {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
@@ -161,12 +190,15 @@ class UdacityClient: NSObject {
             let range = Range(5..<data.count)
             let newData = data.subdata(in: range) /* subset response data! */
             
+            
+            // func
+            
             /* Parse the data */
             self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForTaskForDelete)
         }
         task.resume()
     }
-    
+
     func parseJSONObject(_ data: Data, completionHandlerForConvertData: (_ results: AnyObject?, _ error: NSError?) -> Void) {
         
         var parsedResult: AnyObject!

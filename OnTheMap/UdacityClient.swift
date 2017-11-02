@@ -35,18 +35,19 @@ class UdacityClient: NSObject {
             /* GUARD: There is no error */
             guard error == nil else {
                 // valid error when ther eis no interne or any other error
-                completionHandlerForPostSession(nil, error! as NSError)// will not come if user name and passwrod is incorrect
+                completionHandlerForPostSession(nil, error! as NSError?)// will not come if user name and passwrod is incorrect
+                print("error == nil guard statement is being called. Error= \(error!)")
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 if let response = response as? HTTPURLResponse {
-                    let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Status code: \(response.statusCode)!"]
                     
+                    /* GUARD: Did we get a JSON response from the server? */
                     guard let data = data else {
-                        let userInfo = [NSLocalizedDescriptionKey: "No data was returned by the request!"]
-                        completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostMethod", code: 1, userInfo: userInfo))
+                        completionHandlerForPostSession(nil, error as NSError?)
+                        print("This shit is being called")
                         return
                     }
                     
@@ -54,10 +55,25 @@ class UdacityClient: NSObject {
                     let newData = data.subdata(in: range) /* subset response data! */
                     
                     /* 5. Parse the data */
+        
                     self.parseJSONObject(newData, completionHandlerForConvertData: completionHandlerForPostSession)
+                    print("This is the parsedData when statusCode is not sucessful one: \(String(data: newData, encoding: .utf8)!)")
+                    
                     // error object
+                    
+                    /*if let data = newData {
+                        guard let data = data as? [[String:AnyObject]] else {
+                        return
+                        }
+                        for key in data {
+                            if let errorMessage = key["error"] as? String {
+                                message = errorMessage
+                            }
+                        }
+                    }*/
+                    
                     // invalid user name and pasword => your own domain (OnTheMap) code = 1111
-                    completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostSession", code: 0000, userInfo: userInfo))
+                    completionHandlerForPostSession(newData as AnyObject?, error as NSError?)
                 } else if let response = response {
                     let userInfo = [NSLocalizedDescriptionKey: "Your request returned an invalid response! Response: \(response)!"]
                     completionHandlerForPostSession(nil, NSError(domain: "OnTheMap.taskForPostSession", code: 1111, userInfo: userInfo))

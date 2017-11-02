@@ -15,20 +15,25 @@ extension UdacityClient {
         // MARK: TODO - call taskForPOSTSession
         taskForPOSTSession(email: email, password: password) { (data, error) in
             
-            // Check that there is no error
+            var message = ""
+            /*
+            print("This is how 'data' looks right after taskForPostSession is done: \(data)")
+            // Check that there is no error */
             if let error = error {
-                print(error) // network off       // change the url for udacity request //
+                print("This is the error that exists: \(error)") // network off       // change the url for udacity request //
                // completionHandlerForAuthenticateUser(false, error.localizedDescription)
                 
-                var messgae = ""
-                if error.code  == 234 { // check for no connectivity
-                    messgae = "no itnernet"
-                } else {
-                    messgae = "we can not finsih this requst"
+                
+                if error.code == -1009 {
+                    message = "no itnernet"
                 }
+
+                
+                    //print("This is the data sent by the completion handler: \(String(data: data as! Data, encoding: .utf8)!)")
+                
           //      else if // on the nap domain and code = 1111 => invlaid user name and password
                 
-                completionHandlerForAuthenticateUser(false, messgae)
+                completionHandlerForAuthenticateUser(false, message)
                 return
             } else {
                 
@@ -38,6 +43,12 @@ extension UdacityClient {
                 return
             }
                // incorrect user name and pasword -> error -> ""
+                if let errorMessage = data["error"] as? String {
+                    print("This is the unwrapped errorMessage: \(errorMessage)")
+                    message = errorMessage
+                    completionHandlerForAuthenticateUser(false, message)
+                }
+                
             // Check that "account" is in newData
             if let account = data[UdacityResponseKeys.Account] as? [String:AnyObject] {
                     

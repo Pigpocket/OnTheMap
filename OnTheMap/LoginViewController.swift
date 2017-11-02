@@ -94,18 +94,6 @@ class LoginViewController: UIViewController {
                             }
                         }
                     })
-                
-                // If unable to authenticate...
-                } else {
-                    
-                    if let errorString = errorString {
-                    performUIUpdatesOnMain {
-                    
-                        // Notify the user
-                        AlertView.stopActivityController(self.view, activityIndicator: self.activityIndicator)
-                        AlertView.showAlert(view: self, message: errorString)
-                    }
-                    }
                 }
             })
         }

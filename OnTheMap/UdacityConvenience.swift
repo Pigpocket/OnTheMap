@@ -56,7 +56,7 @@ extension UdacityClient {
                     self.sessionID = sessionID
                     completionHandlerForAuthenticateUser(true, nil)
                 } else {
-                    completionHandlerForAuthenticateUser(false, "There ain't no session ID, pal")
+                    completionHandlerForAuthenticateUser(false, "Unable to extract session ID")
                     }
                 }
             }

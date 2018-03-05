@@ -1,0 +1,682 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UdacityClient"
+provides-nominal:
+- "8OnTheMap13UdacityClientC"
+provides-member:
+- ["8OnTheMap13UdacityClientC", ""]
+provides-dynamic-lookup:
+- "parseJSONObject"
+- "session"
+- "sessionID"
+- "sharedInstance"
+- "taskForDeleteSession"
+- "taskForGETPublicUserData"
+- "taskForPOSTSession"
+depends-top-level:
+- !private "!="
+- !private "&&"
+- !private "+"
+- !private "..<"
+- !private "<="
+- !private "=="
+- !private ">="
+- "AnyObject"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "Data"
+- "Dictionary"
+- !private "HTTPCookie"
+- !private "HTTPCookieStorage"
+- !private "HTTPURLResponse"
+- !private "JSONSerialization"
+- "NSError"
+- !private "NSLocalizedDescriptionKey"
+- !private "NSMutableURLRequest"
+- "NSObject"
+- !private "Range"
+- "String"
+- "StringLiteralType"
+- !private "URL"
+- !private "URLRequest"
+- "URLSession"
+- "UdacityClient"
+- "UnicodeScalarType"
+- "Void"
+- !private "print"
+depends-member:
+- !private ["s23BidirectionalCollectionP", "Encoding"]
+- !private ["s23BidirectionalCollectionP", "count"]
+- !private ["s23BidirectionalCollectionP", "data"]
+- ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "subdata"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Constants"]
+- !private ["s7CVarArgP", "Encoding"]
+- !private ["s7CVarArgP", "HTTPCookieStorage"]
+- !private ["s7CVarArgP", "JSONBodyKeys"]
+- !private ["s7CVarArgP", "JSONParameterKeys"]
+- !private ["s7CVarArgP", "JSONSerialization"]
+- !private ["s7CVarArgP", "Method"]
+- !private ["s7CVarArgP", "NSError"]
+- !private ["s7CVarArgP", "NSLocalizedDescriptionKey"]
+- !private ["s7CVarArgP", "NSMutableURLRequest"]
+- !private ["s7CVarArgP", "Range"]
+- !private ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "URL"]
+- ["s7CVarArgP", "URLSession"]
+- !private ["s7CVarArgP", "UdacityClient"]
+- !private ["s7CVarArgP", "addValue"]
+- !private ["s7CVarArgP", "cookies"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "dataTask"]
+- !private ["s7CVarArgP", "httpBody"]
+- !private ["s7CVarArgP", "httpMethod"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "jsonObject"]
+- !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "parseJSONObject"]
+- !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "resume"]
+- !private ["s7CVarArgP", "session"]
+- !private ["s7CVarArgP", "setValue"]
+- ["s7CVarArgP", "shared"]
+- !private ["s7CVarArgP", "statusCode"]
+- !private ["s7CVarArgP", "value"]
+- ["s7CVarArgP", ""]
+- !private ["s10CollectionP", "Encoding"]
+- !private ["s10CollectionP", "count"]
+- !private ["s10CollectionP", "data"]
+- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "subdata"]
+- !private ["s10ComparableP", "Encoding"]
+- !private ["s10ComparableP", "data"]
+- ["s10ComparableP", "init"]
+- !private ["8OnTheMap13UdacityClientC9ConstantsV", "ApplicationJSON"]
+- !private ["8OnTheMap13UdacityClientC9ConstantsV", "SessionURL"]
+- !private ["8OnTheMap13UdacityClientC9ConstantsV", "UdacityBaseURL"]
+- !private ["s28CustomDebugStringConvertibleP", "Constants"]
+- !private ["s28CustomDebugStringConvertibleP", "Encoding"]
+- !private ["s28CustomDebugStringConvertibleP", "HTTPCookieStorage"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONBodyKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONParameterKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONSerialization"]
+- !private ["s28CustomDebugStringConvertibleP", "Method"]
+- !private ["s28CustomDebugStringConvertibleP", "NSError"]
+- !private ["s28CustomDebugStringConvertibleP", "NSLocalizedDescriptionKey"]
+- !private ["s28CustomDebugStringConvertibleP", "NSMutableURLRequest"]
+- !private ["s28CustomDebugStringConvertibleP", "Range"]
+- !private ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "URL"]
+- ["s28CustomDebugStringConvertibleP", "URLSession"]
+- !private ["s28CustomDebugStringConvertibleP", "UdacityClient"]
+- !private ["s28CustomDebugStringConvertibleP", "addValue"]
+- !private ["s28CustomDebugStringConvertibleP", "cookies"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "dataTask"]
+- !private ["s28CustomDebugStringConvertibleP", "httpBody"]
+- !private ["s28CustomDebugStringConvertibleP", "httpMethod"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "jsonObject"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "parseJSONObject"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "resume"]
+- !private ["s28CustomDebugStringConvertibleP", "session"]
+- !private ["s28CustomDebugStringConvertibleP", "setValue"]
+- ["s28CustomDebugStringConvertibleP", "shared"]
+- !private ["s28CustomDebugStringConvertibleP", "statusCode"]
+- !private ["s28CustomDebugStringConvertibleP", "subdata"]
+- !private ["s28CustomDebugStringConvertibleP", "value"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "Encoding"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "Encoding"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subdata"]
+- !private ["s23CustomStringConvertibleP", "Constants"]
+- !private ["s23CustomStringConvertibleP", "Encoding"]
+- !private ["s23CustomStringConvertibleP", "HTTPCookieStorage"]
+- !private ["s23CustomStringConvertibleP", "JSONBodyKeys"]
+- !private ["s23CustomStringConvertibleP", "JSONParameterKeys"]
+- !private ["s23CustomStringConvertibleP", "JSONSerialization"]
+- !private ["s23CustomStringConvertibleP", "Method"]
+- !private ["s23CustomStringConvertibleP", "NSError"]
+- !private ["s23CustomStringConvertibleP", "NSLocalizedDescriptionKey"]
+- !private ["s23CustomStringConvertibleP", "NSMutableURLRequest"]
+- !private ["s23CustomStringConvertibleP", "Range"]
+- !private ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "URL"]
+- ["s23CustomStringConvertibleP", "URLSession"]
+- !private ["s23CustomStringConvertibleP", "UdacityClient"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "addValue"]
+- !private ["s23CustomStringConvertibleP", "cookies"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "dataTask"]
+- !private ["s23CustomStringConvertibleP", "httpBody"]
+- !private ["s23CustomStringConvertibleP", "httpMethod"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "jsonObject"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "parseJSONObject"]
+- !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "resume"]
+- !private ["s23CustomStringConvertibleP", "session"]
+- !private ["s23CustomStringConvertibleP", "setValue"]
+- ["s23CustomStringConvertibleP", "shared"]
+- !private ["s23CustomStringConvertibleP", "statusCode"]
+- !private ["s23CustomStringConvertibleP", "subdata"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- !private ["s23CustomStringConvertibleP", "value"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["10Foundation4DataV", "count"]
+- !private ["10Foundation4DataV", "subdata"]
+- !private ["s9DecodableP", "Encoding"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "count"]
+- !private ["s9DecodableP", "data"]
+- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "subdata"]
+- !private ["s9EncodableP", "Encoding"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "count"]
+- !private ["s9EncodableP", "data"]
+- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "subdata"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["s9EquatableP", "Constants"]
+- !private ["s9EquatableP", "Encoding"]
+- !private ["s9EquatableP", "HTTPCookieStorage"]
+- !private ["s9EquatableP", "JSONBodyKeys"]
+- !private ["s9EquatableP", "JSONParameterKeys"]
+- !private ["s9EquatableP", "JSONSerialization"]
+- !private ["s9EquatableP", "Method"]
+- !private ["s9EquatableP", "NSError"]
+- !private ["s9EquatableP", "NSLocalizedDescriptionKey"]
+- !private ["s9EquatableP", "NSMutableURLRequest"]
+- !private ["s9EquatableP", "Range"]
+- !private ["s9EquatableP", "String"]
+- !private ["s9EquatableP", "URL"]
+- ["s9EquatableP", "URLSession"]
+- !private ["s9EquatableP", "UdacityClient"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "addValue"]
+- !private ["s9EquatableP", "allowFragments"]
+- !private ["s9EquatableP", "cookies"]
+- !private ["s9EquatableP", "count"]
+- !private ["s9EquatableP", "data"]
+- !private ["s9EquatableP", "dataTask"]
+- !private ["s9EquatableP", "httpBody"]
+- !private ["s9EquatableP", "httpMethod"]
+- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "jsonObject"]
+- !private ["s9EquatableP", "name"]
+- !private ["s9EquatableP", "parseJSONObject"]
+- !private ["s9EquatableP", "print"]
+- !private ["s9EquatableP", "resume"]
+- !private ["s9EquatableP", "session"]
+- !private ["s9EquatableP", "setValue"]
+- ["s9EquatableP", "shared"]
+- !private ["s9EquatableP", "statusCode"]
+- !private ["s9EquatableP", "subdata"]
+- !private ["s9EquatableP", "utf8"]
+- !private ["s9EquatableP", "value"]
+- ["s9EquatableP", ""]
+- !private ["s5ErrorP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "allowFragments"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "Encoding"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "Encoding"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "Encoding"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["So10HTTPCookieC", "name"]
+- !private ["So10HTTPCookieC", "value"]
+- !private ["So17HTTPCookieStorageC", "cookies"]
+- !private ["So17HTTPCookieStorageC", "shared"]
+- !private ["So15HTTPURLResponseC", "statusCode"]
+- !private ["s8HashableP", "Constants"]
+- !private ["s8HashableP", "Encoding"]
+- !private ["s8HashableP", "HTTPCookieStorage"]
+- !private ["s8HashableP", "JSONBodyKeys"]
+- !private ["s8HashableP", "JSONParameterKeys"]
+- !private ["s8HashableP", "JSONSerialization"]
+- !private ["s8HashableP", "Method"]
+- !private ["s8HashableP", "NSError"]
+- !private ["s8HashableP", "NSLocalizedDescriptionKey"]
+- !private ["s8HashableP", "NSMutableURLRequest"]
+- !private ["s8HashableP", "Range"]
+- !private ["s8HashableP", "String"]
+- !private ["s8HashableP", "URL"]
+- ["s8HashableP", "URLSession"]
+- !private ["s8HashableP", "UdacityClient"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "addValue"]
+- !private ["s8HashableP", "cookies"]
+- !private ["s8HashableP", "count"]
+- !private ["s8HashableP", "data"]
+- !private ["s8HashableP", "dataTask"]
+- !private ["s8HashableP", "httpBody"]
+- !private ["s8HashableP", "httpMethod"]
+- ["s8HashableP", "init"]
+- !private ["s8HashableP", "jsonObject"]
+- !private ["s8HashableP", "name"]
+- !private ["s8HashableP", "parseJSONObject"]
+- !private ["s8HashableP", "print"]
+- !private ["s8HashableP", "resume"]
+- !private ["s8HashableP", "session"]
+- !private ["s8HashableP", "setValue"]
+- ["s8HashableP", "shared"]
+- !private ["s8HashableP", "statusCode"]
+- !private ["s8HashableP", "subdata"]
+- !private ["s8HashableP", "utf8"]
+- !private ["s8HashableP", "value"]
+- ["s8HashableP", ""]
+- !private ["8OnTheMap13UdacityClientC12JSONBodyKeysV", "Password"]
+- !private ["8OnTheMap13UdacityClientC12JSONBodyKeysV", "UdacityDict"]
+- !private ["8OnTheMap13UdacityClientC12JSONBodyKeysV", "Username"]
+- !private ["8OnTheMap13UdacityClientC17JSONParameterKeysV", "Accept"]
+- !private ["8OnTheMap13UdacityClientC17JSONParameterKeysV", "ContentType"]
+- !private ["So17JSONSerializationC", "jsonObject"]
+- !private ["s25LosslessStringConvertibleP", "Encoding"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["8OnTheMap13UdacityClientC6MethodV", "Session"]
+- !private ["s10MirrorPathP", "Encoding"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "count"]
+- !private ["s17MutableCollectionP", "subdata"]
+- !private ["So8NSCodingP", "addValue"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So8NSCodingP", "httpBody"]
+- !private ["So8NSCodingP", "httpMethod"]
+- ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "setValue"]
+- !private ["So8NSCodingP", "statusCode"]
+- !private ["So9NSCopyingP", "addValue"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So9NSCopyingP", "httpBody"]
+- !private ["So9NSCopyingP", "httpMethod"]
+- ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "resume"]
+- !private ["So9NSCopyingP", "setValue"]
+- !private ["So9NSCopyingP", "statusCode"]
+- !private ["So7NSErrorC", "init"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "addValue"]
+- !private ["So16NSMutableCopyingP", "data"]
+- !private ["So16NSMutableCopyingP", "httpBody"]
+- !private ["So16NSMutableCopyingP", "httpMethod"]
+- ["So16NSMutableCopyingP", "init"]
+- !private ["So16NSMutableCopyingP", "setValue"]
+- !private ["So19NSMutableURLRequestC", "addValue"]
+- !private ["So19NSMutableURLRequestC", "httpBody"]
+- !private ["So19NSMutableURLRequestC", "httpMethod"]
+- !private ["So19NSMutableURLRequestC", "init"]
+- !private ["So19NSMutableURLRequestC", "setValue"]
+- ["So8NSObjectC", "AnyObject"]
+- !private ["So8NSObjectC", "Constants"]
+- ["So8NSObjectC", "Data"]
+- !private ["So8NSObjectC", "HTTPCookie"]
+- !private ["So8NSObjectC", "HTTPCookieStorage"]
+- !private ["So8NSObjectC", "HTTPURLResponse"]
+- !private ["So8NSObjectC", "JSONBodyKeys"]
+- !private ["So8NSObjectC", "JSONParameterKeys"]
+- !private ["So8NSObjectC", "JSONSerialization"]
+- !private ["So8NSObjectC", "Method"]
+- ["So8NSObjectC", "NSError"]
+- !private ["So8NSObjectC", "NSLocalizedDescriptionKey"]
+- !private ["So8NSObjectC", "NSMutableURLRequest"]
+- !private ["So8NSObjectC", "Range"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "URL"]
+- !private ["So8NSObjectC", "URLRequest"]
+- ["So8NSObjectC", "URLSession"]
+- ["So8NSObjectC", "UdacityClient"]
+- ["So8NSObjectC", "Void"]
+- !private ["So8NSObjectC", "addValue"]
+- !private ["So8NSObjectC", "cookies"]
+- !private ["So8NSObjectC", "data"]
+- !private ["So8NSObjectC", "dataTask"]
+- !private ["So8NSObjectC", "httpBody"]
+- !private ["So8NSObjectC", "httpMethod"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "jsonObject"]
+- !private ["So8NSObjectC", "name"]
+- ["So8NSObjectC", "parseJSONObject"]
+- !private ["So8NSObjectC", "print"]
+- !private ["So8NSObjectC", "resume"]
+- ["So8NSObjectC", "session"]
+- ["So8NSObjectC", "sessionID"]
+- !private ["So8NSObjectC", "setValue"]
+- ["So8NSObjectC", "shared"]
+- ["So8NSObjectC", "sharedInstance"]
+- !private ["So8NSObjectC", "statusCode"]
+- ["So8NSObjectC", "taskForDeleteSession"]
+- ["So8NSObjectC", "taskForGETPublicUserData"]
+- ["So8NSObjectC", "taskForPOSTSession"]
+- !private ["So8NSObjectC", "value"]
+- ["So8NSObjectC", ""]
+- !private ["So16NSObjectProtocolP", "Constants"]
+- !private ["So16NSObjectProtocolP", "HTTPCookieStorage"]
+- !private ["So16NSObjectProtocolP", "JSONBodyKeys"]
+- !private ["So16NSObjectProtocolP", "JSONParameterKeys"]
+- !private ["So16NSObjectProtocolP", "JSONSerialization"]
+- !private ["So16NSObjectProtocolP", "Method"]
+- !private ["So16NSObjectProtocolP", "NSError"]
+- !private ["So16NSObjectProtocolP", "NSLocalizedDescriptionKey"]
+- !private ["So16NSObjectProtocolP", "NSMutableURLRequest"]
+- !private ["So16NSObjectProtocolP", "Range"]
+- !private ["So16NSObjectProtocolP", "String"]
+- !private ["So16NSObjectProtocolP", "URL"]
+- ["So16NSObjectProtocolP", "URLSession"]
+- !private ["So16NSObjectProtocolP", "UdacityClient"]
+- !private ["So16NSObjectProtocolP", "addValue"]
+- !private ["So16NSObjectProtocolP", "cookies"]
+- !private ["So16NSObjectProtocolP", "data"]
+- !private ["So16NSObjectProtocolP", "dataTask"]
+- !private ["So16NSObjectProtocolP", "httpBody"]
+- !private ["So16NSObjectProtocolP", "httpMethod"]
+- ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "jsonObject"]
+- !private ["So16NSObjectProtocolP", "name"]
+- !private ["So16NSObjectProtocolP", "parseJSONObject"]
+- !private ["So16NSObjectProtocolP", "print"]
+- !private ["So16NSObjectProtocolP", "resume"]
+- !private ["So16NSObjectProtocolP", "session"]
+- !private ["So16NSObjectProtocolP", "setValue"]
+- ["So16NSObjectProtocolP", "shared"]
+- !private ["So16NSObjectProtocolP", "statusCode"]
+- !private ["So16NSObjectProtocolP", "value"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "addValue"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So14NSSecureCodingP", "httpBody"]
+- !private ["So14NSSecureCodingP", "httpMethod"]
+- ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "setValue"]
+- !private ["So14NSSecureCodingP", "statusCode"]
+- !private ["So8NSStringC", "data"]
+- ["So8NSStringC", "init"]
+- !private ["So12NSURLRequestC", "addValue"]
+- !private ["So12NSURLRequestC", "httpBody"]
+- !private ["So12NSURLRequestC", "httpMethod"]
+- !private ["So12NSURLRequestC", "init"]
+- !private ["So12NSURLRequestC", "setValue"]
+- !private ["s9OptionSetP", "allowFragments"]
+- !private ["So17ProgressReportingP", "resume"]
+- !private ["s22RandomAccessCollectionP", "count"]
+- !private ["s22RandomAccessCollectionP", "subdata"]
+- !private ["s5RangeV", "init"]
+- !private ["s15RangeExpressionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "Encoding"]
+- !private ["s26RangeReplaceableCollectionP", "count"]
+- !private ["s26RangeReplaceableCollectionP", "data"]
+- ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "subdata"]
+- !private ["s16RawRepresentableP", "allowFragments"]
+- !private ["s16RawRepresentableP", "utf8"]
+- !private ["So17JSONSerializationC14ReadingOptionsV", "allowFragments"]
+- !private ["10Foundation20ReferenceConvertibleP", "count"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "subdata"]
+- !private ["s8SequenceP", "Encoding"]
+- !private ["s8SequenceP", "count"]
+- !private ["s8SequenceP", "data"]
+- ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "subdata"]
+- !private ["s10SetAlgebraP", "allowFragments"]
+- !private ["SS", "Encoding"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- !private ["s14StringProtocolP", "Encoding"]
+- !private ["s14StringProtocolP", "data"]
+- ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "Encoding"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "Encoding"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["10Foundation3URLV", "init"]
+- !private ["So11URLResponseC", "statusCode"]
+- !private ["So10URLSessionC", "dataTask"]
+- ["So10URLSessionC", "shared"]
+- !private ["So18URLSessionDataTaskC", "resume"]
+- !private ["So14URLSessionTaskC", "resume"]
+- ["8OnTheMap13UdacityClientC", "AnyObject"]
+- !private ["8OnTheMap13UdacityClientC", "Constants"]
+- ["8OnTheMap13UdacityClientC", "Data"]
+- !private ["8OnTheMap13UdacityClientC", "HTTPCookie"]
+- !private ["8OnTheMap13UdacityClientC", "HTTPCookieStorage"]
+- !private ["8OnTheMap13UdacityClientC", "HTTPURLResponse"]
+- !private ["8OnTheMap13UdacityClientC", "JSONBodyKeys"]
+- !private ["8OnTheMap13UdacityClientC", "JSONParameterKeys"]
+- !private ["8OnTheMap13UdacityClientC", "JSONSerialization"]
+- !private ["8OnTheMap13UdacityClientC", "Method"]
+- ["8OnTheMap13UdacityClientC", "NSError"]
+- !private ["8OnTheMap13UdacityClientC", "NSLocalizedDescriptionKey"]
+- !private ["8OnTheMap13UdacityClientC", "NSMutableURLRequest"]
+- !private ["8OnTheMap13UdacityClientC", "Range"]
+- ["8OnTheMap13UdacityClientC", "String"]
+- !private ["8OnTheMap13UdacityClientC", "URL"]
+- !private ["8OnTheMap13UdacityClientC", "URLRequest"]
+- ["8OnTheMap13UdacityClientC", "URLSession"]
+- ["8OnTheMap13UdacityClientC", "UdacityClient"]
+- ["8OnTheMap13UdacityClientC", "Void"]
+- ["8OnTheMap13UdacityClientC", "deinit"]
+- ["8OnTheMap13UdacityClientC", "init"]
+- ["8OnTheMap13UdacityClientC", "parseJSONObject"]
+- !private ["8OnTheMap13UdacityClientC", "print"]
+- ["8OnTheMap13UdacityClientC", "session"]
+- ["8OnTheMap13UdacityClientC", "sessionID"]
+- ["8OnTheMap13UdacityClientC", "sharedInstance"]
+- ["8OnTheMap13UdacityClientC", "taskForDeleteSession"]
+- ["8OnTheMap13UdacityClientC", "taskForGETPublicUserData"]
+- ["8OnTheMap13UdacityClientC", "taskForPOSTSession"]
+- !private ["s23_BidirectionalIndexableP", "Encoding"]
+- !private ["s23_BidirectionalIndexableP", "count"]
+- !private ["s23_BidirectionalIndexableP", "data"]
+- ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "subdata"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "Encoding"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "Encoding"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "Encoding"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "Encoding"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "Encoding"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "addValue"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "httpBody"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "httpMethod"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "setValue"]
+- !private ["s10_IndexableP", "Encoding"]
+- !private ["s10_IndexableP", "count"]
+- !private ["s10_IndexableP", "data"]
+- ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "subdata"]
+- !private ["s14_IndexableBaseP", "Encoding"]
+- !private ["s14_IndexableBaseP", "count"]
+- !private ["s14_IndexableBaseP", "data"]
+- ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "subdata"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Constants"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "HTTPCookieStorage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONBodyKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONParameterKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONSerialization"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Method"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSError"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSLocalizedDescriptionKey"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSMutableURLRequest"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Range"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "URL"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "URLSession"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UdacityClient"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addValue"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "cookies"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dataTask"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "httpBody"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "httpMethod"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "jsonObject"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "parseJSONObject"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "resume"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "session"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "setValue"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "statusCode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "value"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s17_MutableIndexableP", "count"]
+- !private ["s17_MutableIndexableP", "subdata"]
+- !private ["s21_ObjectiveCBridgeableP", "Encoding"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subdata"]
+- !private ["s22_RandomAccessIndexableP", "count"]
+- !private ["s22_RandomAccessIndexableP", "subdata"]
+- !private ["s26_RangeReplaceableIndexableP", "Encoding"]
+- !private ["s26_RangeReplaceableIndexableP", "count"]
+- !private ["s26_RangeReplaceableIndexableP", "data"]
+- ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "subdata"]
+- !private ["s16_SwiftStringViewP", "Encoding"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "s23BidirectionalCollectionP"
+- !private "Sb"
+- "s7CVarArgP"
+- "s10CollectionP"
+- "s10ComparableP"
+- !private "8OnTheMap13UdacityClientC9ConstantsV"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation4DataV"
+- "s9DecodableP"
+- "s9EncodableP"
+- !private "SS10FoundationE8EncodingV"
+- "s9EquatableP"
+- !private "s5ErrorP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "So10HTTPCookieC"
+- !private "So17HTTPCookieStorageC"
+- !private "So15HTTPURLResponseC"
+- "s8HashableP"
+- !private "8OnTheMap13UdacityClientC12JSONBodyKeysV"
+- !private "8OnTheMap13UdacityClientC17JSONParameterKeysV"
+- !private "So17JSONSerializationC"
+- "s25LosslessStringConvertibleP"
+- !private "8OnTheMap13UdacityClientC6MethodV"
+- "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- !private "So7NSErrorC"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So16NSMutableCopyingP"
+- !private "So19NSMutableURLRequestC"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So14NSSecureCodingP"
+- "So8NSStringC"
+- !private "So12NSURLRequestC"
+- !private "s9OptionSetP"
+- !private "So17ProgressReportingP"
+- !private "s22RandomAccessCollectionP"
+- !private "s5RangeV"
+- !private "s15RangeExpressionP"
+- "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "So17JSONSerializationC14ReadingOptionsV"
+- !private "10Foundation20ReferenceConvertibleP"
+- "s8SequenceP"
+- !private "s10SetAlgebraP"
+- "SS"
+- "s14StringProtocolP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- !private "10Foundation3URLV"
+- !private "So11URLResponseC"
+- "So10URLSessionC"
+- !private "So18URLSessionDataTaskC"
+- !private "So14URLSessionTaskC"
+- "8OnTheMap13UdacityClientC"
+- "s23_BidirectionalIndexableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s34_ExpressibleByFileReferenceLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s17_MutableIndexableP"
+- "s21_ObjectiveCBridgeableP"
+- !private "s22_RandomAccessIndexableP"
+- "s26_RangeReplaceableIndexableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "45500bfcfe165e1f5ff656bac1f5f8c5"

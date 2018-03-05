@@ -1,0 +1,22 @@
+version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
+options: "f20732121b459eadde094e7e751094c4"
+build_time: [1517632383, 762437000]
+inputs:
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/LocationData.swift": [1508451959, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/StudentLocation.swift": [1509400951, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/ParseConvenience.swift": [1508966591, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/ParseConstants.swift": [1508967313, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/TableViewCell.swift": [1509034514, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/MapViewController.swift": [1516059908, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/LoginViewController.swift": [1509666000, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/UdacityConvenience.swift": [1509678306, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/AppDelegate.swift": [1504904691, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/AlertController.swift": [1509401647, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/GCD.swift": [1505104655, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/UdacityClient.swift": [1509665488, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/AddLocationViewController.swift": [1508998654, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/User.swift": [1507856990, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/UdacityConstants.swift": [1508972295, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/ConfirmLocationViewController.swift": [1508998654, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/TableViewController.swift": [1509036163, 0]
+  "/Users/tomassidenfaden/Projects/OnTheMap/OnTheMap/ParseClient.swift": [1508997315, 0]

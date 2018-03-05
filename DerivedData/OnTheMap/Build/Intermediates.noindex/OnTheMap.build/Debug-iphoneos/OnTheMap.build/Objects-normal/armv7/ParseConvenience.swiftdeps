@@ -1,0 +1,356 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["8OnTheMap11ParseClientC", ""]
+- ["8OnTheMap11ParseClientC", "getStudentLocations"]
+- ["8OnTheMap11ParseClientC", "getMyObjectID"]
+- ["8OnTheMap11ParseClientC", "putStudentLocation"]
+- ["8OnTheMap11ParseClientC", "postStudentLocation"]
+provides-dynamic-lookup:
+- "getMyObjectID"
+- "postStudentLocation"
+- "putStudentLocation"
+depends-top-level:
+- !private "-"
+- !private "AnyObject"
+- !private "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "CastingPrecedence"
+- !private "Dictionary"
+- "Double"
+- "ParseClient"
+- "String"
+- "StudentLocation"
+- !private "User"
+- "Void"
+- !private "performUIUpdatesOnMain"
+- !private "print"
+depends-member:
+- !private ["Sa", "count"]
+- !private ["Sa", "subscript"]
+- !private ["s23BidirectionalCollectionP", "count"]
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "subscript"]
+- !private ["s7CVarArgP", "Constants"]
+- !private ["s7CVarArgP", "JSONBodyKeys"]
+- !private ["s7CVarArgP", "JSONParameterKeys"]
+- !private ["s7CVarArgP", "Methods"]
+- !private ["s7CVarArgP", "ParseClient"]
+- !private ["s7CVarArgP", "StudentLocation"]
+- !private ["s7CVarArgP", "User"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "performUIUpdatesOnMain"]
+- !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "taskForGetManyLocations"]
+- !private ["s7CVarArgP", "taskForGetStudentLocation"]
+- !private ["s7CVarArgP", "taskForPostStudentLocation"]
+- !private ["s7CVarArgP", "taskForPutStudentLocation"]
+- !private ["s10CollectionP", "count"]
+- !private ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "subscript"]
+- !private ["s10ComparableP", "init"]
+- !private ["8OnTheMap11ParseClientC9ConstantsV", "WhereQuery"]
+- !private ["s28CustomDebugStringConvertibleP", "Constants"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONBodyKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONParameterKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "Methods"]
+- !private ["s28CustomDebugStringConvertibleP", "ParseClient"]
+- !private ["s28CustomDebugStringConvertibleP", "StudentLocation"]
+- !private ["s28CustomDebugStringConvertibleP", "User"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "performUIUpdatesOnMain"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "taskForGetManyLocations"]
+- !private ["s28CustomDebugStringConvertibleP", "taskForGetStudentLocation"]
+- !private ["s28CustomDebugStringConvertibleP", "taskForPostStudentLocation"]
+- !private ["s28CustomDebugStringConvertibleP", "taskForPutStudentLocation"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "Constants"]
+- !private ["s23CustomStringConvertibleP", "JSONBodyKeys"]
+- !private ["s23CustomStringConvertibleP", "JSONParameterKeys"]
+- !private ["s23CustomStringConvertibleP", "Methods"]
+- !private ["s23CustomStringConvertibleP", "ParseClient"]
+- !private ["s23CustomStringConvertibleP", "StudentLocation"]
+- !private ["s23CustomStringConvertibleP", "User"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "performUIUpdatesOnMain"]
+- !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "taskForGetManyLocations"]
+- !private ["s23CustomStringConvertibleP", "taskForGetStudentLocation"]
+- !private ["s23CustomStringConvertibleP", "taskForPostStudentLocation"]
+- !private ["s23CustomStringConvertibleP", "taskForPutStudentLocation"]
+- !private ["s9DecodableP", "count"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "subscript"]
+- !private ["s10DictionaryV", "subscript"]
+- !private ["s9EncodableP", "count"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "Constants"]
+- !private ["s9EquatableP", "JSONBodyKeys"]
+- !private ["s9EquatableP", "JSONParameterKeys"]
+- !private ["s9EquatableP", "Methods"]
+- !private ["s9EquatableP", "ParseClient"]
+- !private ["s9EquatableP", "StudentLocation"]
+- !private ["s9EquatableP", "User"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "performUIUpdatesOnMain"]
+- !private ["s9EquatableP", "print"]
+- !private ["s9EquatableP", "taskForGetManyLocations"]
+- !private ["s9EquatableP", "taskForGetStudentLocation"]
+- !private ["s9EquatableP", "taskForPostStudentLocation"]
+- !private ["s9EquatableP", "taskForPutStudentLocation"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "Constants"]
+- !private ["s8HashableP", "JSONBodyKeys"]
+- !private ["s8HashableP", "JSONParameterKeys"]
+- !private ["s8HashableP", "Methods"]
+- !private ["s8HashableP", "ParseClient"]
+- !private ["s8HashableP", "StudentLocation"]
+- !private ["s8HashableP", "User"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "performUIUpdatesOnMain"]
+- !private ["s8HashableP", "print"]
+- !private ["s8HashableP", "taskForGetManyLocations"]
+- !private ["s8HashableP", "taskForGetStudentLocation"]
+- !private ["s8HashableP", "taskForPostStudentLocation"]
+- !private ["s8HashableP", "taskForPutStudentLocation"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "firstName"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "lastName"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "latitude"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "longitude"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "mapString"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "mediaURL"]
+- !private ["8OnTheMap11ParseClientC12JSONBodyKeysV", "uniqueKey"]
+- !private ["8OnTheMap11ParseClientC17JSONParameterKeysV", "limit"]
+- !private ["8OnTheMap11ParseClientC17JSONParameterKeysV", "order"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["8OnTheMap11ParseClientC7MethodsV", "Location"]
+- !private ["8OnTheMap11ParseClientC7MethodsV", "LocationSlash"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "count"]
+- !private ["s17MutableCollectionP", "subscript"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSObjectC", "AnyObject"]
+- ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "Constants"]
+- ["So8NSObjectC", "Double"]
+- !private ["So8NSObjectC", "JSONBodyKeys"]
+- !private ["So8NSObjectC", "JSONParameterKeys"]
+- !private ["So8NSObjectC", "Methods"]
+- !private ["So8NSObjectC", "ParseClient"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "StudentLocation"]
+- !private ["So8NSObjectC", "User"]
+- ["So8NSObjectC", "Void"]
+- ["So8NSObjectC", "getMyObjectID"]
+- ["So8NSObjectC", "getStudentLocations"]
+- !private ["So8NSObjectC", "performUIUpdatesOnMain"]
+- ["So8NSObjectC", "postStudentLocation"]
+- !private ["So8NSObjectC", "print"]
+- ["So8NSObjectC", "putStudentLocation"]
+- !private ["So8NSObjectC", "taskForGetManyLocations"]
+- !private ["So8NSObjectC", "taskForGetStudentLocation"]
+- !private ["So8NSObjectC", "taskForPostStudentLocation"]
+- !private ["So8NSObjectC", "taskForPutStudentLocation"]
+- !private ["So16NSObjectProtocolP", "Constants"]
+- !private ["So16NSObjectProtocolP", "JSONBodyKeys"]
+- !private ["So16NSObjectProtocolP", "JSONParameterKeys"]
+- !private ["So16NSObjectProtocolP", "Methods"]
+- !private ["So16NSObjectProtocolP", "ParseClient"]
+- !private ["So16NSObjectProtocolP", "StudentLocation"]
+- !private ["So16NSObjectProtocolP", "User"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "performUIUpdatesOnMain"]
+- !private ["So16NSObjectProtocolP", "print"]
+- !private ["So16NSObjectProtocolP", "taskForGetManyLocations"]
+- !private ["So16NSObjectProtocolP", "taskForGetStudentLocation"]
+- !private ["So16NSObjectProtocolP", "taskForPostStudentLocation"]
+- !private ["So16NSObjectProtocolP", "taskForPutStudentLocation"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So8NSStringC", "init"]
+- !private ["8OnTheMap11ParseClientC", "AnyObject"]
+- ["8OnTheMap11ParseClientC", "Bool"]
+- !private ["8OnTheMap11ParseClientC", "Constants"]
+- ["8OnTheMap11ParseClientC", "Double"]
+- !private ["8OnTheMap11ParseClientC", "JSONBodyKeys"]
+- !private ["8OnTheMap11ParseClientC", "JSONParameterKeys"]
+- !private ["8OnTheMap11ParseClientC", "Methods"]
+- !private ["8OnTheMap11ParseClientC", "ParseClient"]
+- ["8OnTheMap11ParseClientC", "String"]
+- ["8OnTheMap11ParseClientC", "StudentLocation"]
+- !private ["8OnTheMap11ParseClientC", "User"]
+- ["8OnTheMap11ParseClientC", "Void"]
+- ["8OnTheMap11ParseClientC", "getMyObjectID"]
+- ["8OnTheMap11ParseClientC", "getStudentLocations"]
+- !private ["8OnTheMap11ParseClientC", "performUIUpdatesOnMain"]
+- ["8OnTheMap11ParseClientC", "postStudentLocation"]
+- !private ["8OnTheMap11ParseClientC", "print"]
+- ["8OnTheMap11ParseClientC", "putStudentLocation"]
+- !private ["8OnTheMap11ParseClientC", "taskForGetManyLocations"]
+- !private ["8OnTheMap11ParseClientC", "taskForGetStudentLocation"]
+- !private ["8OnTheMap11ParseClientC", "taskForPostStudentLocation"]
+- !private ["8OnTheMap11ParseClientC", "taskForPutStudentLocation"]
+- !private ["s22RandomAccessCollectionP", "count"]
+- !private ["s22RandomAccessCollectionP", "subscript"]
+- !private ["s26RangeReplaceableCollectionP", "count"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "subscript"]
+- !private ["s8SequenceP", "count"]
+- !private ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "subscript"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["8OnTheMap15StudentLocationV", "studentLocationsFromResults"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["8OnTheMap4UserV", "createdAt"]
+- !private ["8OnTheMap4UserV", "objectId"]
+- !private ["8OnTheMap4UserV", "shared"]
+- !private ["8OnTheMap4UserV", "updatedAt"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s23_BidirectionalIndexableP", "count"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s10_IndexableP", "count"]
+- !private ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "subscript"]
+- !private ["s14_IndexableBaseP", "count"]
+- !private ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Constants"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONBodyKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONParameterKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Methods"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ParseClient"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StudentLocation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "User"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "performUIUpdatesOnMain"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "taskForGetManyLocations"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "taskForGetStudentLocation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "taskForPostStudentLocation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "taskForPutStudentLocation"]
+- !private ["s17_MutableIndexableP", "count"]
+- !private ["s17_MutableIndexableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s22_RandomAccessIndexableP", "count"]
+- !private ["s22_RandomAccessIndexableP", "subscript"]
+- !private ["s26_RangeReplaceableIndexableP", "count"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "s23BidirectionalCollectionP"
+- !private "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- !private "8OnTheMap11ParseClientC9ConstantsV"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s10DictionaryV"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s8HashableP"
+- !private "8OnTheMap11ParseClientC12JSONBodyKeysV"
+- !private "8OnTheMap11ParseClientC17JSONParameterKeysV"
+- !private "s25LosslessStringConvertibleP"
+- !private "8OnTheMap11ParseClientC7MethodsV"
+- !private "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "8OnTheMap11ParseClientC"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s8SequenceP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "8OnTheMap15StudentLocationV"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "8OnTheMap4UserV"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s17_MutableIndexableP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+- !private "subscript"
+depends-external:
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreFoundation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/MapKit.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+interface-hash: "e04e8ecf5f649abdfa3fe1e56cd2cef7"

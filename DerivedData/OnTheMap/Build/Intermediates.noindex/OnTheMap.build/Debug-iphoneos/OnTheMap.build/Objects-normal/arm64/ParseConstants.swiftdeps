@@ -1,0 +1,167 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "8OnTheMap11ParseClientC9ConstantsV"
+- "8OnTheMap11ParseClientC12JSONBodyKeysV"
+- "8OnTheMap11ParseClientC17JSONParameterKeysV"
+- "8OnTheMap11ParseClientC7MethodsV"
+provides-member:
+- ["8OnTheMap11ParseClientC", ""]
+- ["8OnTheMap11ParseClientC9ConstantsV", ""]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", ""]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", ""]
+- ["8OnTheMap11ParseClientC7MethodsV", ""]
+- ["8OnTheMap11ParseClientC", "Constants"]
+- ["8OnTheMap11ParseClientC", "JSONBodyKeys"]
+- ["8OnTheMap11ParseClientC", "JSONParameterKeys"]
+- ["8OnTheMap11ParseClientC", "Methods"]
+provides-dynamic-lookup:
+depends-top-level:
+- "ParseClient"
+- "StringLiteralType"
+depends-member:
+- ["s23BidirectionalCollectionP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s10CollectionP", "init"]
+- ["s10ComparableP", "init"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "ApiHost"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "ApiKey"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "ApiPath"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "ApiScheme"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "ApplicationJSON"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "AuthorizationURL"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "ParseApplicationID"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "WhereQuery"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "init"]
+- ["8OnTheMap11ParseClientC9ConstantsV", "parseBaseURL"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s9DecodableP", "init"]
+- ["s9EncodableP", "init"]
+- ["s9EquatableP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s8HashableP", "init"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "firstName"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "init"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "lastName"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "latitude"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "longitude"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "mapString"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "mediaURL"]
+- ["8OnTheMap11ParseClientC12JSONBodyKeysV", "uniqueKey"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "ApplicationID"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "ContentType"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "RestAPIKey"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "init"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "limit"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "order"]
+- ["8OnTheMap11ParseClientC17JSONParameterKeysV", "skip"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["8OnTheMap11ParseClientC7MethodsV", "Location"]
+- ["8OnTheMap11ParseClientC7MethodsV", "LocationSlash"]
+- ["8OnTheMap11ParseClientC7MethodsV", "Session"]
+- ["8OnTheMap11ParseClientC7MethodsV", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSCodingP", "init"]
+- ["So9NSCopyingP", "init"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderWritingP", "init"]
+- ["So16NSMutableCopyingP", "init"]
+- ["So16NSObjectProtocolP", "init"]
+- ["So14NSSecureCodingP", "init"]
+- ["So8NSStringC", "init"]
+- ["8OnTheMap11ParseClientC", "Constants"]
+- ["8OnTheMap11ParseClientC", "JSONBodyKeys"]
+- ["8OnTheMap11ParseClientC", "JSONParameterKeys"]
+- ["8OnTheMap11ParseClientC", "Methods"]
+- ["s26RangeReplaceableCollectionP", "init"]
+- ["s8SequenceP", "init"]
+- ["SS", "init"]
+- ["s14StringProtocolP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s23_BidirectionalIndexableP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s10_IndexableP", "init"]
+- ["s14_IndexableBaseP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s26_RangeReplaceableIndexableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "s23BidirectionalCollectionP"
+- "s7CVarArgP"
+- "s10CollectionP"
+- "s10ComparableP"
+- "8OnTheMap11ParseClientC9ConstantsV"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "s9DecodableP"
+- "s9EncodableP"
+- "s9EquatableP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "s8HashableP"
+- "8OnTheMap11ParseClientC12JSONBodyKeysV"
+- "8OnTheMap11ParseClientC17JSONParameterKeysV"
+- "s25LosslessStringConvertibleP"
+- "8OnTheMap11ParseClientC7MethodsV"
+- "s10MirrorPathP"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So16NSMutableCopyingP"
+- "So16NSObjectProtocolP"
+- "So14NSSecureCodingP"
+- "So8NSStringC"
+- "8OnTheMap11ParseClientC"
+- "s26RangeReplaceableCollectionP"
+- "s8SequenceP"
+- "SS"
+- "s14StringProtocolP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "s23_BidirectionalIndexableP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s26_RangeReplaceableIndexableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Users/tomassidenfaden/Downloads/Xcode 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "4e58fb60f15c6ff7b74ec7154b290a47"

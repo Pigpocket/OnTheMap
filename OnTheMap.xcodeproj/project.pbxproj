@@ -185,9 +185,9 @@
 		3753E5911F74C893008AE18D /* StudentLocation */ = {
 			isa = PBXGroup;
 			children = (
+				371EAE461F8566B1004D18D1 /* LocationData.swift */,
 				3753E5921F74C8A4008AE18D /* StudentLocation.swift */,
 				3753E5E51F83FA99008AE18D /* User.swift */,
-				371EAE461F8566B1004D18D1 /* LocationData.swift */,
 			);
 			name = StudentLocation;
 			sourceTree = "<group>";
